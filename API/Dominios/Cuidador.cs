@@ -1,0 +1,5 @@
+﻿namespace AlzheimerApp.Dominios {
+    public class Cuidador : PacienteCuidador {
+        public bool PossuiOcupacao { get; set; }
+    }
+}
