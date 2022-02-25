@@ -1,0 +1,27 @@
+
+
+.portlet{
+  /*background-color: rgb(245, 245, 245);*/
+  background-image: linear-gradient(to right, rgb(233, 231, 231) ,rgb(187, 186, 186) , rgb(95, 95, 93));
+  padding: 2%;
+  text-align: center;
+ 
+  width: 100%;
+  box-shadow: 2px 2px 3px 3px rgb(117, 117, 117);
+  -webkit-box-shadow: 3px 3px 3px 3px rgb(143, 142, 142);
+  -moz-box-shadow: 5px 5px 3px 3px #333;
+}
+.mat-icon {
+  vertical-align: middle;
+  height: 27px;
+}
+.mat-card{
+  margin-bottom: 3%;
+  padding-top: 2%;
+  width:70%;
+  margin-left: 15%;
+ 
+}
+
+
+

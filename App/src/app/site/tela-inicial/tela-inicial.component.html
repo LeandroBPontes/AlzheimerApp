@@ -1,0 +1,71 @@
+<mat-toolbar color="primary">
+  <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+   <mat-icon>menu</mat-icon>
+ </button>
+ <span>Alzheimer App</span>
+</mat-toolbar>
+
+
+  <mat-card>
+    <div class="row">
+      <div class="col-md-10">
+        <h3>
+          <mat-icon>grid_on</mat-icon> AlzheimerApp
+        </h3>
+      </div>
+      <div class="col-md-2">
+        <!-- <button mat-raised-button>Entrar</button> -->
+        <button mat-raised-button color="primary" style="margin-left: 20px;">Cadastrar</button>
+      </div>
+    </div>
+  </mat-card>
+
+  <mat-card>
+
+    <mat-card-title>
+      <mat-icon>grid_on</mat-icon> Primeiros Passos
+    </mat-card-title>
+    <hr>
+    <p>
+      <span matBadge="1" matBadgeOverlap="false">
+        <mat-icon> directions</mat-icon> É necessário que o cuidador faça um cadastro
+      </span>
+    </p>
+    <p>
+      <span matBadge="2" matBadgeOverlap="false">
+        <mat-icon> directions</mat-icon> É necessário que o cuidador cadastre seu paciente
+      </span>
+    </p>
+    <p>
+      <span matBadge="3" matBadgeOverlap="false" matBadgeColor="accent">
+        <mat-icon> directions</mat-icon> Comece a usar!
+      </span>
+    </p>
+    <hr>
+    <mat-card-title>
+      <mat-icon>grid_on</mat-icon> Quer aprender mais sobre o Alzheimer?
+    </mat-card-title>
+    <button type="button" class="btn btn-primary" (click)="openModal(template)">Saiba Mais</button>
+
+    <ng-template #template>
+      <div class="modal-header">
+        <h4 class="modal-title pull-left">O que é o Mal de Alzheimer?</h4>
+        <button type="button" class="btn-close close pull-right" aria-label="Close" (click)="modalRef?.hide()">
+          <span aria-hidden="true" class="visually-hidden">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>
+          A doença de Alzheimer é uma doença causada pela morte de células cerebrais. Ela se apresenta como demência ou perda de funções cognitivas como, memória, orientação, atenção e linguagem.
+          
+          Segundo a Associação Brasileira de Alzheimer (ABRAz), a estimativa é de que, no mundo, existam cerca de 35,6 milhões de pessoas com a doença de Alzheimer (DA).
+          
+          No Brasil, é estimado que existam cerca de 1,2 milhão de casos, sendo que a maior parte deles ainda não foi diagnosticada.
+          
+          Isso ocorre porque em muitos casos a doença é confundida como uma condição dos idosos, um declínio cognitivo relacionado à idade e assim a suspeita de Alzheimer é descartada.
+          
+          O que poucas pessoas sabem é que a doença de Alzheimer pode começar décadas antes do surgimento de seus sintomas o que pode dificultar seu tratamento.</p>
+      </div>
+    </ng-template>
+  </mat-card>
+

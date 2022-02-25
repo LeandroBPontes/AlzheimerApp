@@ -2673,11 +2673,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\leand\\Desktop\\AlzheimerApp\\SistemaAcompanhamentoAlzheimer\\AlzheimerApp.csproj",
+      "projectUniqueName": "C:\\Users\\leand\\Desktop\\AlzheimerApp\\AlzhimerApp\\API\\AlzheimerApp.csproj",
       "projectName": "AlzheimerApp",
-      "projectPath": "C:\\Users\\leand\\Desktop\\AlzheimerApp\\SistemaAcompanhamentoAlzheimer\\AlzheimerApp.csproj",
+      "projectPath": "C:\\Users\\leand\\Desktop\\AlzheimerApp\\AlzhimerApp\\API\\AlzheimerApp.csproj",
       "packagesPath": "C:\\Users\\leand\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\leand\\Desktop\\AlzheimerApp\\SistemaAcompanhamentoAlzheimer\\obj\\",
+      "outputPath": "C:\\Users\\leand\\Desktop\\AlzheimerApp\\AlzhimerApp\\API\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\"

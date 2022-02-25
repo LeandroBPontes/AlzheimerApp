@@ -1,0 +1,24 @@
+.mat-toolbar{
+    margin-bottom: 6%;
+}
+.container{
+    height: 50%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.mat-card{
+    min-width: 80%;
+    min-height: 100%;
+}
+.portlet{
+    background-color: rgb(250, 249, 250);
+    margin-top: 3%;
+    padding: 2%;
+}
+.mat-icon {
+    vertical-align: middle;
+  }
+
+

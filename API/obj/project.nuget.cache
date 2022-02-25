@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DOqXvXV1IwKLF006KN459yVbzx+Pb1qC99b/KB7XuWx1e9yrtFRRFgaw8LwCnE5lhz50lISWQQrqQcjIr7XI0w==",
+  "dgSpecHash": "pWpHTLZZmoVOCXELpEwY6QjeVXiK75ibeMFrQh5XbtErh3NRVmyzyV3iNEGP9XhXYdyurhfsW8wdFKILZgV7BQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\leand\\Desktop\\AlzheimerApp\\SistemaAcompanhamentoAlzheimer\\AlzheimerApp.csproj",
+  "projectFilePath": "C:\\Users\\leand\\Desktop\\AlzheimerApp\\AlzhimerApp\\API\\AlzheimerApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\leand\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\leand\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",

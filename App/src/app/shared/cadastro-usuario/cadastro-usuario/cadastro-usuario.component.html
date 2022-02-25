@@ -1,0 +1,77 @@
+<mat-toolbar color="primary">
+    <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+     <mat-icon>menu</mat-icon>
+   </button>
+   <span>Alzheimer App</span>
+ </mat-toolbar>
+
+ <div class="container">
+    <mat-card>
+        <mat-card-title>
+          <mat-icon>grid_on</mat-icon> Tela de Cadastramento de Usuário
+          <mat-divider></mat-divider>
+        </mat-card-title>
+    <div class="portlet">
+        <div class="row">
+            <div class="mb-3 col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">Nome</label>
+                <input type="text" class="form-control" >
+            </div>
+            <div class="mb-3 col-md-6">
+                <label for="exampleFormControlInput1" class="form-label">Idade</label>
+                <input type="number" class="form-control">
+            </div>
+        </div>
+       
+        <div class="row">
+            <div class="mb-3 mt-2 col-md-6">
+                <label>Estado Civil</label>
+            <select class="form-select" aria-label="Default select example" required>
+                <option selected>Selecione</option>
+                <option value="1">Solteiro(a)</option>
+                <option value="2">Casado(a)</option>
+                <option value="2">Divorciado(a)</option>
+                <option value="3">Viúvo(a)</option>
+              </select>
+            </div>
+            <div class="mb-3 mt-2 col-md-6">
+                <label>Sexo</label>
+            <select class="form-select" aria-label="Default select example" required>
+                <option selected>Selecione</option>
+                <option value="1">Masculino</option>
+                <option value="2">Feminino</option>
+              </select>
+            </div>
+        </div>
+        <div class="row">
+            <div class="mb-3 mt-2 col-md-6">
+                <label>Possui Filhos?</label>
+            <select class="form-select" aria-label="Default select example" required>
+                <option selected>Selecione</option>
+                <option value="1">Sim</option>
+                <option value="2">Não</option>
+              </select>
+            </div>
+            <div class="mb-3 mt-2 col-md-6">
+                <label>Possui Plano de Saúde?</label>
+            <select class="form-select" aria-label="Default select example" required>
+                <option selected>Selecione</option>
+                <option value="1">Sim</option>
+                <option value="2">Não</option>
+              </select>
+            </div>
+        </div>
+            <div class="row">
+                <div class="col-md-4">
+                   <button type="button" class="btn btn-primary" style="margin-right: 2px;"><mat-icon>search</mat-icon>Cadastrar</button>
+                    <button type="button" class="btn btn-secondary"><mat-icon>clear_all</mat-icon>Limpar</button>
+                </div>
+            </div>
+       
+       
+
+    </div>
+      
+    </mat-card>
+ </div>
+
