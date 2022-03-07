@@ -1,7 +1,7 @@
-﻿using AlzheimerApp.Repositorios.Contratos;
+﻿
 
 namespace AlzheimerApp.Dominios {
-    public class Agendamento : IPossuiId {
+    public class Agendamento{
         public int Id { get; set; }
         public string Especialidade { get; set; }
         public string Endereco { get; set; }

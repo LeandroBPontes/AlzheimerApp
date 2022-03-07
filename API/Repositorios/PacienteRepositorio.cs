@@ -1,29 +1,50 @@
-﻿using AlzheimerApp.Dominios;
+﻿using AlzheimerApp.Banco;
+using AlzheimerApp.Dominios;
+using System.Linq;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace AlzheimerApp.Repositorios {
-    internal class PacienteRepositorio : IPacienteRepositorio {
-        public Task AtualizarAsync(Paciente model) {
-            throw new NotImplementedException();
+    internal class PacienteRepositorio : IRepositorioBase<Paciente, int> {
+        private readonly DataContext _context;
+
+        public PacienteRepositorio(DataContext context) {
+            _context = context;
+        }
+        public void Delete(int id) {
+            var paciente = _context.Pacientes.Find(id);
+            _context.Pacientes.Remove(paciente);
         }
 
-        public Task ExcluirAsync(Paciente model) {
-            throw new NotImplementedException();
+        public IEnumerable<Paciente> Get() {
+            return _context.Pacientes.ToList();
         }
 
-        public Task InserirAsync(Paciente model) {
-            throw new NotImplementedException();
+        public Paciente GetByID(int id) {
+            return _context.Pacientes.Find(id);
         }
 
-        public Task<Paciente> ObterPorIdAsync(int Id) {
-            throw new NotImplementedException();
+        public void Insert(Paciente model) {
+            _context.Pacientes.Add(model);
+            _context.SaveChanges();
+        }
+        public void Update(Paciente model) {
+            _context.Entry(model).State = EntityState.Modified;
         }
 
-        public Task<List<Paciente>> ObterTodosAsync() {
-            throw new NotImplementedException();
+        private bool disposed = false;
+        protected virtual void Dispose(bool disposing) {
+            if (!this.disposed) {
+                if (disposing) {
+                    _context.Dispose();
+                }
+            }
+            this.disposed = true;
+        }
+        public void Dispose() {
+            Dispose(true);
+            GC.SuppressFinalize(this);
         }
     }
 }

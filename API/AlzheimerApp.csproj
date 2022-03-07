@@ -21,6 +21,7 @@
     <Folder Include="Admin\Repositorios\Contratos\" />
     <Folder Include="Admin\Servicos\" />
     <Folder Include="Banco\" />
+    <Folder Include="Compartilhado\" />
     <Folder Include="Servicos\" />
   </ItemGroup>
 
