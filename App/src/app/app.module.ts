@@ -15,10 +15,12 @@ import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatBadgeModule} from '@angular/material/badge';
 import { ModalModule } from 'ngx-bootstrap/modal';
-import { CadastroUsuarioComponent } from './shared/cadastro-usuario/cadastro-usuario/cadastro-usuario.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
+import { MenuComponent } from './layout/menu/menu/menu.component';
+import { CadastroCuidadorComponent } from './shared/cadastro-usuario/cadastro-usuario/cadastro-cuidador.component';
+
 
 
 @NgModule({
@@ -30,7 +32,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     ConsultaComponent,
     ColaboradorComponent,
     TelaInicialComponent,
-    CadastroUsuarioComponent
+    CadastroCuidadorComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import {MatFormFieldModule} from '@angular/material/form-field';
     MatBadgeModule,
     MatDividerModule,
     MatFormFieldModule,
-    ModalModule.forRoot()
+    ModalModule.forRoot(),
+   
     
   ],
   providers: [],

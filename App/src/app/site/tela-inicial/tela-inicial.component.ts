@@ -7,7 +7,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
   templateUrl: './tela-inicial.component.html',
   styleUrls: ['./tela-inicial.component.css']
 })
-export class TelaInicialComponent implements OnInit {
+export class TelaInicialComponent{
 
   modalRef?: BsModalRef;
   constructor(private modalService: BsModalService) {}
@@ -15,10 +15,6 @@ export class TelaInicialComponent implements OnInit {
 
   openModal(template: TemplateRef<any>) {
     this.modalRef = this.modalService.show(template);
-  }
-
-  ngOnInit(): void {
-    throw new Error('Method not implemented.');
   }
 
 }

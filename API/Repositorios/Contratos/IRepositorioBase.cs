@@ -1,7 +1,5 @@
-﻿using AlzheimerApp.Dominios;
-using System;
+﻿using System;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 namespace AlzheimerApp.Repositorios {
     public interface IRepositorioBase<T, TPrimary> : IDisposable {

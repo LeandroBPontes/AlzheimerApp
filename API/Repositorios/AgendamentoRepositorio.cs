@@ -1,35 +1,36 @@
 ﻿using AlzheimerApp.Banco;
 using AlzheimerApp.Dominios;
-using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace AlzheimerApp.Repositorios {
-    internal class CuidadorRepositorio : IRepositorioBase<Cuidador, int> {
+    internal class AgendamentoRepositorio : IRepositorioBase<Agendamento, int> {
         private readonly DataContext _context;
 
-        public CuidadorRepositorio(DataContext context) {
+        public AgendamentoRepositorio(DataContext context) {
             _context = context;
         }
+
         public void Delete(int id) {
-            var cuidador  = _context.Cuidadores.Find(id);
-           _context.Cuidadores.Remove(cuidador);
+            var Agendamento = _context.Agendamentos.Find(id);
+            _context.Agendamentos.Remove(Agendamento);
         }
 
-        public IEnumerable<Cuidador> Get() {
-            return _context.Cuidadores.ToList();
+        public IEnumerable<Agendamento> Get() {
+            return _context.Agendamentos.ToList();
         }
 
-        public Cuidador GetByID(int id) {
-            return _context.Cuidadores.Find(id);
+        public Agendamento GetByID(int id) {
+            return _context.Agendamentos.Find(id);
         }
 
-        public void Insert(Cuidador model) {
-            _context.Cuidadores.Add(model);
+        public void Insert(Agendamento model) {
+            _context.Agendamentos.Add(model);
             _context.SaveChanges();
         }
-        public void Update(Cuidador model) {
+        public void Update(Agendamento model) {
             _context.Entry(model).State = EntityState.Modified;
         }
 
