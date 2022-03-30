@@ -17,29 +17,10 @@ namespace AlzheimerApp.Migrations
         {
 #pragma warning disable 612, 618
             modelBuilder
-                .HasAnnotation("ProductVersion", "6.0.2")
+                .HasAnnotation("ProductVersion", "6.0.3")
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
-
-            modelBuilder.Entity("AlzheimerApp.Admin.Dominios.Colaborador", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
-
-                    b.Property<string>("Nome")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Colaboradores");
-                });
 
             modelBuilder.Entity("AlzheimerApp.Dominios.Agendamento", b =>
                 {
@@ -58,14 +39,41 @@ namespace AlzheimerApp.Migrations
                     b.Property<bool>("FeitoPeloPlano")
                         .HasColumnType("bit");
 
-                    b.Property<int?>("PacienteId")
+                    b.Property<int>("IdPaciente")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("PacienteId");
+                    b.HasIndex("IdPaciente");
 
                     b.ToTable("Agendamentos");
+                });
+
+            modelBuilder.Entity("AlzheimerApp.Dominios.Atividade", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Frequencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Horario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdPaciente")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdPaciente");
+
+                    b.ToTable("Atividades");
                 });
 
             modelBuilder.Entity("AlzheimerApp.Dominios.Consulta", b =>
@@ -76,9 +84,6 @@ namespace AlzheimerApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("AgendamentoId")
-                        .HasColumnType("int");
-
                     b.Property<int>("IdAgendamento")
                         .HasColumnType("int");
 
@@ -87,7 +92,7 @@ namespace AlzheimerApp.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AgendamentoId");
+                    b.HasIndex("IdAgendamento");
 
                     b.ToTable("Consultas");
                 });
@@ -115,12 +120,42 @@ namespace AlzheimerApp.Migrations
                     b.Property<bool>("PossuiOcupacao")
                         .HasColumnType("bit");
 
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Sexo")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
                     b.ToTable("Cuidadores");
+                });
+
+            modelBuilder.Entity("AlzheimerApp.Dominios.Medicamento", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Frequencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Horario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdPaciente")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdPaciente");
+
+                    b.ToTable("Medicamentos");
                 });
 
             modelBuilder.Entity("AlzheimerApp.Dominios.Paciente", b =>
@@ -131,13 +166,10 @@ namespace AlzheimerApp.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<int?>("CuidadorId")
-                        .HasColumnType("int");
-
                     b.Property<string>("EstadoCivil")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("IdCuidador")
+                    b.Property<int?>("IdCuidador")
                         .HasColumnType("int");
 
                     b.Property<int>("Idade")
@@ -152,24 +184,64 @@ namespace AlzheimerApp.Migrations
                     b.Property<bool>("PossuiPlano")
                         .HasColumnType("bit");
 
-                    b.Property<int>("Role")
-                        .HasColumnType("int");
+                    b.Property<string>("Role")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Sexo")
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CuidadorId");
+                    b.HasIndex("IdCuidador");
 
                     b.ToTable("Pacientes");
+                });
+
+            modelBuilder.Entity("AlzheimerApp.Dominios.Sintoma", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
+
+                    b.Property<string>("Frequencia")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Horario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("IdPaciente")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Nome")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("IdPaciente");
+
+                    b.ToTable("Sintomas");
                 });
 
             modelBuilder.Entity("AlzheimerApp.Dominios.Agendamento", b =>
                 {
                     b.HasOne("AlzheimerApp.Dominios.Paciente", "Paciente")
                         .WithMany()
-                        .HasForeignKey("PacienteId");
+                        .HasForeignKey("IdPaciente")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Paciente");
+                });
+
+            modelBuilder.Entity("AlzheimerApp.Dominios.Atividade", b =>
+                {
+                    b.HasOne("AlzheimerApp.Dominios.Paciente", "Paciente")
+                        .WithMany()
+                        .HasForeignKey("IdPaciente")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Paciente");
                 });
@@ -178,18 +250,42 @@ namespace AlzheimerApp.Migrations
                 {
                     b.HasOne("AlzheimerApp.Dominios.Agendamento", "Agendamento")
                         .WithMany()
-                        .HasForeignKey("AgendamentoId");
+                        .HasForeignKey("IdAgendamento")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Agendamento");
+                });
+
+            modelBuilder.Entity("AlzheimerApp.Dominios.Medicamento", b =>
+                {
+                    b.HasOne("AlzheimerApp.Dominios.Paciente", "Paciente")
+                        .WithMany()
+                        .HasForeignKey("IdPaciente")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Paciente");
                 });
 
             modelBuilder.Entity("AlzheimerApp.Dominios.Paciente", b =>
                 {
                     b.HasOne("AlzheimerApp.Dominios.Cuidador", "Cuidador")
                         .WithMany()
-                        .HasForeignKey("CuidadorId");
+                        .HasForeignKey("IdCuidador");
 
                     b.Navigation("Cuidador");
+                });
+
+            modelBuilder.Entity("AlzheimerApp.Dominios.Sintoma", b =>
+                {
+                    b.HasOne("AlzheimerApp.Dominios.Paciente", "Paciente")
+                        .WithMany()
+                        .HasForeignKey("IdPaciente")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Paciente");
                 });
 #pragma warning restore 612, 618
         }

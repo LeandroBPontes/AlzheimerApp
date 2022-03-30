@@ -7,10 +7,9 @@ namespace AlzheimerApp.Controllers {
     [Route("api/cuidador")]
     [ApiController]
     public class CuidadorController : CrudBaseController<Cuidador, int> {
-       // private readonly IRepositorioBase<Cuidador, int> _repositorio;
-
-        protected CuidadorController(IRepositorioBase<Cuidador, int> repositorio): base(repositorio) {
-           // _repositorio = repositorio;
+   
+        public CuidadorController(IRepositorioBase<Cuidador, int> repositorio): base(repositorio) {
+          
         }
     }
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -11,6 +12,9 @@ namespace AlzheimerApp.Dominios {
         public string Nome { get; set; }
         public string Horario { get; set; }
         public string Frequencia { get; set; }
-        public string IdPaciente { get; set; }
+
+        [ForeignKey("IdPaciente")]
+        public virtual Paciente Paciente { get; set; }
+        public int IdPaciente { get; set; }
     }
 }

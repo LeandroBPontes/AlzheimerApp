@@ -6,7 +6,7 @@ using System;
 using System.Collections.Generic;
 
 namespace AlzheimerApp.Repositorios {
-    internal class CuidadorRepositorio : IRepositorioBase<Cuidador, int> {
+    public class CuidadorRepositorio : IRepositorioBase<Cuidador, int> {
         private readonly DataContext _context;
 
         public CuidadorRepositorio(DataContext context) {

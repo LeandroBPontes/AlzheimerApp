@@ -1,7 +1,5 @@
-﻿using AlzheimerApp.Admin.Dominios;
-using AlzheimerApp.Dominios;
+﻿using AlzheimerApp.Dominios;
 using Microsoft.EntityFrameworkCore;
-
 
 namespace AlzheimerApp.Banco {
     public class DataContext : DbContext {
@@ -12,7 +10,6 @@ namespace AlzheimerApp.Banco {
 
         public DbSet<Cuidador> Cuidadores { get; set; }
         public DbSet<Paciente> Pacientes { get; set; }
-        public DbSet<Colaborador> Colaboradores { get; set; }
         public DbSet<Consulta> Consultas { get; set; }
         public DbSet<Agendamento> Agendamentos { get; set; }
         public DbSet<Atividade> Atividades { get; set; }

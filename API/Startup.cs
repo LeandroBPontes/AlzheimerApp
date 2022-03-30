@@ -11,6 +11,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.OpenApi.Models;
+using AlzheimerApp.Repositorios;
+using AlzheimerApp.Dominios;
 
 namespace AlzheimerApp
 {
@@ -33,6 +35,9 @@ namespace AlzheimerApp
                 options.MimeTypes = ResponseCompressionDefaults.MimeTypes.Concat(new[] { "application/json" });
 
             });
+
+            //services.AddScoped<IRepositorioBase<Cuidador,int>,CuidadorRepositorio>();
+            services.AddScoped<IRepositorioBase<Paciente,int>,PacienteRepositorio>();
 
             //services.AddResponseCaching();
             services.AddCors();
