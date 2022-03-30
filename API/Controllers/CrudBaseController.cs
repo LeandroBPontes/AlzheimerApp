@@ -7,7 +7,7 @@ namespace AlzheimerApp.Controllers {
 
         private readonly IRepositorioBase<TEntidade, TPrimary> _repositorio;
 
-        protected CrudBaseController(IRepositorioBase<TEntidade, TPrimary> repositorio) {
+        public CrudBaseController(IRepositorioBase<TEntidade, TPrimary> repositorio) {
             _repositorio = repositorio;
         }
 

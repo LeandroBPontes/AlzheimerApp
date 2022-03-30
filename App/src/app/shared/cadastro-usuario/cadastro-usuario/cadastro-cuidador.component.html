@@ -1,65 +1,64 @@
-<app-menu></app-menu>
-
+<app-menu> </app-menu>
 <div class="container">
     <mat-card>
         <mat-card-title>
-          <mat-icon>grid_on</mat-icon> Tela de Cadastramento de Usuário
+          <mat-icon>grid_on</mat-icon> Tela de Cadastramento de Cuidadores
           <mat-divider></mat-divider>
         </mat-card-title>
     <div class="portlet">
         <div class="row">
             <div class="mb-3 col-md-6">
                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
-                <input type="text" class="form-control" >
+                <input type="text" class="form-control" [(ngModel)]="filtro.nome">
             </div>
             <div class="mb-3 col-md-6">
                 <label for="exampleFormControlInput1" class="form-label">Idade</label>
-                <input type="number" class="form-control">
+                <input type="number"  class="form-control" [(ngModel)]="filtro.idade" >
             </div>
         </div>
        
         <div class="row">
             <div class="mb-3 mt-2 col-md-6">
                 <label>Estado Civil</label>
-            <select class="form-select" aria-label="Default select example" required>
+            <select class="form-select" aria-label="Default select example"  [(ngModel)]="filtro.estadoCivil" equired>
                 <option selected>Selecione</option>
-                <option value="1">Solteiro(a)</option>
-                <option value="2">Casado(a)</option>
-                <option value="2">Divorciado(a)</option>
-                <option value="3">Viúvo(a)</option>
+                <option value="Solteiro">Solteiro(a)</option>
+                <option value="Casado">Casado(a)</option>
+                <option value="Divorciado">Divorciado(a)</option>
+                <option value="Viuvo">Viúvo(a)</option>
               </select>
             </div>
             <div class="mb-3 mt-2 col-md-6">
                 <label>Sexo</label>
-            <select class="form-select" aria-label="Default select example" required>
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="filtro.sexo" required>
                 <option selected>Selecione</option>
-                <option value="1">Masculino</option>
-                <option value="2">Feminino</option>
+                <option value="Masculino">Masculino</option>
+                <option value="Feminino">Feminino</option>
               </select>
             </div>
         </div>
         <div class="row">
             <div class="mb-3 mt-2 col-md-6">
                 <label>Possui Filhos?</label>
-            <select class="form-select" aria-label="Default select example" required>
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="filtro.possuiFilho"required>
                 <option selected>Selecione</option>
-                <option value="1">Sim</option>
-                <option value="2">Não</option>
+                <option  [ngValue]="true">Sim</option>
+                <option  [ngValue]="false">Não</option>
               </select>
             </div>
             <div class="mb-3 mt-2 col-md-6">
                 <label>Possui Ocupação Profissional?</label>
-            <select class="form-select" aria-label="Default select example" required>
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="filtro.possuiOcupacao" required>
                 <option selected>Selecione</option>
-                <option value="1">Sim</option>
-                <option value="2">Não</option>
+                <option [ngValue]="true">Sim</option>
+                <option  [ngValue]="false">Não</option>
               </select>
             </div>
         </div>
             <div class="row">
                 <div class="col-md-4">
-                   <button type="button" class="btn btn-primary" style="margin-right: 2px;"><mat-icon>search</mat-icon>Cadastrar</button>
-                    <button type="button" class="btn btn-secondary"><mat-icon>clear_all</mat-icon>Limpar</button>
+                   <button type="button" class="btn btn-primary" style="margin-right: 2px;" (click)="inserir()"><mat-icon>search</mat-icon>Cadastrar</button>
+                    <button type="button" class="btn btn-secondary" (click)="limpar()"><mat-icon>clear_all</mat-icon>Limpar</button>
                 </div>
             </div>
     </div>

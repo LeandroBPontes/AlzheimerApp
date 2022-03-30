@@ -7,7 +7,6 @@ import { PacienteComponent } from './areas/usuarios/componentes/paciente/pacient
 import { CuidadorComponent } from './areas/usuarios/componentes/cuidador/cuidador.component';
 import { AgendamentoComponent } from './areas/usuarios/componentes/agendamento/agendamento.component';
 import { ConsultaComponent } from './areas/usuarios/componentes/consulta/consulta.component';
-import { ColaboradorComponent } from './areas/admin/componentes/colaborador/colaborador.component';
 import { TelaInicialComponent } from './site/tela-inicial/tela-inicial.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatIconModule } from '@angular/material/icon';
@@ -20,6 +19,8 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MenuComponent } from './layout/menu/menu/menu.component';
 import { CadastroCuidadorComponent } from './shared/cadastro-usuario/cadastro-usuario/cadastro-cuidador.component';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 
 
@@ -30,7 +31,6 @@ import { CadastroCuidadorComponent } from './shared/cadastro-usuario/cadastro-us
     CuidadorComponent,
     AgendamentoComponent,
     ConsultaComponent,
-    ColaboradorComponent,
     TelaInicialComponent,
     CadastroCuidadorComponent,
     MenuComponent
@@ -48,6 +48,8 @@ import { CadastroCuidadorComponent } from './shared/cadastro-usuario/cadastro-us
     MatDividerModule,
     MatFormFieldModule,
     ModalModule.forRoot(),
+    FormsModule,
+    HttpClientModule
    
     
   ],
