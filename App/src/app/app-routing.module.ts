@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CadastroCuidadorComponent } from './shared/cadastro-usuario/cadastro-usuario/cadastro-cuidador.component';
+import { CadastroCuidadorComponent } from './shared/cadastro-usuario/cadastro-cuidador/cadastro-cuidador.component';
+import { CadastroPacienteComponent } from './shared/cadastro-usuario/cadastro-paciente/cadastro-paciente.component';
 import { TelaInicialComponent } from './site/tela-inicial/tela-inicial.component';
 
 const routes: Routes = [
@@ -16,6 +17,10 @@ const routes: Routes = [
   { 
     path: 'cadastro-usuario',
     component: CadastroCuidadorComponent 
+  },
+  { 
+    path: 'cadastro-paciente',
+    component: CadastroPacienteComponent 
   }
 ];
 

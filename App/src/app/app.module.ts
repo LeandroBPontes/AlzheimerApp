@@ -18,10 +18,12 @@ import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import { MenuComponent } from './layout/menu/menu/menu.component';
-import { CadastroCuidadorComponent } from './shared/cadastro-usuario/cadastro-usuario/cadastro-cuidador.component';
+import { CadastroCuidadorComponent } from './shared/cadastro-usuario/cadastro-cuidador/cadastro-cuidador.component';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-
+import { CadastroPacienteComponent } from './shared/cadastro-usuario/cadastro-paciente/cadastro-paciente.component';
+import { CadastroBaseComponent } from './shared/cadastro-usuario/cadastro-base/cadastro-base.component';
+import { NgxUiHeroModule } from 'ngx-ui-hero';
 
 
 @NgModule({
@@ -33,7 +35,9 @@ import { HttpClientModule } from '@angular/common/http';
     ConsultaComponent,
     TelaInicialComponent,
     CadastroCuidadorComponent,
-    MenuComponent
+    MenuComponent,
+    CadastroPacienteComponent,
+    CadastroBaseComponent
   ],
   imports: [
     BrowserModule,
@@ -49,7 +53,8 @@ import { HttpClientModule } from '@angular/common/http';
     MatFormFieldModule,
     ModalModule.forRoot(),
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgxUiHeroModule
    
     
   ],

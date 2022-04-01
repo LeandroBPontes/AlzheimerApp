@@ -2,7 +2,7 @@
 <div class="container">
     <mat-card>
         <mat-card-title>
-          <mat-icon>grid_on</mat-icon> Tela de Cadastramento de Cuidadores
+          <mat-icon>grid_on</mat-icon> {{titulo}}
           <mat-divider></mat-divider>
         </mat-card-title>
     <div class="portlet">
@@ -46,8 +46,18 @@
                 <option  [ngValue]="false">Não</option>
               </select>
             </div>
-            <div class="mb-3 mt-2 col-md-6">
+            
+            <div class="mb-3 mt-2 col-md-6" *ngIf="cuidadorAtributo">
                 <label>Possui Ocupação Profissional?</label>
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="filtro.possuiOcupacao" required>
+                <option selected>Selecione</option>
+                <option [ngValue]="true">Sim</option>
+                <option  [ngValue]="false">Não</option>
+              </select>
+            </div>
+
+            <div class="mb-3 mt-2 col-md-6" *ngIf="pacienteAtributo">
+                <label>Possui Plano de Saúde?</label>
             <select class="form-select" aria-label="Default select example" [(ngModel)]="filtro.possuiOcupacao" required>
                 <option selected>Selecione</option>
                 <option [ngValue]="true">Sim</option>
@@ -65,4 +75,5 @@
       
     </mat-card>
  </div>
+
 

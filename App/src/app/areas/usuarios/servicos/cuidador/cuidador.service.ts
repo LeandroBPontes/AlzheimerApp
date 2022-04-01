@@ -12,10 +12,10 @@ export class CuidadorService {
 
   constructor(private http: HttpClient) { }
 
-  inserirCuidador(cuidador: CuidadorModel) {
+  inserir(cuidador: CuidadorModel) {
     return this.http.post(`${this.baseURL}api/cuidador`, cuidador);
   }
-  inserirPaciente(paciente: PacienteModel) {
-    return this.http.post(`${this.baseURL}api/paciente`, paciente);
-  }
+  // inserirPaciente(paciente: PacienteModel) {
+  //   return this.http.post(`${this.baseURL}api/paciente`, paciente);
+  // }
 }

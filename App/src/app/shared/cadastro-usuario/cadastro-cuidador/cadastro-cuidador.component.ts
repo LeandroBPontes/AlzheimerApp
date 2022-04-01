@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CuidadorModel } from 'src/app/areas/usuarios/modelos/cuidador/cuidador.model';
 import { CuidadorService } from 'src/app/areas/usuarios/servicos/cuidador/cuidador.service';
@@ -10,23 +10,14 @@ import { CuidadorService } from 'src/app/areas/usuarios/servicos/cuidador/cuidad
 })
 export class CadastroCuidadorComponent implements OnInit {
 
-  constructor(protected service: CuidadorService) { 
+  constructor(public service: CuidadorService) { 
   }
 
   filtro = new CuidadorModel()
+  titulo = "Tela de Cadastro de Cuidadores"
+  
   ngOnInit(): void {
     
   }
- 
-   inserir(){
-     if(this.filtro)
-     this.filtro.role = "Cuidador"
-    
-     this.service
-      .inserirCuidador(this.filtro)
-      .subscribe();
-  }
-  limpar(){
-    this.filtro =  new CuidadorModel()
-  }
+
 }
