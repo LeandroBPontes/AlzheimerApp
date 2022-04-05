@@ -1,5 +1,3 @@
-
-
 .portlet{
   /*background-color: rgb(245, 245, 245);*/
   background-image: linear-gradient(to right, rgb(233, 231, 231) ,rgb(187, 186, 186) , rgb(95, 95, 93));
@@ -16,7 +14,7 @@
   height: 27px;
 }
 .mat-card{
-  margin-bottom: 3%;
+  margin-bottom: 1%;
   padding-top: 2%;
   width:70%;
   margin-left: 15%;

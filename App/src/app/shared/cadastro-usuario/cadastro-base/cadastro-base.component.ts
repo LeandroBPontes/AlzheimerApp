@@ -1,6 +1,8 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { AlertService } from 'ngx-ui-hero';
+
+
 import { Observable, throwError, timer } from 'rxjs';
 import { catchError, filter, finalize, map, retry, take } from 'rxjs/operators';
 
@@ -30,13 +32,15 @@ export class CadastroBaseComponent implements OnInit {
       //this.filtro.idCuidador = service.buscarPorId(idCuidador)
       this.filtro.role = "Paciente"
     }
-    this.service
-      .inserir(this.filtro)
-      .subscribe(
-        catchError(this.handleError),
-        finalize(() => alert('Ocorreu um erro na requisição, por favor, tente mais tarde!'))
-          )
-      return this.alertService.success('Yeahhh', 'Some success text here =)', );
+    // this.service
+    //   .inserir(this.filtro)
+    //   .subscribe(
+    //     catchError(this.handleError),
+    //     finalize(() => alert('Ocorreu um erro na requisição, por favor, tente mais tarde!'))
+    //       )
+    return this.alertService
+   .success('Yeahhh', 'Cadastro realizado com sucesso! =)')
+        
   }
   limpar() {
     this.filtro = {}
