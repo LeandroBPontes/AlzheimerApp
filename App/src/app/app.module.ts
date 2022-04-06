@@ -23,7 +23,8 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastroPacienteComponent } from './shared/cadastro-usuario/cadastro-paciente/cadastro-paciente.component';
 import { CadastroBaseComponent } from './shared/cadastro-usuario/cadastro-base/cadastro-base.component';
-import { NgxUiHeroModule } from 'ngx-ui-hero';
+import { DataGridColumnModel, NgxUiHeroModule } from 'ngx-ui-hero';
+import { TelaCuidadorComponent } from './layout/tela-cuidador/tela-cuidador.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { NgxUiHeroModule } from 'ngx-ui-hero';
     CadastroCuidadorComponent,
     MenuComponent,
     CadastroPacienteComponent,
-    CadastroBaseComponent
+    CadastroBaseComponent,
+    TelaCuidadorComponent
   ],
   imports: [
     BrowserModule,
@@ -55,8 +57,7 @@ import { NgxUiHeroModule } from 'ngx-ui-hero';
     FormsModule,
     HttpClientModule,
     NgxUiHeroModule
-   
-    
+  
   ],
   providers: [],
   bootstrap: [AppComponent]
