@@ -23,10 +23,49 @@ import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { CadastroPacienteComponent } from './shared/cadastro-usuario/cadastro-paciente/cadastro-paciente.component';
 import { CadastroBaseComponent } from './shared/cadastro-usuario/cadastro-base/cadastro-base.component';
-import { DataGridColumnModel, NgxUiHeroModule } from 'ngx-ui-hero';
+import { DataGridColumnModel, DataGridConfig, EnumAutoFitMode, EnumDataGridMode, NgxUiHeroDataGridModule, NgxUiHeroModule } from 'ngx-ui-hero';
 import { TelaCuidadorComponent } from './layout/tela-cuidador/tela-cuidador.component';
 
-
+export const dataGridSettings: DataGridConfig = {
+  emptyResultsMessage: 'No results found at this moment.',
+  infoMessage: 'Showing records from {recordsFrom} to {recordsTo} of {totalRecords} records found.',
+  actionsColumnCaption: '#',
+  mode: EnumDataGridMode.OnClient,
+  autoFitMode: EnumAutoFitMode.ByContent,
+  allowColumnResize: true,
+  paging: {
+    firstText: 'First',
+    previousText: 'Previous',
+    nextText: 'Next',
+    lastText: 'Last',
+    boundaryLinks: true,
+    directionLinks: true,
+    rotate: true,
+    maxSize: 10,
+    itemsPerPage: 10,
+  },
+  styles: {
+    animated: true,
+    striped: true,
+    bordered: true,
+    hoverEffect: true,
+    responsive: true
+  },
+  exporting: {
+    allowExports: false,
+    exportButtonLabel: 'Export',
+    exportedFileName: 'Export',
+    exportedExcelSheetName: 'Sheet'
+  },
+  filtering: {
+    allowColumnFilters: true,
+    filterPlaceholder: 'Filter...',
+    filterPlacement: 'top'
+  },
+  reordering: {
+    allowColumnReorder: true
+  }
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -56,7 +95,8 @@ import { TelaCuidadorComponent } from './layout/tela-cuidador/tela-cuidador.comp
     ModalModule.forRoot(),
     FormsModule,
     HttpClientModule,
-    NgxUiHeroModule
+    NgxUiHeroModule,
+    NgxUiHeroDataGridModule.forRoot(dataGridSettings)
   
   ],
   providers: [],

@@ -7,7 +7,7 @@ export class PacienteModel{
     possuiFilho: boolean | string;
     estadoCivil: string;
     role: string ;
-    possuiOcupacao:boolean | string;
+    possuiPlano:boolean | string;
     cuidador: CuidadorModel;
     idCuidador: number;
 }

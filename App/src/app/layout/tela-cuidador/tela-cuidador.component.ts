@@ -1,5 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { DataGridColumnModel, EnumAlignment } from 'ngx-ui-hero';
+import { CuidadorService } from 'src/app/areas/usuarios/servicos/cuidador/cuidador.service';
+import { PacienteService } from 'src/app/areas/usuarios/servicos/paciente/paciente.service';
 
 
 @Component({
@@ -9,37 +11,64 @@ import { DataGridColumnModel, EnumAlignment } from 'ngx-ui-hero';
 })
 export class TelaCuidadorComponent implements OnInit {
 
-  constructor() { }
+  constructor(public service: CuidadorService, public servicePaciente: PacienteService) { }
 
   ngOnInit(): void {
+    this.obterTodos()
   }
-   date = new Date();
-   ano = this.date.getFullYear();
-   @Input() data: any
-   @Input() columns: any
-   @Input() showActionsColumn: any
-   @Input() initialColumnToSort: any
- 
+  date = new Date();
+  ano = this.date.getFullYear();
+  @Input() data: any
+  @Input() columns: any
+  @Input() showActionsColumn: any
+  @Input() initialColumnToSort: any
 
-   myComplexDatagridModel: Array<any>;
-   myComplexDatagridColumns: Array<DataGridColumnModel> = [
+
+  pacientes = [
     {
-      caption: 'Name',
-      data: 'name',
+      caption: 'Nome',
+      data: 'nome',
     },
     {
-      caption: 'E-mail',
-      data: 'email'
+      caption: 'Idade',
+      data: 'idade',
     },
     {
-      caption: 'Status',
-      captionAlignment: EnumAlignment.Center,
-      data: 'active',
-      render: (row, currentData, index) => {
-        return currentData ? "<span class='badge badge-success'>Ativo</span>" : "<span class='badge badge-danger'>Inativo</span>";
-      },
-      dataAlignment: EnumAlignment.Center,
-      sortable: false
+      caption: 'Sexo',
+      data: 'sexo',
+    },
+    {
+      caption: 'Possui Filho',
+      data: 'possuiFilho',
+    },
+    {
+      caption: 'Estado Civil',
+      data: 'estadoCivil',
+    },
+    {
+      caption: 'Identificador',
+      data: 'role',
+    },
+    {
+      caption: 'Possui Plano',
+      data: 'possuiPlano',
+    },
+    {
+      caption: 'Cuidador',
+      data: 'idCuidador',
     }
   ];
+
+  async obterTodos(): Promise<void> {
+    await this.servicePaciente.buscarTodos().then(async resultado => {
+      this.data = resultado;
+      console.log(resultado)
+    });
+  }
+  async obterCuidador(): Promise<void> {
+    await this.servicePaciente.buscarTodos().then(async resultado => {
+      this.data = resultado;
+      console.log(resultado)
+    });
+  }
 }

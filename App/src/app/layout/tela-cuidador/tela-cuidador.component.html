@@ -6,39 +6,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
 
-<style>
-    .bd-placeholder-img {
-        font-size: 1.125rem;
-        text-anchor: middle;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        user-select: none;
-    }
-
-    @media (min-width: 768px) {
-        .bd-placeholder-img-lg {
-            font-size: 3.5rem;
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
         }
-    }
-</style>
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
 
 
-<!-- Custom styles for this template -->
-<link href="./tela-cuidador.component.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="./tela-cuidador.component.css" rel="stylesheet">
 </head>
 
 <body>
     <main>
 
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
-            <a routerLink="/tela-cuidador"
-                class="bi me-2 nav-link text-white">
+            <a routerLink="/tela-cuidador" class="bi me-2 nav-link text-white">
                 <!-- <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> -->
-               <h3>
-                <mat-icon width="16" height="16">assignment_ind</mat-icon> AlzheimerApp
-               </h3>
-                   
-              
+                <h3>
+                    <mat-icon width="16" height="16">assignment_ind</mat-icon> AlzheimerApp
+                </h3>
+
+
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
@@ -54,7 +53,8 @@
                 </li>
                 <li>
                     <a routerLink="/tela-paciente" class="nav-link text-white">
-                        <mat-icon class="bi me-2" width="16" height="16">supervised_user_circle</mat-icon> Gerenciar Paciente
+                        <mat-icon class="bi me-2" width="16" height="16">supervised_user_circle</mat-icon> Gerenciar
+                        Paciente
                     </a>
                 </li>
                 <hr>
@@ -84,18 +84,33 @@
             <p>Todos os direitos reservados a &copy;AlzheimerApp - {{ano}}
             </p>
         </div><br>
-
-
         <div class="b-example-divider">
         </div>
-
-
+        <div class="row">
+            <div class="col-md-8 datagrid">
+                <h3>Olá, CuidadorName!</h3><br>
+                <h5>Aqui estão os dados do paciente</h5>
+                <datagrid 
+                [data]="data" 
+                [columns]="pacientes" 
+                [showActionsColumn]="false"
+                [initialColumnToSort]="0">
+        
+                    <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
+                        <button class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+                    </ng-template>
+                    
+                </datagrid><br>
+                <h5>Você pode gerenciá-lo através do botão abaixo ou utilizando o menu -> Gerenciar Paciente.</h5><br>
+                <div class="col-md-2">
+                    <a routerLink="/tela-paciente"><button class="btn btn-primary">Gerenciar Paciente</button></a>
+                </div>
+            </div>
+        </div>
+        
     </main>
-<datagrid>
-  <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
-    <button class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></button>
-    <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
-  </ng-template>
-</datagrid>
+     
 </body>
+
 </html>

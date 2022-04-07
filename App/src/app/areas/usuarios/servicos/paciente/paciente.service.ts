@@ -15,5 +15,9 @@ export class PacienteService {
   inserir(paciente: PacienteModel) {
     return this.http.post(`${this.baseURL}api/paciente`, paciente);
   }
+
+  buscarTodos(): Promise<Array<PacienteModel>> {
+    return this.http.get<PacienteModel[]>(`${this.baseURL}api/paciente`).toPromise();
+  }
 }
 
