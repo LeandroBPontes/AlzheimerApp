@@ -5,13 +5,13 @@
           <mat-icon>grid_on</mat-icon> {{titulo}}
           <mat-divider></mat-divider>
         </mat-card-title>
-    <div class="portlet">
+ 
         <div class="row">
-            <div class="mb-3 col-md-6">
+            <div class="mb-3 col-md-6 mt-2">
                 <label for="exampleFormControlInput1" class="form-label">Nome</label>
                 <input type="text" class="form-control" [(ngModel)]="filtro.nome">
             </div>
-            <div class="mb-3 col-md-6">
+            <div class="mb-3 col-md-6 mt-2">
                 <label for="exampleFormControlInput1" class="form-label">Idade</label>
                 <input type="number"  class="form-control" [(ngModel)]="filtro.idade" >
             </div>
@@ -20,7 +20,7 @@
         <div class="row">
             <div class="mb-3 mt-2 col-md-6">
                 <label>Estado Civil</label>
-            <select class="form-select" aria-label="Default select example"  [(ngModel)]="filtro.estadoCivil" equired>
+            <select class="form-select" aria-label="Default select example"  [(ngModel)]="filtro.estadoCivil" required>
                 <option selected>Selecione</option>
                 <option value="Solteiro">Solteiro(a)</option>
                 <option value="Casado">Casado(a)</option>
@@ -56,6 +56,13 @@
               </select>
             </div>
 
+            <div class="mb-3 mt-2 col-md-6" *ngIf="cuidadorAtributo">
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Senha</label>
+                    <input type="password" class="form-control" [(ngModel)]="filtro.senha" id="exampleInputPassword1">
+                  </div>
+            </div>
+
             <div class="mb-3 mt-2 col-md-6" *ngIf="pacienteAtributo">
                 <label>Possui Plano de Saúde?</label>
             <select class="form-select" aria-label="Default select example" [(ngModel)]="filtro.possuiOcupacao" required>
@@ -71,7 +78,7 @@
                     <button type="button" class="btn btn-secondary" (click)="limpar()"><mat-icon>clear_all</mat-icon>Limpar</button>
                 </div>
             </div>
-    </div>
+  
       
     </mat-card>
  </div>

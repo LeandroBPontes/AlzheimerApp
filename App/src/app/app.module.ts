@@ -25,6 +25,10 @@ import { CadastroPacienteComponent } from './shared/cadastro-usuario/cadastro-pa
 import { CadastroBaseComponent } from './shared/cadastro-usuario/cadastro-base/cadastro-base.component';
 import { DataGridColumnModel, DataGridConfig, EnumAutoFitMode, EnumDataGridMode, NgxUiHeroDataGridModule, NgxUiHeroModule } from 'ngx-ui-hero';
 import { TelaCuidadorComponent } from './layout/tela-cuidador/tela-cuidador.component';
+import { TelaLoginComponent } from './layout/tela-login/tela-login.component';
+import { AlertService } from 'ngx-ui-hero';
+import { NgxUiHeroApiModule, ApiSettings } from 'ngx-ui-hero';
+
 
 export const dataGridSettings: DataGridConfig = {
   emptyResultsMessage: 'No results found at this moment.',
@@ -66,6 +70,13 @@ export const dataGridSettings: DataGridConfig = {
     allowColumnReorder: true
   }
 };
+export const apiSettings: ApiSettings = {
+  apiBaseUrl: 'http://yourdomain.com',
+  apiAlias: 'api',
+  localStoragePrefix: 'myDemoAppPrefix_',
+  jwtLocalStorageSuffix: 'access_token',
+  responseDataPropertyName: 'data'
+};
 @NgModule({
   declarations: [
     AppComponent,
@@ -78,7 +89,8 @@ export const dataGridSettings: DataGridConfig = {
     MenuComponent,
     CadastroPacienteComponent,
     CadastroBaseComponent,
-    TelaCuidadorComponent
+    TelaCuidadorComponent,
+    TelaLoginComponent
   ],
   imports: [
     BrowserModule,
@@ -96,10 +108,11 @@ export const dataGridSettings: DataGridConfig = {
     FormsModule,
     HttpClientModule,
     NgxUiHeroModule,
-    NgxUiHeroDataGridModule.forRoot(dataGridSettings)
+    NgxUiHeroDataGridModule.forRoot(dataGridSettings),
+    NgxUiHeroApiModule.forRoot(apiSettings)
   
   ],
-  providers: [],
+  providers: [AlertService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

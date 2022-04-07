@@ -14,6 +14,7 @@ namespace AlzheimerApp.Controllers {
         [HttpGet]
         public ActionResult<TEntidade> Get() {
             var users = _repositorio.Get();
+            
             return Ok(users);
         }
 

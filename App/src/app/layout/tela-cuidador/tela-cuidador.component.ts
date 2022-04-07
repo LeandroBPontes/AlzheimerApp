@@ -2,6 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { DataGridColumnModel, EnumAlignment } from 'ngx-ui-hero';
 import { CuidadorService } from 'src/app/areas/usuarios/servicos/cuidador/cuidador.service';
 import { PacienteService } from 'src/app/areas/usuarios/servicos/paciente/paciente.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 
 @Component({
@@ -11,10 +12,17 @@ import { PacienteService } from 'src/app/areas/usuarios/servicos/paciente/pacien
 })
 export class TelaCuidadorComponent implements OnInit {
 
-  constructor(public service: CuidadorService, public servicePaciente: PacienteService) { }
+  constructor(public service: CuidadorService, public servicePaciente: PacienteService, private router: Router,
+    private activatedRoute: ActivatedRoute) { }
+  nome: any;
+  id: any;
+
 
   ngOnInit(): void {
-    this.obterTodos()
+    //recuperando o nome pelo login
+    this.id = this.activatedRoute.snapshot.paramMap.get('id');
+    this.obterCuidador(this.id);
+    this.obterTodosPorIdCuidador(this.id)
   }
   date = new Date();
   ano = this.date.getFullYear();
@@ -52,23 +60,24 @@ export class TelaCuidadorComponent implements OnInit {
     {
       caption: 'Possui Plano',
       data: 'possuiPlano',
-    },
-    {
-      caption: 'Cuidador',
-      data: 'idCuidador',
     }
   ];
-
-  async obterTodos(): Promise<void> {
-    await this.servicePaciente.buscarTodos().then(async resultado => {
-      this.data = resultado;
-      console.log(resultado)
+  
+  passaUrlPaciente(){
+    return this.router.navigate([`/cadastro-paciente/${this.id}`]);
+  }
+  obterTodosPorIdCuidador(id){
+    this.service.obterPacientePorId(id).subscribe(resultado => {
+      this.data= resultado;
     });
   }
-  async obterCuidador(): Promise<void> {
-    await this.servicePaciente.buscarTodos().then(async resultado => {
-      this.data = resultado;
-      console.log(resultado)
-    });
+  obterCuidador(id) {
+    this.service.buscarPorId(id).subscribe(resultado => {
+      this.nome = resultado.nome;
+    }
+    );
+  }
+  sair() {
+    return this.router.navigate(['/tela-login']);
   }
 }

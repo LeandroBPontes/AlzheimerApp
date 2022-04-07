@@ -6,10 +6,15 @@
     align-items: center;
 }
 .mat-card{
+    margin-top: 5%;
     min-width: 80%;
-    min-height: 100%;
+    min-height: auto;
 }
-
+.portlet{
+    background-color: rgb(250, 249, 250);
+    margin-top: 3%;
+    padding: 2%;
+}
 .mat-icon {
     vertical-align: middle;
   }

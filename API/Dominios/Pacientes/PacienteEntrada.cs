@@ -12,6 +12,7 @@ namespace AlzheimerApp.Dominios.Pacientes {
         public bool PossuiFilho { get; set; }
         public string EstadoCivil { get; set; }
         public bool PossuiPlano { get; set; }
+        public Cuidador Cuidador { get; set; }
         public string Role { get; set; }
     }
 }

@@ -1,4 +1,7 @@
+
+
 export class CuidadorModel{
+    id: number;
     nome: string;
     idade: number;
     sexo: string;
@@ -6,4 +9,5 @@ export class CuidadorModel{
     estadoCivil: string;
     role: string ;
     possuiOcupacao:boolean | string;
+    senha: string;
 }

@@ -47,7 +47,7 @@
                     </a>
                 </li>
                 <li>
-                    <a routerLink="/cadastro-paciente" class="nav-link text-white">
+                    <a (click)="passaUrlPaciente()" class="nav-link text-white">
                         <mat-icon class="bi me-2" width="16" height="16">list_alt</mat-icon> Cadastrar Paciente
                     </a>
                 </li>
@@ -76,7 +76,7 @@
                         <li>
                             <hr class="dropdown-divider">
                         </li>
-                        <li><a class="dropdown-item" href="#">Sair</a></li>
+                        <li><a class="dropdown-item" routerLink="/tela-login">Sair</a></li>
                     </ul>
                 </div>
             </ul>
@@ -88,7 +88,7 @@
         </div>
         <div class="row">
             <div class="col-md-8 datagrid">
-                <h3>Olá, CuidadorName!</h3><br>
+                <h3 *ngIf="data">Olá, {{nome}}!</h3><br>
                 <h5>Aqui estão os dados do paciente</h5>
                 <datagrid 
                 [data]="data" 
@@ -103,7 +103,7 @@
                     
                 </datagrid><br>
                 <h5>Você pode gerenciá-lo através do botão abaixo ou utilizando o menu -> Gerenciar Paciente.</h5><br>
-                <div class="col-md-2">
+                <div class="col-md-12">
                     <a routerLink="/tela-paciente"><button class="btn btn-primary">Gerenciar Paciente</button></a>
                 </div>
             </div>
