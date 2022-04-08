@@ -28,6 +28,10 @@ import { TelaCuidadorComponent } from './layout/tela-cuidador/tela-cuidador.comp
 import { TelaLoginComponent } from './layout/tela-login/tela-login.component';
 import { AlertService } from 'ngx-ui-hero';
 import { NgxUiHeroApiModule, ApiSettings } from 'ngx-ui-hero';
+import { CadastroDadosPacienteComponent } from './shared/cadastro-dados-paciente/cadastro-dados-paciente.component';
+import { CadastroMedicamentoComponent } from './shared/cadastro-dados-paciente/cadastro-medicamento/cadastro-medicamento.component';
+import { CadastroAtividadeComponent } from './shared/cadastro-dados-paciente/cadastro-atividade/cadastro-atividade.component';
+import { CadastroSintomaComponent } from './shared/cadastro-dados-paciente/cadastro-sintoma/cadastro-sintoma.component';
 
 
 export const dataGridSettings: DataGridConfig = {
@@ -90,7 +94,11 @@ export const apiSettings: ApiSettings = {
     CadastroPacienteComponent,
     CadastroBaseComponent,
     TelaCuidadorComponent,
-    TelaLoginComponent
+    TelaLoginComponent,
+    CadastroDadosPacienteComponent,
+    CadastroMedicamentoComponent,
+    CadastroAtividadeComponent,
+    CadastroSintomaComponent
   ],
   imports: [
     BrowserModule,

@@ -9,7 +9,7 @@ namespace AlzheimerApp.Controllers {
     public class AgendamentoController : CrudBaseController<Agendamento, int> {
         // private readonly IRepositorioBase<Cuidador, int> _repositorio;
 
-        protected AgendamentoController(IRepositorioBase<Agendamento, int> repositorio) : base(repositorio) {
+        public AgendamentoController(IRepositorioBase<Agendamento, int> repositorio) : base(repositorio) {
             // _repositorio = repositorio;
         }
     }

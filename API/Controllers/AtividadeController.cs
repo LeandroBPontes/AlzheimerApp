@@ -8,7 +8,7 @@ namespace AlzheimerApp.Controllers {
     public class AtividadeController : CrudBaseController<Atividade, int> {
         // private readonly IRepositorioBase<Cuidador, int> _repositorio;
 
-        protected AtividadeController(IRepositorioBase<Atividade, int> repositorio) : base(repositorio) {
+        public AtividadeController(IRepositorioBase<Atividade, int> repositorio) : base(repositorio) {
             // _repositorio = repositorio;
         }
     }

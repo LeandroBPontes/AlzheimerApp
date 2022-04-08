@@ -63,8 +63,11 @@ export class TelaCuidadorComponent implements OnInit {
     }
   ];
   
-  passaUrlPaciente(){
+  passaUrlCadastroPaciente(){
     return this.router.navigate([`/cadastro-paciente/${this.id}`]);
+  }
+  passaUrlPaciente(){
+    return this.router.navigate([`/tela-paciente/${this.id}`]);
   }
   obterTodosPorIdCuidador(id){
     this.service.obterPacientePorId(id).subscribe(resultado => {
@@ -74,6 +77,7 @@ export class TelaCuidadorComponent implements OnInit {
   obterCuidador(id) {
     this.service.buscarPorId(id).subscribe(resultado => {
       this.nome = resultado.nome;
+      console.log(this.nome)
     }
     );
   }

@@ -1,6 +1,7 @@
 import { CuidadorModel } from "../cuidador/cuidador.model";
 
 export class PacienteModel{
+    id: number;
     nome: string;
     idade: number;
     sexo: string;

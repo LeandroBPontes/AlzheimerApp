@@ -31,6 +31,10 @@ export class CuidadorService {
   obterPacientePorId(id: number){
     return this.http.get<PacienteModel>(`${this.baseURL}api/paciente/obterPacientePorIdCuidador/${id}`);
   }
+
+  obterIdPacienteParaRota(id: number): any{
+    return this.http.get<PacienteModel>(`${this.baseURL}api/paciente/obterPacientePorIdCuidador/${id}`);
+  }
  
   // inserirPaciente(paciente: PacienteModel) {
   //   return this.http.post(`${this.baseURL}api/paciente`, paciente);

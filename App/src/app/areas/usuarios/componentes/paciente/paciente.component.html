@@ -1,1 +1,172 @@
-<p>paciente works!</p>
+<!doctype html>
+<html lang="pt">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+    </style>
+
+
+    <!-- Custom styles for this template -->
+    <link href="./paciente.component.css" rel="stylesheet">
+</head>
+
+<body>
+    <main>
+
+        <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
+            <a routerLink="/tela-cuidador" class="bi me-2 nav-link text-white">
+                <!-- <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> -->
+                <h5>
+                    <mat-icon width="16" height="16">face</mat-icon> Dados Paciente
+                </h5><hr>
+            </a>
+            <ul class="nav nav-pills flex-column mb-auto">
+                <li class="nav-item">
+                    <a routerLink="/tela-paciente" class="nav-link text-white">
+                        <mat-icon class="bi me-2" width="16" height="16">home</mat-icon> Home
+                    </a>
+                </li>
+                <li>
+                    <a (click)="cadastrarMedicamento()"class="nav-link text-white">
+                        <mat-icon class="bi me-2" width="16" height="16">invert_colors</mat-icon> Cadastrar Medicamento
+                    </a>
+                </li>
+                <li>
+                    <a (click)="cadastrarAtividade()" class="nav-link text-white">
+                        <mat-icon class="bi me-2" width="16" height="16">accessibility_new</mat-icon> Cadastrar
+                        Atividade
+                    </a>
+                </li>
+                <li>
+                    <a (click)="cadastrarSintoma()" class="nav-link text-white">
+                        <mat-icon class="bi me-2" width="16" height="16">healing</mat-icon> Cadastrar Sintoma
+                    </a>
+                </li>
+                <li>
+                    <a routerLink="/cadastro-agendamento" class="nav-link text-white">
+                        <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Criar Agendamento
+                    </a>
+                </li>
+                <hr>
+                <li>
+                    <a routerLink="/tela-paciente" class="nav-link text-white">
+                        <mat-icon class="bi me-2" width="16" height="16">feedback</mat-icon> Sobre o App
+                    </a>
+                </li>
+                <hr>
+                <li>
+                    <a (click)="listarMedicamento()" class="nav-link text-white">
+                        <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Exibir Medicamentos
+                    </a>
+                </li>
+                <li>
+                    <a (click)="listarAtividade()" class="nav-link text-white">
+                        <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Exibir Atividades
+                    </a>
+                </li>
+                <li>
+                    <a (click)="listarSintoma()" class="nav-link text-white">
+                        <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Exibir Sintomas
+                    </a>
+                </li><hr>
+
+                <div class="btn-group dropdown">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
+                        data-bs-toggle="dropdown" aria-expanded="false">
+                        <mat-icon class="bi me-2" width="16" height="16">account_circle</mat-icon>
+                        Editar Paciente
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
+                        <li><a class="dropdown-item" href="#">Editar</a></li>
+                        <li><a class="dropdown-item" href="#">Excluir</a></li>
+                        <li>
+                            <hr class="dropdown-divider">
+                        </li>
+                        <li><a class="dropdown-item" routerLink="/tela-login">Sair</a></li>
+                    </ul>
+                </div>
+            </ul>
+            <hr>
+            <p>Todos os direitos reservados a &copy;AlzheimerApp - {{ano}}
+            </p>
+        </div><br>
+        <div class="b-example-divider">
+        </div>
+        <div class="row">
+            <div class="col-md-8 datagrid" *ngIf="medicamento">
+                <mat-card>
+                    <!-- <h3 *ngIf="data">Olá, {{nome}}!</h3><br> -->
+                    <h5>{{textoDatagrid}}</h5>
+                    <hr>
+                    <datagrid [data]="medicamentos" [columns]="Base" [showActionsColumn]="true"
+                        [initialColumnToSort]="0">
+
+                        <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
+                            <button class="btn btn-primary btn-sm mr-1" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+                        </ng-template>
+
+                    </datagrid><br>
+                </mat-card>
+            </div>
+        
+
+        
+            <div class="col-md-8 datagrid" *ngIf="atividade">
+                <mat-card>
+                    <!-- <h3 *ngIf="data">Olá, {{nome}}!</h3><br> -->
+                    <h5>{{textoDatagrid}}</h5>
+                    <hr>
+                    <datagrid [data]="atividades" [columns]="Base" [showActionsColumn]="true"
+                        [initialColumnToSort]="0">
+
+                        <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
+                            <button class="btn btn-primary btn-sm mr-1" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+                        </ng-template>
+
+                    </datagrid><br>
+                </mat-card>
+            </div>
+      
+        
+            <div class="col-md-8 datagrid" *ngIf="sintoma">
+                <mat-card>
+                    <!-- <h3 *ngIf="data">Olá, {{nome}}!</h3><br> -->
+                    <h5>{{textoDatagrid}}</h5>
+                    <hr>
+                    <datagrid [data]="sintomas" [columns]="Base" [showActionsColumn]="true"
+                        [initialColumnToSort]="0">
+
+                        <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
+                            <button class="btn btn-outline-primary btn-sm" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+                        </ng-template>
+
+                    </datagrid><br>
+                </mat-card>
+            </div>
+        </div> 
+
+    </main>
+
+</body>
+
+</html>

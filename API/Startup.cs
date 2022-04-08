@@ -38,6 +38,9 @@ namespace AlzheimerApp
 
             services.AddScoped<IRepositorioBase<Cuidador, int>, CuidadorRepositorio>();
             services.AddScoped<IRepositorioBase<Paciente, int>, PacienteRepositorio>();
+            services.AddScoped<IRepositorioBase<Medicamento, int>, MedicamentoRepositorio>();
+            services.AddScoped<IRepositorioBase<Atividade, int>, AtividadeRepositorio>();
+            services.AddScoped<IRepositorioBase<Sintoma, int>, SintomaRepositorio>();
 
             //services.AddResponseCaching();
             services.AddCors();

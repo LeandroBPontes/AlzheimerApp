@@ -8,7 +8,7 @@ namespace AlzheimerApp.Controllers {
     public class MedicamentoController : CrudBaseController<Medicamento, int> {
         // private readonly IRepositorioBase<Cuidador, int> _repositorio;
 
-        protected MedicamentoController(IRepositorioBase<Medicamento, int> repositorio) : base(repositorio) {
+        public MedicamentoController(IRepositorioBase<Medicamento, int> repositorio) : base(repositorio) {
             // _repositorio = repositorio;
         }
     }

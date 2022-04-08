@@ -25,6 +25,8 @@
 
     <!-- Custom styles for this template -->
     <link href="./tela-cuidador.component.css" rel="stylesheet">
+   
+  
 </head>
 
 <body>
@@ -47,12 +49,12 @@
                     </a>
                 </li>
                 <li>
-                    <a (click)="passaUrlPaciente()" class="nav-link text-white">
-                        <mat-icon class="bi me-2" width="16" height="16">list_alt</mat-icon> Cadastrar Paciente
+                    <a (click)="passaUrlCadastroPaciente()" class="nav-link text-white">
+                        <mat-icon class="bi me-2" width="16" height="16">person_add</mat-icon> Cadastrar Paciente
                     </a>
                 </li>
                 <li>
-                    <a routerLink="/tela-paciente" class="nav-link text-white">
+                    <a (click)="passaUrlPaciente()" class="nav-link text-white">
                         <mat-icon class="bi me-2" width="16" height="16">supervised_user_circle</mat-icon> Gerenciar
                         Paciente
                     </a>
@@ -88,24 +90,26 @@
         </div>
         <div class="row">
             <div class="col-md-8 datagrid">
+                <mat-card>
                 <h3 *ngIf="data">Olá, {{nome}}!</h3><br>
                 <h5>Aqui estão os dados do paciente</h5>
                 <datagrid 
                 [data]="data" 
                 [columns]="pacientes" 
-                [showActionsColumn]="false"
+                [showActionsColumn]="true"
                 [initialColumnToSort]="0">
         
                     <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
-                        <button class="btn btn-primary btn-sm mr-1"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-outline-primary btn-sm" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
                         <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
                     </ng-template>
                     
                 </datagrid><br>
                 <h5>Você pode gerenciá-lo através do botão abaixo ou utilizando o menu -> Gerenciar Paciente.</h5><br>
                 <div class="col-md-12">
-                    <a routerLink="/tela-paciente"><button class="btn btn-primary">Gerenciar Paciente</button></a>
+                    <a (click)="passaUrlPaciente()"><button class="btn btn-primary">Gerenciar Paciente</button></a>
                 </div>
+            </mat-card>
             </div>
         </div>
         
