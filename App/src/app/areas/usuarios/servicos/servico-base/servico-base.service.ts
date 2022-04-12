@@ -30,4 +30,16 @@ export class ServicoBaseService {
     buscarTodaosSintomas(): Promise<Array<BaseModel>> {
       return this.http.get<BaseModel[]>(`${this.baseURL}api/sintoma`).toPromise();
     }
+
+    excluirMedicamento(id:number){
+      return this.http.delete(`${this.baseURL}api/medicamento/${id}`);
+    }
+
+    excluirSintoma(id:number){
+      return this.http.delete(`${this.baseURL}api/sintoma/${id}`);
+    }
+
+    ExcluirAtividade(id:number){
+      return this.http.delete(`${this.baseURL}api/atividade/${id}`);
+    }
   }

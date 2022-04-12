@@ -16,6 +16,7 @@ namespace AlzheimerApp.Repositorios {
         public void Delete(int id) {
             var Sintoma = _context.Sintomas.Find(id);
             _context.Sintomas.Remove(Sintoma);
+            _context.SaveChanges();
         }
 
         public IEnumerable<Sintoma> Get() {
@@ -32,6 +33,7 @@ namespace AlzheimerApp.Repositorios {
         }
         public void Update(Sintoma model) {
             _context.Entry(model).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         private bool disposed = false;

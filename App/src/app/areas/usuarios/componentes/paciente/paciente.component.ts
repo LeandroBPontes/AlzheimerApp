@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { finalize } from 'rxjs/operators';
 import { PacienteModel } from '../../modelos/paciente/paciente.model';
 import { CuidadorService } from '../../servicos/cuidador/cuidador.service';
 import { PacienteService } from '../../servicos/paciente/paciente.service';
@@ -31,9 +32,9 @@ export class PacienteComponent implements OnInit {
   cadastroAtividade = false;
   cadastroSintoma = false;
 
-  atividades : any;
-  medicamentos : any;
-  sintomas : any;
+  atividades: any;
+  medicamentos: any;
+  sintomas: any;
 
   Base = [
     {
@@ -48,46 +49,44 @@ export class PacienteComponent implements OnInit {
       caption: 'Frequência',
       data: 'frequencia',
     },
-   
+
   ];
 
   constructor(
     private activatedRoute: ActivatedRoute,
-     private service: CuidadorService, public router: Router,
-     public serviceBase: ServicoBaseService) { }
+    private service: CuidadorService, public router: Router,
+    public serviceBase: ServicoBaseService) { }
 
 
   ngOnInit(): void {
     this.idCuidador = this.activatedRoute.snapshot.paramMap.get('id');
-    //this.obterTodosPorIdCuidador(this.idCuidador)
-   // console.log(this.idPaciente)
   }
 
-  obterTodosPorIdCuidador(id){
+  obterTodosPorIdCuidador(id) {
     this.service.obterIdPacienteParaRota(id).subscribe(resultado => {
       this.idPaciente = resultado[0].id
 
-      if(this.cadastroMedicamento){
-       
+      if (this.cadastroMedicamento) {
+
         //this.cadastroMedicamento = false;
         return this.router.navigateByUrl(`/cadastro-medicamento/${this.idCuidador}/${this.idPaciente}`)
       }
-      if(this.cadastroAtividade){
-       // this.cadastroMedicamento = false;
-        return this.router.navigateByUrl(`/cadastro-atividade/${this.idCuidador}/${this.idPaciente}`) 
+      if (this.cadastroAtividade) {
+        // this.cadastroMedicamento = false;
+        return this.router.navigateByUrl(`/cadastro-atividade/${this.idCuidador}/${this.idPaciente}`)
       }
-      if(this.cadastroSintoma){
+      if (this.cadastroSintoma) {
         //this.cadastroMedicamento = false;
         return this.router.navigateByUrl(`/cadastro-sintoma/${this.idCuidador}/${this.idPaciente}`)
-        
+
       }
       return false;
-      }
+    }
     );
-   
+
   }
 
-  listarMedicamento(){
+  listarMedicamento() {
     this.textoDatagrid = "Medicamentos"
     this.medicamento = true;
     this.atividade = false;
@@ -98,18 +97,18 @@ export class PacienteComponent implements OnInit {
     });
 
   }
-  listarAtividade(){
+  listarAtividade() {
     this.textoDatagrid = "Atividades"
     this.atividade = true;
     this.medicamento = false;
     this.sintoma = false;
 
-      this.serviceBase.buscarTodasAtividades().then(resultado => {
-        this.atividades = resultado;
-      });
-    
+    this.serviceBase.buscarTodasAtividades().then(resultado => {
+      this.atividades = resultado;
+    });
+
   }
-  listarSintoma(){
+  listarSintoma() {
     this.textoDatagrid = "Sintomas"
     this.sintoma = true;
     this.medicamento = false;
@@ -118,20 +117,64 @@ export class PacienteComponent implements OnInit {
     this.serviceBase.buscarTodaosSintomas().then(resultado => {
       this.sintomas = resultado;
     });
-    
+
   }
-  cadastrarMedicamento(){
+  cadastrarMedicamento() {
     this.cadastroMedicamento = true;
     this.obterTodosPorIdCuidador(this.idCuidador)
   }
-  cadastrarAtividade(){
+  cadastrarAtividade() {
     this.cadastroAtividade = true;
     this.obterTodosPorIdCuidador(this.idCuidador)
 
   }
-  cadastrarSintoma(){
+  cadastrarSintoma() {
     this.cadastroSintoma = true;
     this.obterTodosPorIdCuidador(this.idCuidador)
 
+  }
+
+  excluirMedicamento(index: any) {
+    var resposta = window.confirm("Tem Certeza que deseja excluir esse medicamento?");
+    if (resposta) {
+      this.medicamento = false;
+
+      this.serviceBase
+        .excluirMedicamento(index.id)
+        .subscribe()
+      var resposta = window.confirm("Medicamento Excluído com Sucesso!");
+      if (resposta)
+        return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
+    }
+
+    return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
+  }
+  excluirAtividade(index: any) {
+    var resposta = window.confirm("Tem Certeza que deseja excluir essa atividade?");
+    if (resposta) {
+      this.atividade = false;
+      this.serviceBase
+        .ExcluirAtividade(index.id)
+        .subscribe()
+      var resposta = window.confirm("Atividade Excluída com Sucesso!");
+      if (resposta)
+        return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
+    }
+
+    return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
+  }
+  excluirSintoma(index: any) {
+    var resposta = window.confirm("Tem Certeza que deseja excluir esse sintoma?");
+    if (resposta) {
+      this.sintoma = false;
+      this.serviceBase
+        .excluirSintoma(index.id)
+        .subscribe()
+      var resposta = window.confirm("Sintoma Excluído com Sucesso!");
+      if (resposta)
+        return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
+    }
+
+    return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
   }
 }

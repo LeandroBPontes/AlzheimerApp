@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { BaseModel } from 'src/app/areas/usuarios/modelos/base/base.model';
 
 @Component({
   selector: 'app-cadastro-atividade',
@@ -7,10 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CadastroAtividadeComponent implements OnInit {
   titulo = "Tela de Cadastro de Atividade"
+  idCuidador: any;
+  idPaciente: any;
 
-  constructor() { }
+  constructor( private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
+    this.idCuidador = this.activatedRoute.snapshot.paramMap.get('idCuidador');
+    this.idPaciente= this.activatedRoute.snapshot.paramMap.get('idPaciente');
   }
 
 }

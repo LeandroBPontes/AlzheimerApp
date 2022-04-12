@@ -46,11 +46,11 @@ const routes: Routes = [
     component: CadastroMedicamentoComponent 
   },
   { 
-    path: 'cadastro-atividade/:id/:id',
+    path: 'cadastro-atividade/:idCuidador/:idPaciente',
     component: CadastroAtividadeComponent 
   },
   { 
-    path: 'cadastro-sintoma/:id/:id',
+    path: 'cadastro-sintoma/:idCuidador/:idPaciente',
     component: CadastroSintomaComponent 
   }
 ];
