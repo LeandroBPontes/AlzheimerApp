@@ -3,7 +3,8 @@ import { DataGridColumnModel, EnumAlignment } from 'ngx-ui-hero';
 import { CuidadorService } from 'src/app/areas/usuarios/servicos/cuidador/cuidador.service';
 import { PacienteService } from 'src/app/areas/usuarios/servicos/paciente/paciente.service';
 import { ActivatedRoute, Router } from '@angular/router';
-
+import { TelaCuidadorModalComponent } from './tela-cuidador-modal/tela-cuidador-modal.component';
+import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 
 @Component({
   selector: 'app-tela-cuidador',
@@ -11,9 +12,9 @@ import { ActivatedRoute, Router } from '@angular/router';
   styleUrls: ['./tela-cuidador.component.css']
 })
 export class TelaCuidadorComponent implements OnInit {
-
+  modalRef?: BsModalRef;
   constructor(public service: CuidadorService, public servicePaciente: PacienteService, private router: Router,
-    private activatedRoute: ActivatedRoute) { }
+    private activatedRoute: ActivatedRoute,  public modalService: BsModalService) { }
   nome: any;
   id: any;
 
@@ -82,5 +83,15 @@ export class TelaCuidadorComponent implements OnInit {
   }
   sair() {
     return this.router.navigate(['/tela-login']);
+  }
+  editarPaciente(rowIndex: any){
+    let modalRef = this.modalService.show(TelaCuidadorModalComponent, {
+      class: "modal-lg",
+      keyboard: false,
+      initialState: {
+        dados: rowIndex,
+      },
+    });
+  
   }
 }

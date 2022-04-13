@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { CuidadorModel } from 'src/app/areas/usuarios/modelos/cuidador/cuidador.model';
 import { CuidadorService } from 'src/app/areas/usuarios/servicos/cuidador/cuidador.service';
-import { AlertService } from 'ngx-ui-hero';
+import { AlertService, BlockUi } from 'ngx-ui-hero';
 import { Router } from '@angular/router';
 
 
@@ -12,7 +12,12 @@ import { Router } from '@angular/router';
 })
 export class TelaLoginComponent implements OnInit {
 
-  constructor(public service: CuidadorService, private alertService: AlertService, public router: Router) { }
+  constructor(public service: CuidadorService, private alertService: AlertService, public router: Router) { 
+  
+
+  }
+  
+  blockUi = new BlockUi();
   titulo = "Tela de Login"
   filtro = new CuidadorModel()
   nome: string;
@@ -23,15 +28,19 @@ export class TelaLoginComponent implements OnInit {
   }
 
   logar() {
+    // this.blockUi.start('Entrando...');
     this.service
       .login(this.filtro)
       .subscribe(result => {
         this.emissor = result;
         if (!result) {
+          this.blockUi.stop();
           var resposta = window.confirm("Usuário não cadastrado. Deseja Cadastrar?");
           if (resposta) {
+           
             return this.redirect()
           } else {
+            // this.blockUi.stop();
             return this.router.navigate(['/tela-login']);
           }
 
@@ -45,6 +54,7 @@ export class TelaLoginComponent implements OnInit {
   }
 
   redirect(): any {
+   
     return this.router.navigate(['/cadastro-usuario']);
   }
 

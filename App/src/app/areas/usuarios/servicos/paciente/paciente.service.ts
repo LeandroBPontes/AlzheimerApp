@@ -16,6 +16,10 @@ export class PacienteService {
     return this.http.post(`${this.baseURL}api/paciente`, paciente);
   }
 
+  atualizar(id:number, paciente: PacienteModel) {
+    return this.http.put(`${this.baseURL}api/paciente/${id}`, paciente);
+  }
+
   buscarTodos(): Promise<Array<PacienteModel>> {
     return this.http.get<PacienteModel[]>(`${this.baseURL}api/paciente`).toPromise();
   }

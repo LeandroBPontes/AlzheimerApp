@@ -100,7 +100,7 @@
                 [initialColumnToSort]="0">
         
                     <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
-                        <button class="btn btn-outline-primary btn-sm" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
+                        <button class="btn btn-outline-primary btn-sm" (click)="editarPaciente(row)" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
                         <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
                     </ng-template>
                     

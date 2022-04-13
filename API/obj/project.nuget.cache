@@ -1,11 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "S89YVZC40TUrXY7ix9GCbvE/2ixoWQMMv+rZDrUeBYJX9UOsFc+QJWLLiMGU1QFfwT1VkZgyMmPVNlab5o6VlQ==",
+  "dgSpecHash": "uNXqlXBycuM+BKoj12qf0dpsoKbAuZrzNVYrrA3Kez/zegjDvOpmR27iBf1Ej2IfbV/L5xXzykTRGFqQrORD5w==",
   "success": true,
   "projectFilePath": "C:\\Users\\leand\\Desktop\\AlzheimerApp\\AlzhimerApp\\API\\AlzheimerApp.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\leand\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\leand\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\11.0.0\\automapper.extensions.microsoft.dependencyinjection.11.0.0.nupkg.sha512",
     "C:\\Users\\leand\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
-    "C:\\Users\\leand\\.nuget\\packages\\microsoft.csharp\\4.5.0\\microsoft.csharp.4.5.0.nupkg.sha512",
+    "C:\\Users\\leand\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\leand\\.nuget\\packages\\microsoft.data.sqlclient\\2.1.4\\microsoft.data.sqlclient.2.1.4.nupkg.sha512",
     "C:\\Users\\leand\\.nuget\\packages\\microsoft.data.sqlclient.sni.runtime\\2.1.1\\microsoft.data.sqlclient.sni.runtime.2.1.1.nupkg.sha512",
     "C:\\Users\\leand\\.nuget\\packages\\microsoft.entityframeworkcore\\6.0.3\\microsoft.entityframeworkcore.6.0.3.nupkg.sha512",

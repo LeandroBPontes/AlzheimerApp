@@ -1,4 +1,5 @@
-﻿using AlzheimerApp.Repositorios;
+﻿using AlzheimerApp.Dominios;
+using AlzheimerApp.Repositorios;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AlzheimerApp.Controllers {
@@ -43,13 +44,12 @@ namespace AlzheimerApp.Controllers {
         public IActionResult Atualizar(TPrimary id, [FromBody] TEntidade model) {
             if (!ModelState.IsValid)
                 return BadRequest();
-
             var objeto = _repositorio.GetByID(id);
 
             if (objeto == null)
                 return NotFound();
 
-           _repositorio.Update(objeto);
+           _repositorio.Update(model);
           
             return NoContent();
         }

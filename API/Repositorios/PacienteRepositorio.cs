@@ -4,6 +4,8 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
+using AlzheimerApp.Dominios.Pacientes;
+using AutoMapper;
 
 namespace AlzheimerApp.Repositorios {
     internal class PacienteRepositorio : IRepositorioBase<Paciente, int> {
@@ -15,6 +17,7 @@ namespace AlzheimerApp.Repositorios {
         public void Delete(int id) {
             var paciente = _context.Pacientes.Find(id);
             _context.Pacientes.Remove(paciente);
+            _context.SaveChanges();
         }
 
         public IEnumerable<Paciente> Get() {
@@ -30,9 +33,14 @@ namespace AlzheimerApp.Repositorios {
             _context.SaveChanges();
         }
         public void Update(Paciente model) {
-            _context.Entry(model).State = EntityState.Modified;
-        }
+            var config = new MapperConfiguration(cfg => cfg.CreateMap<Paciente, PacienteEntrada>());
+            var mapper = new Mapper(config);
 
+            var pacienteRetorno = mapper.Map<Paciente>(model);
+            _context.Entry(pacienteRetorno).State = EntityState.Modified;
+            _context.SaveChanges();
+
+        }
         private bool disposed = false;
         protected virtual void Dispose(bool disposing) {
             if (!this.disposed) {

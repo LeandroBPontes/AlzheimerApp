@@ -13,7 +13,6 @@ import { MatIconModule } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import {MatCardModule} from '@angular/material/card';
 import {MatBadgeModule} from '@angular/material/badge';
-import { ModalModule } from 'ngx-bootstrap/modal';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatDividerModule} from '@angular/material/divider';
 import {MatFormFieldModule} from '@angular/material/form-field';
@@ -27,12 +26,16 @@ import { DataGridColumnModel, DataGridConfig, EnumAutoFitMode, EnumDataGridMode,
 import { TelaCuidadorComponent } from './layout/tela-cuidador/tela-cuidador.component';
 import { TelaLoginComponent } from './layout/tela-login/tela-login.component';
 import { AlertService } from 'ngx-ui-hero';
-import { NgxUiHeroApiModule, ApiSettings } from 'ngx-ui-hero';
+import { NgxUiHeroApiModule, ApiSettings} from 'ngx-ui-hero';
 import { CadastroDadosPacienteComponent } from './shared/cadastro-dados-paciente/cadastro-dados-paciente.component';
 import { CadastroMedicamentoComponent } from './shared/cadastro-dados-paciente/cadastro-medicamento/cadastro-medicamento.component';
 import { CadastroAtividadeComponent } from './shared/cadastro-dados-paciente/cadastro-atividade/cadastro-atividade.component';
 import { CadastroSintomaComponent } from './shared/cadastro-dados-paciente/cadastro-sintoma/cadastro-sintoma.component';
-
+import {
+  ChartsConfig,  NgxUiHeroInputFormsModule
+} from 'ngx-ui-hero';
+import { TelaCuidadorModalComponent } from './layout/tela-cuidador/tela-cuidador-modal/tela-cuidador-modal.component';
+import { ModalModule } from 'ngx-bootstrap/modal';
 
 export const dataGridSettings: DataGridConfig = {
   emptyResultsMessage: 'No results found at this moment.',
@@ -98,7 +101,9 @@ export const apiSettings: ApiSettings = {
     CadastroDadosPacienteComponent,
     CadastroMedicamentoComponent,
     CadastroAtividadeComponent,
-    CadastroSintomaComponent
+    CadastroSintomaComponent,
+    TelaCuidadorModalComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -117,8 +122,7 @@ export const apiSettings: ApiSettings = {
     HttpClientModule,
     NgxUiHeroModule,
     NgxUiHeroDataGridModule.forRoot(dataGridSettings),
-    NgxUiHeroApiModule.forRoot(apiSettings)
-  
+    NgxUiHeroApiModule.forRoot(apiSettings),
   ],
   providers: [AlertService],
   bootstrap: [AppComponent]
