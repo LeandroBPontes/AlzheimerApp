@@ -33,11 +33,20 @@ namespace AlzheimerApp.Repositorios {
             _context.SaveChanges();
         }
         public void Update(Paciente model) {
-            var config = new MapperConfiguration(cfg => cfg.CreateMap<Paciente, PacienteEntrada>());
-            var mapper = new Mapper(config);
+           // var config = new MapperConfiguration(cfg => cfg.CreateMap<Paciente, PacienteEntrada>());
+            //var mapper = new Mapper(config);
 
-            var pacienteRetorno = mapper.Map<Paciente>(model);
-            _context.Entry(pacienteRetorno).State = EntityState.Modified;
+            //var pacienteRetorno = mapper.Map<Paciente>(model);
+            var paciente = _context.Pacientes.Find(model.Id);
+
+            paciente.Idade = model.Idade;
+            paciente.Sexo = model.Sexo;
+            paciente.PossuiPlano = model.PossuiPlano;
+            paciente.PossuiFilho = model.PossuiFilho;
+            paciente.EstadoCivil = model.EstadoCivil;
+            paciente.Nome = model.Nome;
+
+            _context.Entry(paciente).State = EntityState.Modified;
             _context.SaveChanges();
 
         }
