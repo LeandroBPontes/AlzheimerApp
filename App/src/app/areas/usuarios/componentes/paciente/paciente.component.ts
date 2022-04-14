@@ -1,10 +1,13 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { finalize } from 'rxjs/operators';
 import { PacienteModel } from '../../modelos/paciente/paciente.model';
 import { CuidadorService } from '../../servicos/cuidador/cuidador.service';
 import { PacienteService } from '../../servicos/paciente/paciente.service';
 import { ServicoBaseService } from '../../servicos/servico-base/servico-base.service';
+
+import { ReportComponent } from 'ngx-ui-hero';
+
 
 @Component({
   selector: 'app-paciente',
@@ -18,6 +21,13 @@ export class PacienteComponent implements OnInit {
   @Input() columns: any
   @Input() showActionsColumn: any
   @Input() initialColumnToSort: any
+
+  @ViewChild('report') report: ReportComponent;
+
+  Print(): void {
+    this.report.Print();
+  }
+  
 
   idCuidador: any;
   idPaciente: any;

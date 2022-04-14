@@ -25,6 +25,8 @@
 
     <!-- Custom styles for this template -->
     <link href="./paciente.component.css" rel="stylesheet">
+ 
+  
 </head>
 
 <body>
@@ -109,7 +111,10 @@
         </div><br>
         <div class="b-example-divider">
         </div>
+        <ui-report #report reportTitle="My report example title">
+            <div class="report-body">
         <div class="row">
+           
             <div class="col-md-8 datagrid" *ngIf="medicamento">
                 <mat-card>
                     <!-- <h3 *ngIf="data">Olá, {{nome}}!</h3><br> -->
@@ -124,11 +129,10 @@
                         </ng-template>
 
                     </datagrid><br>
+                   
                 </mat-card>
             </div>
-        
-
-        
+      
             <div class="col-md-8 datagrid" *ngIf="atividade">
                 <mat-card>
                     <!-- <h3 *ngIf="data">Olá, {{nome}}!</h3><br> -->
@@ -162,8 +166,14 @@
 
                     </datagrid><br>
                 </mat-card>
+           
             </div>
         </div> 
+             </div>
+        </ui-report>
+
+    
+        <button class="btn btn-outline-danger" (click)="Print()"> Printar  </button>
 
     </main>
 
