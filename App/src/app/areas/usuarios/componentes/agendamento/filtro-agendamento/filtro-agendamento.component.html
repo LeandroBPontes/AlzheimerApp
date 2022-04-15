@@ -12,7 +12,7 @@
                 [label]="'Data Inicial'"
                 [disabled]="false"
                 [showValidations]="true"
-                [(ngModel)]="filtro.dataAgendamento"
+                [(ngModel)]="filtro.dataAgendamentoInicial"
                 >
             </input-date>
             </div>
@@ -21,7 +21,7 @@
                 [label]="'Data Final'"
                 [disabled]="false"
                 [showValidations]="true"
-                [(ngModel)]="filtro.dataAgendamento"
+                [(ngModel)]="filtro.dataAgendamentoFinal"
                 >
             </input-date>
             </div>
@@ -32,8 +32,8 @@
             <h5>Agendamentos</h5>
             <hr>
         <datagrid 
-        [data]="data" 
-        [columns]="pacientes" 
+        [data]="agendamentosFiltrados" 
+        [columns]="agendamentos" 
         [showActionsColumn]="true"
         [initialColumnToSort]="0">
 

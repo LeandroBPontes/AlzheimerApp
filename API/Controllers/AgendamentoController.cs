@@ -13,7 +13,7 @@ namespace AlzheimerApp.Controllers {
         public AgendamentoController(IRepositorioBase<Agendamento, int> repositorio) : base(repositorio) {
             _repositorio = repositorio;
         }
-        [HttpGet("ObterPorAgendamentoPorData/{dataInicial}/{dataFinal}")]
+        [HttpGet("ObterAgendamentoPorData/{dataInicial}/{dataFinal}")]
         public ActionResult<Agendamento> ObterPorAgendamentoPorData(DateTime? dataInicial, DateTime? dataFinal) {
         
             if(dataInicial != null && dataFinal != null) {

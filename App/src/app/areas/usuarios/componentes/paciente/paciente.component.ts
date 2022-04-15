@@ -43,6 +43,8 @@ export class PacienteComponent implements OnInit {
   cadastroSintoma = false;
   cadastroAgendamento = false;
 
+  gerenciarAgendamento = false;
+
   atividades: any;
   medicamentos: any;
   sintomas: any;
@@ -79,7 +81,6 @@ export class PacienteComponent implements OnInit {
 
       if (this.cadastroMedicamento) {
 
-   
         return this.router.navigateByUrl(`/cadastro-medicamento/${this.idCuidador}/${this.idPaciente}`)
       }
       if (this.cadastroAtividade) {
@@ -94,6 +95,11 @@ export class PacienteComponent implements OnInit {
       if (this.cadastroAgendamento) {
         
         return this.router.navigateByUrl(`/criar-agendamento/${this.idCuidador}/${this.idPaciente}`)
+      }
+
+      if (this.gerenciarAgendamento) {
+        
+        return this.router.navigateByUrl(`/filtrar-agendamento/${this.idCuidador}/${this.idPaciente}`)
       }
       return false;
     }
@@ -191,6 +197,11 @@ export class PacienteComponent implements OnInit {
     }
 
     return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
+  }
+
+  gerenciarAgendamentos(){
+    this.gerenciarAgendamento = true;
+    this.obterTodosPorIdCuidador(this.idCuidador)
   }
 
   criarAgendamento(){

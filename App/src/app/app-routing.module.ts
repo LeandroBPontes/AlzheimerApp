@@ -60,7 +60,7 @@ const routes: Routes = [
     component: CriarAgendamentoComponent
   },
   { 
-    path: 'filtro-agendamento',
+    path: 'filtrar-agendamento/:idCuidador/:idPaciente',
     component: FiltroAgendamentoComponent
   },
 ];

@@ -41,6 +41,7 @@ import { NgxUiHeroInputFormsModule, InputFormsConfig } from 'ngx-ui-hero';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { FiltroAgendamentoComponent } from './areas/usuarios/componentes/agendamento/filtro-agendamento/filtro-agendamento.component';
+import { DatePipe } from '@angular/common';
 defineLocale('pt-br', ptBrLocale);
 
 export const dataGridSettings: DataGridConfig = {
@@ -203,7 +204,7 @@ export const inputFormsConfig: InputFormsConfig = {
     NgxUiHeroApiModule.forRoot(apiSettings),
     NgxUiHeroInputFormsModule.forRoot(inputFormsConfig)
   ],
-  providers: [AlertService],
+  providers: [AlertService, DatePipe,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

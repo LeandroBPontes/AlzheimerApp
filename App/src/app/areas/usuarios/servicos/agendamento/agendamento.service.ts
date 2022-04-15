@@ -14,5 +14,9 @@ export class AgendamentoService {
   inserir(agendamento: AgendamentoModel) {
     return this.http.post(`${this.baseURL}api/agendamento`, agendamento);
   }
+  filtrarAgendamentoPorData(dataInicial: any, dataFinal: any): Promise<Array<AgendamentoModel>> {
+    console.log(`${this.baseURL}api/agendamento/ObterAgendamentoPorData/${dataInicial}/${dataFinal}`)
+    return this.http.get<AgendamentoModel[]>(`${this.baseURL}api/agendamento/ObterAgendamentoPorData/${dataInicial}/${dataFinal}`).toPromise();
+  }
 
 }
