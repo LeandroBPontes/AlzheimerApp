@@ -32,7 +32,12 @@ namespace AlzheimerApp.Repositorios {
             _context.SaveChanges();
         }
         public void Update(Sintoma model) {
-            _context.Entry(model).State = EntityState.Modified;
+            var sintoma = _context.Sintomas.Find(model.Id);
+            sintoma.Frequencia = model.Frequencia;
+            sintoma.Horario = model.Horario;
+            sintoma.Nome = model.Nome;
+
+            _context.Entry(sintoma).State = EntityState.Modified;
             _context.SaveChanges();
         }
 

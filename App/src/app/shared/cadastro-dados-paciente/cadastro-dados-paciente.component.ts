@@ -67,7 +67,7 @@ export class CadastroDadosPacienteComponent implements OnInit {
               var resposta = window.confirm("Cadastro concluído com sucesso!");
               if (resposta)
               return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
-              return this.router.navigate([`/cadastro-atividade`]);; 
+              return this.router.navigate([`/cadastro-atividade`]);
         }
 
 

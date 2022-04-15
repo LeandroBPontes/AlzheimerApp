@@ -15,6 +15,8 @@ namespace AlzheimerApp.Repositorios {
         public void Delete(int id) {
             var cuidador  = _context.Cuidadores.Find(id);
            _context.Cuidadores.Remove(cuidador);
+            _context.SaveChanges();
+
         }
 
         public IEnumerable<Cuidador> Get() {
@@ -30,7 +32,19 @@ namespace AlzheimerApp.Repositorios {
             _context.SaveChanges();
         }
         public void Update(Cuidador model) {
-            _context.Entry(model).State = EntityState.Modified;
+            var cuidador = _context.Cuidadores.Find(model.Id);
+            //cuidador.Idade = model.Idade;
+            //cuidador.Nome = model.Nome;
+            cuidador.PossuiFilho = model.PossuiFilho;
+            cuidador.PossuiOcupacao = model.PossuiOcupacao;
+           
+
+            //TODO - ALTERAR SENHA E LOGIN
+           // cuidador.Senha = model.Senha;
+
+            _context.Entry(cuidador).State = EntityState.Modified;
+            _context.SaveChanges();
+
         }
 
         private bool disposed = false;

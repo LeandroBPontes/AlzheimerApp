@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { CriarAgendamentoComponent } from './areas/usuarios/componentes/agendamento/criar-agendamento/criar-agendamento.component';
 import { PacienteComponent } from './areas/usuarios/componentes/paciente/paciente.component';
 import { TelaCuidadorComponent } from './layout/tela-cuidador/tela-cuidador.component';
 import { TelaLoginComponent } from './layout/tela-login/tela-login.component';
@@ -52,6 +53,10 @@ const routes: Routes = [
   { 
     path: 'cadastro-sintoma/:idCuidador/:idPaciente',
     component: CadastroSintomaComponent 
+  },
+  { 
+    path: 'criar-agendamento/:idCuidador/:idPaciente',
+    component: CriarAgendamentoComponent
   }
 ];
 

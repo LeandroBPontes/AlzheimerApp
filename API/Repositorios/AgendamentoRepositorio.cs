@@ -16,6 +16,7 @@ namespace AlzheimerApp.Repositorios {
         public void Delete(int id) {
             var Agendamento = _context.Agendamentos.Find(id);
             _context.Agendamentos.Remove(Agendamento);
+            _context.SaveChanges();
         }
 
         public IEnumerable<Agendamento> Get() {
@@ -31,7 +32,14 @@ namespace AlzheimerApp.Repositorios {
             _context.SaveChanges();
         }
         public void Update(Agendamento model) {
-            _context.Entry(model).State = EntityState.Modified;
+
+            var agendamento = _context.Agendamentos.Find(model.Id);
+            agendamento.Endereco = model.Endereco;
+            agendamento.Especialidade = model.Especialidade;
+            agendamento.FeitoPeloPlano = model.FeitoPeloPlano;
+
+            _context.Entry(agendamento).State = EntityState.Modified;
+            _context.SaveChanges();
         }
 
         private bool disposed = false;

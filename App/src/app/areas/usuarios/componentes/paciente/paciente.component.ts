@@ -41,6 +41,7 @@ export class PacienteComponent implements OnInit {
   cadastroMedicamento = false;
   cadastroAtividade = false;
   cadastroSintoma = false;
+  cadastroAgendamento = false;
 
   atividades: any;
   medicamentos: any;
@@ -78,17 +79,21 @@ export class PacienteComponent implements OnInit {
 
       if (this.cadastroMedicamento) {
 
-        //this.cadastroMedicamento = false;
+   
         return this.router.navigateByUrl(`/cadastro-medicamento/${this.idCuidador}/${this.idPaciente}`)
       }
       if (this.cadastroAtividade) {
-        // this.cadastroMedicamento = false;
+        
         return this.router.navigateByUrl(`/cadastro-atividade/${this.idCuidador}/${this.idPaciente}`)
       }
       if (this.cadastroSintoma) {
-        //this.cadastroMedicamento = false;
+       
         return this.router.navigateByUrl(`/cadastro-sintoma/${this.idCuidador}/${this.idPaciente}`)
+      }
 
+      if (this.cadastroAgendamento) {
+        
+        return this.router.navigateByUrl(`/criar-agendamento/${this.idCuidador}/${this.idPaciente}`)
       }
       return false;
     }
@@ -145,7 +150,7 @@ export class PacienteComponent implements OnInit {
   }
 
   excluirMedicamento(index: any) {
-    var resposta = window.confirm("Tem Certeza que deseja excluir esse medicamento?");
+    var resposta = window.confirm("Tem certeza que deseja excluir esse medicamento?");
     if (resposta) {
       this.medicamento = false;
 
@@ -160,7 +165,7 @@ export class PacienteComponent implements OnInit {
     return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
   }
   excluirAtividade(index: any) {
-    var resposta = window.confirm("Tem Certeza que deseja excluir essa atividade?");
+    var resposta = window.confirm("Tem certeza que deseja excluir essa atividade?");
     if (resposta) {
       this.atividade = false;
       this.serviceBase
@@ -174,7 +179,7 @@ export class PacienteComponent implements OnInit {
     return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
   }
   excluirSintoma(index: any) {
-    var resposta = window.confirm("Tem Certeza que deseja excluir esse sintoma?");
+    var resposta = window.confirm("Tem certeza que deseja excluir esse sintoma?");
     if (resposta) {
       this.sintoma = false;
       this.serviceBase
@@ -186,5 +191,10 @@ export class PacienteComponent implements OnInit {
     }
 
     return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
+  }
+
+  criarAgendamento(){
+    this.cadastroAgendamento = true;
+    this.obterTodosPorIdCuidador(this.idCuidador)
   }
 }

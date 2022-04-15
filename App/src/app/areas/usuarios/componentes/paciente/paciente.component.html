@@ -62,7 +62,7 @@
                     </a>
                 </li>
                 <li>
-                    <a routerLink="/cadastro-agendamento" class="nav-link text-white">
+                    <a (click)="criarAgendamento()" class="nav-link text-white">
                         <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Criar Agendamento
                     </a>
                 </li>
@@ -171,12 +171,7 @@
         </div> 
              </div>
         </ui-report>
-
-    
         <button class="btn btn-outline-danger" (click)="Print()"> Printar  </button>
-
     </main>
-
 </body>
-
 </html>

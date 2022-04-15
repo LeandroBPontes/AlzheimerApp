@@ -1,0 +1,39 @@
+<app-menu> </app-menu>
+<div class="container">
+    <mat-card>
+        <mat-card-title>
+          <mat-icon>grid_on</mat-icon> {{titulo}}
+          <mat-divider></mat-divider>
+        </mat-card-title>
+ 
+        <div class="row">
+            <div class="mb-3 col-md-12 mt-2">
+                <label for="exampleFormControlInput1" class="form-label">Endereço do Agendamento</label>
+                <input type="text" class="form-control"  [(ngModel)]="filtro.endereco">
+            </div>
+            <div class="mb-3 col-md-12 mt-2">
+                <label for="exampleFormControlInput1" class="form-label">Especialidade</label>
+                <input type="text"  class="form-control"  [(ngModel)]="filtro.especialidade">
+            </div>
+           
+            <div class="mb-3 col-md-12 mt-2">
+            <label>Feito Pelo Plano?</label>
+            <select class="form-select" aria-label="Default select example" [(ngModel)]="filtro.feitoPeloPlano" required>
+                <option selected>Selecione</option>
+                <option [ngValue]="true">Sim</option>
+                <option  [ngValue]="false">Não</option>
+            </select>
+        </div>
+        </div>
+       
+            <div class="row">
+                <div class="col-md-4">
+                   <button type="button" class="btn btn-primary" style="margin-right: 2px;" (click)="inserir()"><mat-icon>search</mat-icon>Cadastrar</button>
+                    <button type="button" class="btn btn-secondary" (click)="limpar()"><mat-icon>clear_all</mat-icon>Limpar</button>
+                </div>
+            </div>
+      
+    </mat-card>
+ </div>
+
+

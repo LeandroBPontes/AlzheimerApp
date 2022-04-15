@@ -36,6 +36,7 @@ import {
 } from 'ngx-ui-hero';
 import { TelaCuidadorModalComponent } from './layout/tela-cuidador/tela-cuidador-modal/tela-cuidador-modal.component';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { CriarAgendamentoComponent } from './areas/usuarios/componentes/agendamento/criar-agendamento/criar-agendamento.component';
 
 export const dataGridSettings: DataGridConfig = {
   emptyResultsMessage: 'No results found at this moment.',
@@ -103,6 +104,7 @@ export const apiSettings: ApiSettings = {
     CadastroAtividadeComponent,
     CadastroSintomaComponent,
     TelaCuidadorModalComponent,
+    CriarAgendamentoComponent,
 
   ],
   imports: [
