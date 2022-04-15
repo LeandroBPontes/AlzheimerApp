@@ -1,0 +1,31 @@
+.mat-card{
+    min-width: 80%;
+    min-height: 100%;
+    margin-top: 0%;
+}
+
+.mat-icon {
+    vertical-align: middle;
+    min-height: 100%;
+  }
+.container{
+    min-height: 100%;
+}
+.datagrid {
+    margin-left: 10%;
+    margin-top: 5%;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+  }
+  .portlet{
+    /*background-color: rgb(245, 245, 245);*/
+    background-image: linear-gradient(to right, rgb(233, 231, 231) ,rgb(187, 186, 186) , rgb(188, 188, 184));
+    padding: 2%;
+
+   
+    width: 100%;
+    box-shadow: 2px 2px 3px 3px rgb(117, 117, 117);
+    -webkit-box-shadow: 3px 3px 3px 3px rgb(143, 142, 142);
+    -moz-box-shadow: 5px 5px 3px 3px #333;
+  }

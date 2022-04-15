@@ -1,0 +1,58 @@
+<app-menu> </app-menu>
+<div class="container">
+    <mat-card>
+        <mat-card-title>
+          <mat-icon>grid_on</mat-icon> Filtrar Agendamentos
+          <mat-divider></mat-divider>
+        </mat-card-title>
+        <div class="portlet">
+        <div class="row">
+            <div class="mb-3 col-md-6 mr-0 mt-2">
+                <input-date
+                [label]="'Data Inicial'"
+                [disabled]="false"
+                [showValidations]="true"
+                [(ngModel)]="filtro.dataAgendamento"
+                >
+            </input-date>
+            </div>
+            <div class="mb-3 col-md-6 mr-0 mt-2">
+                <input-date
+                [label]="'Data Final'"
+                [disabled]="false"
+                [showValidations]="true"
+                [(ngModel)]="filtro.dataAgendamento"
+                >
+            </input-date>
+            </div>
+        </div>
+        </div>
+        <hr>
+        <div class="portlet">
+            <h5>Agendamentos</h5>
+            <hr>
+        <datagrid 
+        [data]="data" 
+        [columns]="pacientes" 
+        [showActionsColumn]="true"
+        [initialColumnToSort]="0">
+
+            <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
+                <button class="btn btn-outline-primary btn-sm" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
+                <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+            </ng-template>
+            
+        </datagrid>
+           
+     
+            <div class="row">
+                <div class="col-md-4 mt-2">
+                   <button type="button" class="btn btn-primary" style="margin-right: 2px;" (click)="filtrar()"><mat-icon>search</mat-icon>Filtrar</button>
+                    <button type="button" class="btn btn-secondary" (click)="limpar()"><mat-icon>clear_all</mat-icon>Limpar</button>
+                </div>
+            </div>
+        </div>
+    </mat-card>
+ </div>
+
+

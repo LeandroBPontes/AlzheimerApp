@@ -40,6 +40,7 @@ import { CriarAgendamentoComponent } from './areas/usuarios/componentes/agendame
 import { NgxUiHeroInputFormsModule, InputFormsConfig } from 'ngx-ui-hero';
 import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
+import { FiltroAgendamentoComponent } from './areas/usuarios/componentes/agendamento/filtro-agendamento/filtro-agendamento.component';
 defineLocale('pt-br', ptBrLocale);
 
 export const dataGridSettings: DataGridConfig = {
@@ -179,6 +180,7 @@ export const inputFormsConfig: InputFormsConfig = {
     CadastroSintomaComponent,
     TelaCuidadorModalComponent,
     CriarAgendamentoComponent,
+    FiltroAgendamentoComponent,
 
   ],
   imports: [
