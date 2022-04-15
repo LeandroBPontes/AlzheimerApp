@@ -152,8 +152,8 @@ C:\Users\leand\Desktop\AlzheimerApp\AlzhimerApp\API\obj\Debug\net6.0\AlzheimerAp
 C:\Users\leand\Desktop\AlzheimerApp\AlzhimerApp\API\obj\Debug\net6.0\ref\AlzheimerApp.dll
 C:\Users\leand\Desktop\AlzheimerApp\AlzhimerApp\API\obj\Debug\net6.0\AlzheimerApp.pdb
 C:\Users\leand\Desktop\AlzheimerApp\AlzhimerApp\API\obj\Debug\net6.0\AlzheimerApp.genruntimeconfig.cache
-C:\Users\leand\Desktop\AlzheimerApp\AlzhimerApp\API\obj\Debug\net6.0\AlzheimerApp.csproj.AssemblyReference.cache
 C:\Users\leand\Desktop\AlzheimerApp\AlzhimerApp\API\bin\Debug\net6.0\Humanizer.dll
 C:\Users\leand\Desktop\AlzheimerApp\AlzhimerApp\API\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 C:\Users\leand\Desktop\AlzheimerApp\AlzhimerApp\API\bin\Debug\net6.0\AutoMapper.dll
 C:\Users\leand\Desktop\AlzheimerApp\AlzhimerApp\API\bin\Debug\net6.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
+C:\Users\leand\Desktop\AlzheimerApp\AlzhimerApp\API\obj\Debug\net6.0\AlzheimerApp.csproj.AssemblyReference.cache

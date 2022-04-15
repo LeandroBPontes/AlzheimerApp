@@ -2,6 +2,7 @@
 using AlzheimerApp.Dominios.Pacientes;
 using AlzheimerApp.Repositorios;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 
 namespace AlzheimerApp.Controllers {
@@ -24,5 +25,7 @@ namespace AlzheimerApp.Controllers {
                 return Ok(objeto);
             }
         }
+       
     }
+   
 }

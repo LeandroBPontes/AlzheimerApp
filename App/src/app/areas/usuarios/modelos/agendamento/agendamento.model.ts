@@ -10,5 +10,6 @@ export class AgendamentoModel{
     endereco: string;
     especialidade: string;
     feitoPeloPlano: boolean;
+    dataAgendamento: Date | string
    
 }
