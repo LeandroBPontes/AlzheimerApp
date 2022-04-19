@@ -39,12 +39,12 @@
             </a>
             <ul class="nav nav-pills flex-column mb-auto">
                 <li class="nav-item">
-                    <a routerLink="/tela-paciente" class="nav-link text-white">
+                    <a (click)="inicio()" class="nav-link text-white">
                         <mat-icon class="bi me-2" width="16" height="16">home</mat-icon> Home
                     </a>
                 </li>
                 <li>
-                    <a (click)="cadastrarMedicamento()"class="nav-link text-white">
+                    <a (click)="cadastrarMedicamento()" class="nav-link text-white">
                         <mat-icon class="bi me-2" width="16" height="16">invert_colors</mat-icon> Cadastrar Medicamento
                     </a>
                 </li>
@@ -98,7 +98,7 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <mat-icon class="bi me-2" width="16" height="16">account_circle</mat-icon>
-                        Editar Paciente
+                        Paciente
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
                         <li><a class="dropdown-item" href="#">Editar</a></li>
@@ -130,7 +130,8 @@
 
                         <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
                             <button class="btn btn-primary btn-sm mr-1" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash" (click)="excluirMedicamento(row)"></i></button>
+                            <button class="btn btn-outline-danger btn-sm" (click)="excluirMedicamento(row)"><i class="fa fa-trash"></i></button>
+                           
                         </ng-template>
 
                     </datagrid><br>
@@ -148,7 +149,7 @@
 
                         <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
                             <button class="btn btn-primary btn-sm mr-1" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"  (click)="excluirAtividade(row)"></i></button>
+                            <button class="btn btn-outline-danger btn-sm" (click)="excluirAtividade(row)"><i class="fa fa-trash"></i></button>
                         </ng-template>
 
                     </datagrid><br>
@@ -166,7 +167,7 @@
 
                         <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
                             <button class="btn btn-outline-primary btn-sm" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
-                            <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash" (click)="excluirSintoma(row)"></i></button>
+                            <button class="btn btn-outline-danger btn-sm" (click)="excluirSintoma(row)"><i class="fa fa-trash"></i></button>
                         </ng-template>
 
                     </datagrid><br>

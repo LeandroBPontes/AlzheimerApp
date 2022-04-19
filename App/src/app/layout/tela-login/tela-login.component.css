@@ -9,6 +9,9 @@
     margin-top: 5%;
     min-width: 80%;
     min-height: auto;
+    margin-left: auto;
+    margin-right: auto;
+
 }
 .portlet{
     background-color: rgb(250, 249, 250);

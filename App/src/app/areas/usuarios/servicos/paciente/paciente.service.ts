@@ -23,5 +23,8 @@ export class PacienteService {
   buscarTodos(): Promise<Array<PacienteModel>> {
     return this.http.get<PacienteModel[]>(`${this.baseURL}api/paciente`).toPromise();
   }
+  excluir(id:number){
+    return this.http.delete(`${this.baseURL}api/paciente/${id}`);
+  }
 }
 

@@ -8,6 +8,8 @@
 .mat-card{
     min-width: 80%;
     min-height: auto;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .mat-icon {

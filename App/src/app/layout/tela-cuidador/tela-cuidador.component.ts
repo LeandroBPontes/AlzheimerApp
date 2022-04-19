@@ -5,6 +5,7 @@ import { PacienteService } from 'src/app/areas/usuarios/servicos/paciente/pacien
 import { ActivatedRoute, Router } from '@angular/router';
 import { TelaCuidadorModalComponent } from './tela-cuidador-modal/tela-cuidador-modal.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
+import { finalize } from 'rxjs/operators';
 
 @Component({
   selector: 'app-tela-cuidador',
@@ -31,6 +32,7 @@ export class TelaCuidadorComponent implements OnInit {
   @Input() columns: any
   @Input() showActionsColumn: any
   @Input() initialColumnToSort: any
+  isLoading: any;
 
 
   pacientes = [
@@ -94,4 +96,55 @@ export class TelaCuidadorComponent implements OnInit {
     });
   
   }
+  excluirPaciente(rowIndex){
+      var resposta = window.confirm("Tem certeza que deseja excluir esse paciente?");
+      if (resposta) {
+    
+        this.isLoading = true;
+        this.servicePaciente.excluir(rowIndex.id)
+          .pipe(
+            finalize(() => {
+              this.isLoading = false;
+            })
+          )
+          .subscribe(
+            result => {
+             console.log("sucesso")
+            },
+            err => {
+              console.log("erro")
+            }
+          )
+        var resposta = window.confirm("Paciente Excluído com Sucesso!");
+        if (resposta)
+          return this.router.navigate([`/tela-cuidador/${this.id}`]);
+      }
+      return this.router.navigate([`/tela-cuidador/${this.id}`]);
+    }
+    excluirCuidador(){
+      var resposta = window.confirm("Tem certeza que deseja excluir sua conta?");
+      if (resposta) {
+    
+        this.isLoading = true;
+        this.service.excluir(this.id)
+          .pipe(
+            finalize(() => {
+              this.isLoading = false;
+            })
+          )
+          .subscribe(
+            result => {
+             console.log("sucesso")
+            },
+            err => {
+              console.log("erro")
+            }
+          )
+      }
+      return this.router.navigate([`/tela-login`]);
+    }
+    editarCuidador(){
+      
+    }
 }
+

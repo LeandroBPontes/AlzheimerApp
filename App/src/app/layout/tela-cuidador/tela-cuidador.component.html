@@ -43,11 +43,11 @@
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-                <li class="nav-item">
-                    <a routerLink="/tela-paciente" class="nav-link text-white">
+                <!-- <li class="nav-item">
+                    <a href="./tela-cuidador" class="nav-link text-white">
                         <mat-icon class="bi me-2" width="16" height="16">home</mat-icon> Home
                     </a>
-                </li>
+                </li> -->
                 <li>
                     <a (click)="passaUrlCadastroPaciente()" class="nav-link text-white">
                         <mat-icon class="bi me-2" width="16" height="16">person_add</mat-icon> Cadastrar Paciente
@@ -73,8 +73,8 @@
                         Conta
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" href="#">Editar</a></li>
-                        <li><a class="dropdown-item" href="#">Excluir</a></li>
+                        <li><a class="dropdown-item"  (click)="editarCuidador()">Editar</a></li>
+                        <li><a class="dropdown-item" (click)="excluirCuidador()">Excluir</a></li>
                         <li>
                             <hr class="dropdown-divider">
                         </li>
@@ -101,7 +101,7 @@
         
                     <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
                         <button class="btn btn-outline-primary btn-sm" (click)="editarPaciente(row)" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
-                        <button class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+                        <button class="btn btn-outline-danger btn-sm" (click)="excluirPaciente(row)"><i class="fa fa-trash"></i></button>
                     </ng-template>
                     
                 </datagrid><br>

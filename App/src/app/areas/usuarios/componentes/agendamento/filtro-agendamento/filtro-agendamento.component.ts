@@ -39,7 +39,7 @@ export class FiltroAgendamentoComponent implements OnInit {
     },
     {
       caption: 'Data',
-      data: 'dataAgendamento | date',
+      data: 'dataAgendamento',
     }
   ];
 

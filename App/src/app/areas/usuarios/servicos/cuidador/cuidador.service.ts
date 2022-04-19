@@ -19,10 +19,6 @@ export class CuidadorService {
   login(cuidador: CuidadorModel) {
     return this.http.post(`${this.baseURL}api/cuidador/login`, cuidador);
   }
-  // buscarTodos(): Promise<Array<PacienteModel>> {
-  //   return this.http.get<PacienteModel[]>(`${this.baseURL}api/paciente`).toPromise();
-  // }
-
  
   buscarPorId(id: number){
     return this.http.get<CuidadorModel>(`${this.baseURL}api/cuidador/${id}`);
@@ -34,6 +30,10 @@ export class CuidadorService {
 
   obterIdPacienteParaRota(id: number): any{
     return this.http.get<PacienteModel>(`${this.baseURL}api/paciente/obterPacientePorIdCuidador/${id}`);
+  }
+
+  excluir(id:number){
+    return this.http.delete(`${this.baseURL}api/cuidador/${id}`);
   }
  
   // inserirPaciente(paciente: PacienteModel) {

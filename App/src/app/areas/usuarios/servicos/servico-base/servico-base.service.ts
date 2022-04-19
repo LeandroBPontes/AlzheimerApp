@@ -42,4 +42,14 @@ export class ServicoBaseService {
     ExcluirAtividade(id:number){
       return this.http.delete(`${this.baseURL}api/atividade/${id}`);
     }
+    obterMedicamentoPorIdPaciente(id: number): any{
+      return this.http.get<BaseModel>(`${this.baseURL}api/medicamento/obterMedicamentoPorIdPaciente/${id}`);
+    }
+    obterAtividadePorIdPaciente(id: number): any{
+      return this.http.get<BaseModel>(`${this.baseURL}api/atividade/obterAtividadePorIdPaciente/${id}`);
+    }
+    obterSintomaPorIdPaciente(id: number): any{
+      return this.http.get<BaseModel>(`${this.baseURL}api/sintoma/obterSintomaPorIdPaciente/${id}`);
+    }
+    
   }
