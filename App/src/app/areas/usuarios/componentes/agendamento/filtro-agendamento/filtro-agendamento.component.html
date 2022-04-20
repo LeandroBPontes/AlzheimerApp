@@ -1,5 +1,5 @@
 <app-menu> </app-menu>
-<div class="container">
+<div class="container" [block-ui]="blockUi">
     <mat-card>
         <mat-card-title>
           <mat-icon>grid_on</mat-icon> Filtrar Agendamentos
@@ -11,16 +11,17 @@
                 <input-date
                 [label]="'Data Inicial'"
                 [disabled]="false"
-                [showValidations]="true"
+                [showValidations]="false"
                 [(ngModel)]="filtro.dataAgendamentoInicial"
                 >
             </input-date>
+         
             </div>
             <div class="mb-3 col-md-6 mr-0 mt-2">
                 <input-date
                 [label]="'Data Final'"
                 [disabled]="false"
-                [showValidations]="true"
+                [showValidations]="false"
                 [(ngModel)]="filtro.dataAgendamentoFinal"
                 >
             </input-date>
@@ -28,7 +29,7 @@
         </div>
         </div>
         <hr>
-        <div class="portlet">
+        <div class="portlet" >
             <h5>Agendamentos</h5>
             <hr>
         <datagrid 

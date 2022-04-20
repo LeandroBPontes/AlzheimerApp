@@ -6,8 +6,8 @@
     align-items: center;
 }
 .mat-card{
-    margin-top: 5%;
-    min-width: 80%;
+    margin-top: 25%;
+    min-width: 40%;
     min-height: auto;
     margin-left: auto;
     margin-right: auto;
@@ -21,3 +21,12 @@
 .mat-icon {
     vertical-align: middle;
   }
+  button{
+      min-width: 100%;
+  }
+  h4{
+      text-align: center;
+      font-family: "Lucida Console", "Courier New", monospace;
+    font-size: 40px;
+  }
+ 

@@ -30,24 +30,17 @@
 </head>
 
 <body>
+    
     <main>
-
         <div class="d-flex flex-column flex-shrink-0 p-3 text-white bg-dark" style="width: 280px;">
             <a routerLink="/tela-cuidador" class="bi me-2 nav-link text-white">
-                <!-- <svg class="bi me-2" width="40" height="32"><use xlink:href="#bootstrap"/></svg> -->
                 <h3>
                     <mat-icon width="16" height="16">assignment_ind</mat-icon> AlzheimerApp
                 </h3>
-
-
             </a>
             <hr>
             <ul class="nav nav-pills flex-column mb-auto">
-                <!-- <li class="nav-item">
-                    <a href="./tela-cuidador" class="nav-link text-white">
-                        <mat-icon class="bi me-2" width="16" height="16">home</mat-icon> Home
-                    </a>
-                </li> -->
+             
                 <li>
                     <a (click)="passaUrlCadastroPaciente()" class="nav-link text-white">
                         <mat-icon class="bi me-2" width="16" height="16">person_add</mat-icon> Cadastrar Paciente
@@ -88,6 +81,7 @@
         </div><br>
         <div class="b-example-divider">
         </div>
+        
         <div class="row">
             <div class="col-md-8 datagrid">
                 <mat-card>
@@ -105,7 +99,7 @@
                     </ng-template>
                     
                 </datagrid><br>
-                <h5>Você pode gerenciá-lo através do botão abaixo ou utilizando o menu -> Gerenciar Paciente.</h5><br>
+              
                 <div class="col-md-12">
                     <a (click)="passaUrlPaciente()"><button class="btn btn-primary">Gerenciar Paciente</button></a>
                 </div>

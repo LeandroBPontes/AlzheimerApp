@@ -51,6 +51,13 @@ export class TelaCuidadorComponent implements OnInit {
     {
       caption: 'Possui Filho',
       data: 'possuiFilho',
+      captionAlignment: EnumAlignment.Center,
+      render: (row, currentData, index) => {
+        if (!currentData)
+          return 'Não';
+          return 'Sim'
+      },
+      filterable: true
     },
     {
       caption: 'Estado Civil',
@@ -63,6 +70,13 @@ export class TelaCuidadorComponent implements OnInit {
     {
       caption: 'Possui Plano',
       data: 'possuiPlano',
+      captionAlignment: EnumAlignment.Center,
+      render: (row, currentData, index) => {
+        if (!currentData)
+          return 'Não';
+          return 'Sim'
+      },
+      filterable: true
     }
   ];
 
@@ -148,12 +162,12 @@ export class TelaCuidadorComponent implements OnInit {
         this.alertService.success('Tudo certo!', 'Sua conta foi excluída com sucesso')
         this.router.navigate([`/`])
           .then(nav => {
-            setTimeout(function () { location.reload(); }, 3000);
+            setTimeout(function () { location.reload(); }, 8000);
           });
       });
-      this.router.navigate([`/`])
+      return this.router.navigate([`/tela-cuidador/${this.id}`])
       .then(nav => {
-        setTimeout(function () { location.reload(); }, 3000);
+        setTimeout(function () { location.reload(); }, 5000);
       });
     }
     

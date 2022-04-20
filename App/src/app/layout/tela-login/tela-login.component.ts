@@ -18,7 +18,7 @@ export class TelaLoginComponent implements OnInit {
   }
   
   blockUi = new BlockUi();
-  titulo = "Tela de Login"
+  titulo = "Login"
   filtro = new CuidadorModel()
   nome: string;
   senha: string
@@ -28,7 +28,7 @@ export class TelaLoginComponent implements OnInit {
   }
 
   logar() {
-    // this.blockUi.start('Entrando...');
+    this.blockUi.start('Entrando...');
     this.service
       .login(this.filtro)
       .subscribe(result => {

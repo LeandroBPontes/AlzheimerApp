@@ -13,11 +13,11 @@ namespace AlzheimerApp.Controllers {
         public AgendamentoController(IRepositorioBase<Agendamento, int> repositorio) : base(repositorio) {
             _repositorio = repositorio;
         }
-        [HttpGet("ObterAgendamentoPorData/{dataInicial}/{dataFinal}")]
-        public ActionResult<Agendamento> ObterPorAgendamentoPorData(DateTime? dataInicial, DateTime? dataFinal) {
+        [HttpPost("ObterAgendamentoPorData")]
+        public ActionResult<Agendamento> ObterPorAgendamentoPorData(AgendamentoFiltro model) {
         
-            if(dataInicial != null && dataFinal != null) {
-                var objetos = _repositorio.Get().Where(x => x.DataAgendamento >= dataInicial && x.DataAgendamento <= dataFinal);
+            if(model.DataAgendamentoInicial != null && model.DataAgendamentoFinal != null) {
+                var objetos = _repositorio.Get().Where(x => x.DataAgendamento >= model.DataAgendamentoInicial && x.DataAgendamento <= model.DataAgendamentoFinal);
                 if (objetos == null)
                     return NotFound();
                 else {
@@ -25,16 +25,16 @@ namespace AlzheimerApp.Controllers {
                 }
 
             }
-            if (dataInicial != null && dataFinal == null) {
-               var objetos = _repositorio.Get().Where(x => x.DataAgendamento >= dataInicial);
+            if (model.DataAgendamentoInicial != null && model.DataAgendamentoFinal == null) {
+               var objetos = _repositorio.Get().Where(x => x.DataAgendamento >= model.DataAgendamentoInicial);
                 if (objetos == null)
                     return NotFound();
                 else {
                     return Ok(objetos);
                 }
             }
-            if (dataInicial == null && dataFinal != null) {
-                var objetos = _repositorio.Get().Where(x => x.DataAgendamento <= dataFinal);
+            if (model.DataAgendamentoInicial == null && model.DataAgendamentoFinal != null) {
+                var objetos = _repositorio.Get().Where(x => x.DataAgendamento <= model.DataAgendamentoFinal);
                 if (objetos == null)
                     return NotFound();
                 else {

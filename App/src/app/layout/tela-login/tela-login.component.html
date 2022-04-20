@@ -1,28 +1,51 @@
-<app-menu> </app-menu>
-<div class="container">
-    <mat-card >
-        <mat-card-title>
-            <mat-icon>grid_on</mat-icon> {{titulo}}
-            <mat-divider></mat-divider>
-        </mat-card-title>
-                <div>
-                  <label for="exampleInputEmail1" class="form-label mt-4">Nome</label>
-                  <input type="text" class="form-control" [(ngModel)]="filtro.nome" id="exampleInputEmail1" aria-describedby="emailHelp">
-                  <!-- <div id="name" classng ="form-text">We'll never share your name with anyone else.</div> -->
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">Senha</label>
-                  <input type="password" class="form-control" [(ngModel)]="filtro.senha" id="exampleInputPassword1">
-                </div>
-              
-                <!-- <button type="submit" class="btn btn-primary mb-1" (click)="logar()">Entrar</button> -->
-                <div class="row">
-                    <div class="col-md-4">
-                       <button type="button" class="btn btn-primary" style="margin-right: 2px;" (click)="logar()"><mat-icon>search</mat-icon>Entrar</button>
-                        <button type="button" class="btn btn-secondary" (click)="limpar()"><mat-icon>clear_all</mat-icon>Limpar</button>
-                    </div>
-                </div>
-          
-      
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+
+</head>
+
+<body>
+
+  <div class="container">
+    <mat-card>
+      <mat-card-title>
+        <h4>{{titulo}}</h4>
+        <mat-divider></mat-divider>
+      </mat-card-title>
+      <div class="row" [block-ui]="blockUi">
+        <div class="col-md-12 mb-3">
+          <label for="exampleInputEmail1" class="form-label mt-4">Nome</label>
+          <input type="text" class="form-control" [(ngModel)]="filtro.nome" id="exampleInputEmail1"
+            aria-describedby="emailHelp" minlength="2" maxlength="60" required="required">
+          <!-- <div id="name" classng ="form-text">We'll never share your name with anyone else.</div> -->
+        </div>
+        <div class="col-md-12 mb-3">
+          <label for="exampleInputPassword1" class="form-label">Senha</label>
+          <input type="password" class="form-control" [(ngModel)]="filtro.senha" id="exampleInputPassword1">
+        </div>
+     
+      <hr>
+      <!-- <button type="submit" class="btn btn-primary mb-1" (click)="logar()">Entrar</button> -->
+     
+        <div class="col-md-12">
+          <button type="button" class="btn btn-primary btn-md btn-block" (click)="logar()">Entrar</button>
+        </div>
+
+        <div class="col-md-12">
+          <hr>
+        </div>
+
+        <p>Ainda não possui conta?</p>
+        <div class="col-md-12">
+          <a routerLink="/cadastro-usuario"> <button type="button" class="btn btn-secondary btn-md btn-block"
+              (click)="logar()">Cadastrar</button></a>
+        </div>
+      </div>
+
     </mat-card>
-</div>
+
+  </div>
+</body>
+
+</html>
