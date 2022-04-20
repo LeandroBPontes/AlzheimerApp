@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CriarAgendamentoComponent } from './areas/usuarios/componentes/agendamento/criar-agendamento/criar-agendamento.component';
 import { FiltroAgendamentoComponent } from './areas/usuarios/componentes/agendamento/filtro-agendamento/filtro-agendamento.component';
+import { EscolhaPacienteComponent } from './areas/usuarios/componentes/paciente/escolha-paciente/escolha-paciente.component';
 import { PacienteComponent } from './areas/usuarios/componentes/paciente/paciente.component';
 import { TelaCuidadorComponent } from './layout/tela-cuidador/tela-cuidador.component';
 import { TelaLoginComponent } from './layout/tela-login/tela-login.component';
@@ -36,7 +37,7 @@ const routes: Routes = [
     component: TelaCuidadorComponent 
   },
   { 
-    path: 'tela-paciente/:id',
+    path: 'tela-paciente/:id/:idPaciente',
     component: PacienteComponent 
   },
   { 
@@ -62,6 +63,10 @@ const routes: Routes = [
   { 
     path: 'filtrar-agendamento/:idCuidador/:idPaciente',
     component: FiltroAgendamentoComponent
+  },
+  { 
+    path: 'escolha-paciente/:idCuidador',
+    component: EscolhaPacienteComponent
   },
 ];
 

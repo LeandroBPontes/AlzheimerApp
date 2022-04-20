@@ -42,6 +42,7 @@ import { defineLocale } from 'ngx-bootstrap/chronos';
 import { ptBrLocale } from 'ngx-bootstrap/locale';
 import { FiltroAgendamentoComponent } from './areas/usuarios/componentes/agendamento/filtro-agendamento/filtro-agendamento.component';
 import { DatePipe } from '@angular/common';
+import { EscolhaPacienteComponent } from './areas/usuarios/componentes/paciente/escolha-paciente/escolha-paciente.component';
 defineLocale('pt-br', ptBrLocale);
 
 export const dataGridSettings: DataGridConfig = {
@@ -182,6 +183,7 @@ export const inputFormsConfig: InputFormsConfig = {
     TelaCuidadorModalComponent,
     CriarAgendamentoComponent,
     FiltroAgendamentoComponent,
+    EscolhaPacienteComponent,
 
   ],
   imports: [

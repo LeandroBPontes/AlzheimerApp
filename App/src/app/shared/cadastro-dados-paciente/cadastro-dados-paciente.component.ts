@@ -1,6 +1,7 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AlertService } from 'ngx-ui-hero';
 import { throwError } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
 import { BaseModel } from 'src/app/areas/usuarios/modelos/base/base.model';
@@ -20,8 +21,9 @@ export class CadastroDadosPacienteComponent implements OnInit {
   @Input() atividadeAtributo: boolean = false;
   @Input() idCuidador: any;
   @Input() idPaciente: any;
+  isLoading: boolean;
   
-  constructor(public service: ServicoBaseService, public router: Router) { }
+  constructor(public service: ServicoBaseService, public router: Router,private alertService: AlertService) { }
 
   ngOnInit(): void {
   }
@@ -32,43 +34,76 @@ export class CadastroDadosPacienteComponent implements OnInit {
     this.filtro.idPaciente = this.idPaciente;
     this.service
     .inserirAtividade(this.filtro)
+    .pipe(
+      finalize(() => {
+        this.isLoading = false;
+      })
+    )
     .subscribe(
-      catchError(this.handleError),
-      finalize(() => alert('Ocorreu um erro na requisição, por favor, tente mais tarde!') )
-        )
-          var resposta = window.confirm("Cadastro concluído com sucesso!");
-          if (resposta)
-          return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
-          return this.router.navigate([`/cadastro-atividade`]);; 
-    }
+      result => {
+        console.log("sucesso")
+
+      },
+      err => {
+        console.log("erro")
+      }
+    )
+  this.alertService.success('Tudo certo!', 'Atividade criada com sucesso')
+  this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
+    .then(nav => {
+      setTimeout(function () { location.reload(); }, 3000);
+    });
+}
 
     inserirSintoma(filtro: any){
       this.filtro.idPaciente = this.idPaciente;
       this.service
       .inserirSintoma(this.filtro)
+      .pipe(
+        finalize(() => {
+          this.isLoading = false;
+        })
+      )
       .subscribe(
-        catchError(this.handleError),
-        finalize(() => alert('Ocorreu um erro na requisição, por favor, tente mais tarde!') )
-          )
-            var resposta = window.confirm("Cadastro concluído com sucesso!");
-            if (resposta)
-            return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
-            return this.router.navigate([`/cadastro-atividade`]);; 
-      }
+        result => {
+          console.log("sucesso")
+  
+        },
+        err => {
+          console.log("erro")
+        }
+      )
+    this.alertService.success('Tudo certo!', 'Sintoma criado com sucesso')
+    this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
+      .then(nav => {
+        setTimeout(function () { location.reload(); }, 3000);
+      });
+  }
 
       inserirMedicamento(filtro: any){
         this.filtro.idPaciente = this.idPaciente;
         this.service
         .inserirMedicamento(this.filtro)
+        .pipe(
+          finalize(() => {
+            this.isLoading = false;
+          })
+        )
         .subscribe(
-          catchError(this.handleError),
-          finalize(() => alert('Ocorreu um erro na requisição, por favor, tente mais tarde!') )
-            )
-              var resposta = window.confirm("Cadastro concluído com sucesso!");
-              if (resposta)
-              return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
-              return this.router.navigate([`/cadastro-atividade`]);
-        }
+          result => {
+            console.log("sucesso")
+    
+          },
+          err => {
+            console.log("erro")
+          }
+        )
+      this.alertService.success('Tudo certo!', 'Medicamento criado com sucesso')
+      this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
+        .then(nav => {
+          setTimeout(function () { location.reload(); }, 3000);
+        });
+    }
 
 
   inserir(): any {
@@ -83,20 +118,7 @@ export class CadastroDadosPacienteComponent implements OnInit {
     } 
   }
 
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
-      console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
-    }
-    // Return an observable with a user-facing error message.
-    throwError(() => new Error('Something bad happened; please try again later.'));
-    return this.router.navigate(['/cadastro-usuario'])
-  }
+  
 
 
 }

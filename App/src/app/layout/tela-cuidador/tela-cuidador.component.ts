@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { DataGridColumnModel, EnumAlignment } from 'ngx-ui-hero';
+import { AlertService, DataGridColumnModel, EnumAlignment } from 'ngx-ui-hero';
 import { CuidadorService } from 'src/app/areas/usuarios/servicos/cuidador/cuidador.service';
 import { PacienteService } from 'src/app/areas/usuarios/servicos/paciente/paciente.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -15,7 +15,7 @@ import { finalize } from 'rxjs/operators';
 export class TelaCuidadorComponent implements OnInit {
   modalRef?: BsModalRef;
   constructor(public service: CuidadorService, public servicePaciente: PacienteService, private router: Router,
-    private activatedRoute: ActivatedRoute,  public modalService: BsModalService) { }
+    private activatedRoute: ActivatedRoute, public modalService: BsModalService, private alertService: AlertService) { }
   nome: any;
   id: any;
 
@@ -65,16 +65,16 @@ export class TelaCuidadorComponent implements OnInit {
       data: 'possuiPlano',
     }
   ];
-  
-  passaUrlCadastroPaciente(){
+
+  passaUrlCadastroPaciente() {
     return this.router.navigate([`/cadastro-paciente/${this.id}`]);
   }
-  passaUrlPaciente(){
-    return this.router.navigate([`/tela-paciente/${this.id}`]);
+  passaUrlPaciente() {
+    return this.router.navigate([`/escolha-paciente/${this.id}`]);
   }
-  obterTodosPorIdCuidador(id){
+  obterTodosPorIdCuidador(id) {
     this.service.obterPacientePorId(id).subscribe(resultado => {
-      this.data= resultado;
+      this.data = resultado;
     });
   }
   obterCuidador(id) {
@@ -86,7 +86,7 @@ export class TelaCuidadorComponent implements OnInit {
   sair() {
     return this.router.navigate(['/tela-login']);
   }
-  editarPaciente(rowIndex: any){
+  editarPaciente(rowIndex: any) {
     let modalRef = this.modalService.show(TelaCuidadorModalComponent, {
       class: "modal-lg",
       keyboard: false,
@@ -94,57 +94,71 @@ export class TelaCuidadorComponent implements OnInit {
         dados: rowIndex,
       },
     });
-  
+
   }
-  excluirPaciente(rowIndex){
-      var resposta = window.confirm("Tem certeza que deseja excluir esse paciente?");
-      if (resposta) {
+  excluirPaciente(rowIndex) {
+    this.alertService.question('Tem certeza que deseja excluir esse paciente?!', '', () => {
+      // your success callback code.
+      this.isLoading = true;
+      this.servicePaciente.excluir(rowIndex.id)
+        .pipe(
+          finalize(() => {
+            this.isLoading = false;
+          })
+        )
+        .subscribe(
+          result => {
+            console.log("sucesso")
+
+          },
+          err => {
+            console.log("erro")
+          }
+        )
+      this.alertService.success('Tudo certo!', 'Paciente excluído com sucesso')
+      this.router.navigate([`/tela-cuidador/${this.id}`])
+        .then(nav => {
+          setTimeout(function () { location.reload(); }, 3000);
+        });
+    });
+    this.router.navigate([`/tela-cuidador/${this.id}`])
+      .then(nav => {
+        setTimeout(function () { location.reload(); }, 3000);
+      });
+  }
+  
+  excluirCuidador() {
+    this.alertService.question('Tem certeza que deseja excluir sua conta?!', '', () => {
+      // your success callback code.
+      this.isLoading = true;
+      this.service.excluir(this.id)
+        .pipe(
+          finalize(() => {
+            this.isLoading = false;
+          })
+        )
+        .subscribe(
+          result => {
+            console.log("sucesso")
+          },
+          err => {
+            console.log("erro")
+          }
+        )
+        this.alertService.success('Tudo certo!', 'Sua conta foi excluída com sucesso')
+        this.router.navigate([`/`])
+          .then(nav => {
+            setTimeout(function () { location.reload(); }, 3000);
+          });
+      });
+      this.router.navigate([`/`])
+      .then(nav => {
+        setTimeout(function () { location.reload(); }, 3000);
+      });
+    }
     
-        this.isLoading = true;
-        this.servicePaciente.excluir(rowIndex.id)
-          .pipe(
-            finalize(() => {
-              this.isLoading = false;
-            })
-          )
-          .subscribe(
-            result => {
-             console.log("sucesso")
-            },
-            err => {
-              console.log("erro")
-            }
-          )
-        var resposta = window.confirm("Paciente Excluído com Sucesso!");
-        if (resposta)
-          return this.router.navigate([`/tela-cuidador/${this.id}`]);
-      }
-      return this.router.navigate([`/tela-cuidador/${this.id}`]);
-    }
-    excluirCuidador(){
-      var resposta = window.confirm("Tem certeza que deseja excluir sua conta?");
-      if (resposta) {
-    
-        this.isLoading = true;
-        this.service.excluir(this.id)
-          .pipe(
-            finalize(() => {
-              this.isLoading = false;
-            })
-          )
-          .subscribe(
-            result => {
-             console.log("sucesso")
-            },
-            err => {
-              console.log("erro")
-            }
-          )
-      }
-      return this.router.navigate([`/tela-login`]);
-    }
-    editarCuidador(){
-      
-    }
+  editarCuidador() {
+
+  }
 }
 
