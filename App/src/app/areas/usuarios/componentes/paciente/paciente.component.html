@@ -129,7 +129,7 @@
                         [initialColumnToSort]="0">
 
                         <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
-                            <button class="btn btn-primary btn-sm mr-1" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-primary btn-sm mr-1" style="margin-right: 2px;" (click)="editarMedicamento(row)"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-outline-danger btn-sm" (click)="excluirMedicamento(row)"><i class="fa fa-trash"></i></button>
                            
                         </ng-template>
@@ -148,7 +148,7 @@
                         [initialColumnToSort]="0">
 
                         <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
-                            <button class="btn btn-primary btn-sm mr-1" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-primary btn-sm mr-1" style="margin-right: 2px;" (click)="editarAtividade(row)"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-outline-danger btn-sm" (click)="excluirAtividade(row)"><i class="fa fa-trash"></i></button>
                         </ng-template>
 
@@ -166,7 +166,7 @@
                         [initialColumnToSort]="0">
 
                         <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
-                            <button class="btn btn-outline-primary btn-sm" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
+                            <button class="btn btn-outline-primary btn-sm" style="margin-right: 2px;" (click)="editarSintoma(row)"><i class="fa fa-edit"></i></button>
                             <button class="btn btn-outline-danger btn-sm" (click)="excluirSintoma(row)"><i class="fa fa-trash"></i></button>
                         </ng-template>
 

@@ -51,5 +51,15 @@ export class ServicoBaseService {
     obterSintomaPorIdPaciente(id: number): any{
       return this.http.get<BaseModel>(`${this.baseURL}api/sintoma/obterSintomaPorIdPaciente/${id}`);
     }
+
+    atualizarMedicamento(id:number, medicamento: BaseModel) {
+      return this.http.put(`${this.baseURL}api/medicamento/${id}`, medicamento);
+    }
+    atualizarSintoma(id:number, sintoma: BaseModel) {
+      return this.http.put(`${this.baseURL}api/sintoma/${id}`, sintoma);
+    }
+    atualizarAtividade(id:number, atividade: BaseModel) {
+      return this.http.put(`${this.baseURL}api/atividade/${id}`, atividade);
+    }
     
   }

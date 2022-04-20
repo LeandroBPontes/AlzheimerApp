@@ -1,3 +1,4 @@
+
 .mat-card{
     min-width: 80%;
     min-height: 100%;
@@ -6,8 +7,7 @@
 .mat-icon {
     vertical-align: middle;
   }
-
-  .modal-footer{
-  float: left;
+.modal-footer{
+float: left;
 margin-left: 2%;
-  }
+}

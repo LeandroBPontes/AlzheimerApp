@@ -7,6 +7,8 @@ import { PacienteService } from '../../servicos/paciente/paciente.service';
 import { ServicoBaseService } from '../../servicos/servico-base/servico-base.service';
 
 import { AlertService, ReportComponent } from 'ngx-ui-hero';
+import { BsModalService } from 'ngx-bootstrap/modal';
+import { EditarBaseComponent } from 'src/app/shared/editar-base/editar-base.component';
 
 
 @Component({
@@ -72,7 +74,7 @@ export class PacienteComponent implements OnInit {
   constructor(
     private activatedRoute: ActivatedRoute,
     private service: CuidadorService, public router: Router,
-    public serviceBase: ServicoBaseService, private alertService: AlertService) { }
+    public serviceBase: ServicoBaseService, private alertService: AlertService, public modalService: BsModalService) { }
 
 
   ngOnInit(): void {
@@ -132,6 +134,36 @@ export class PacienteComponent implements OnInit {
   cadastrarSintoma() {
     return this.router.navigateByUrl(`/cadastro-sintoma/${this.idCuidador}/${this.idPaciente}`)
 
+  }
+  editarMedicamento(rowIndex: any) {
+    let modalRef = this.modalService.show(EditarBaseComponent, {
+      class: "modal-lg",
+      keyboard: false,
+      initialState: {
+        dados: rowIndex,
+        medicamento: true
+      },
+    });
+  }
+  editarSintoma(rowIndex: any) {
+    let modalRef = this.modalService.show(EditarBaseComponent, {
+      class: "modal-lg",
+      keyboard: false,
+      initialState: {
+        dados: rowIndex,
+        sintoma: true
+      },
+    });
+  }
+  editarAtividade(rowIndex: any) {
+    let modalRef = this.modalService.show(EditarBaseComponent, {
+      class: "modal-lg",
+      keyboard: false,
+      initialState: {
+        dados: rowIndex,
+        atividade: true
+      },
+    });
   }
 
 
