@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AgendamentoComponent } from './areas/usuarios/componentes/agendamento/agendamento.component';
 import { CriarAgendamentoComponent } from './areas/usuarios/componentes/agendamento/criar-agendamento/criar-agendamento.component';
 import { FiltroAgendamentoComponent } from './areas/usuarios/componentes/agendamento/filtro-agendamento/filtro-agendamento.component';
 import { EscolhaPacienteComponent } from './areas/usuarios/componentes/paciente/escolha-paciente/escolha-paciente.component';
@@ -67,6 +68,10 @@ const routes: Routes = [
   { 
     path: 'escolha-paciente/:idCuidador',
     component: EscolhaPacienteComponent
+  },
+  { 
+    path: 'exporta-agendamento/:idAgendamento',
+    component:AgendamentoComponent
   },
 ];
 

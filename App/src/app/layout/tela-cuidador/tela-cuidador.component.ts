@@ -36,6 +36,7 @@ export class TelaCuidadorComponent implements OnInit {
 
 
   pacientes = [
+    
     {
       caption: 'Nome',
       data: 'nome',

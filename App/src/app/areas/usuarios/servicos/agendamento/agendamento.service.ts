@@ -15,8 +15,11 @@ export class AgendamentoService {
     return this.http.post(`${this.baseURL}api/agendamento`, agendamento);
   }
   filtrarAgendamentoPorData(model: AgendamentoModel){
-  
     return this.http.post(`${this.baseURL}api/agendamento/ObterAgendamentoPorData`, model);
   }
+  buscarPorId(id: number){
+    return this.http.get<AgendamentoModel>(`${this.baseURL}api/agendamento/${id}`);
+  }
+
 
 }

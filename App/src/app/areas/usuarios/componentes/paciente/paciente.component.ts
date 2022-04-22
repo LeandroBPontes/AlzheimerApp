@@ -24,13 +24,7 @@ export class PacienteComponent implements OnInit {
   @Input() showActionsColumn: any
   @Input() initialColumnToSort: any
 
-  @ViewChild('report') report: ReportComponent;
-
-  Print(): void {
-    this.report.Print();
-  }
-
-
+  
   idCuidador: any;
   idPaciente: any;
 

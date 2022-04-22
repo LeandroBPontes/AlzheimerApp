@@ -1,1 +1,72 @@
-<p>agendamento works!</p>
+<ui-report #report reportTitle="My report example title">
+    <div class="report-body">
+      <div class="container">
+          <mat-card>
+              <mat-card-title>
+                 Dados do Agendamento
+                <mat-divider></mat-divider>
+              </mat-card-title>
+       
+              <div class="row">
+                  <div class="mb-3 col-md-6 mt-2">
+                    <input-text
+                    [label]="'Endereço'"
+                    [disabled]="false"
+                    [showValidations]="true"
+                    [(ngModel)]="dados.endereco"
+                    >
+                </input-text>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="mb-3 col-md-6 mt-2">
+                    <input-text
+                    [label]="'Especialidade'"
+                    [disabled]="false"
+                    [showValidations]="true"
+                    [(ngModel)]="dados.especialidade"
+                    >
+                </input-text>
+                  </div>
+              </div>
+
+              <div class="row">
+                <div class="mb-3 col-md-6 mr-0 mt-2">
+                  <input-text
+                  [label]="'Feito Pelo Plano?'"
+                  [disabled]="false"
+                  [showValidations]="true"
+                  [(ngModel)]="dados.feitoPeloPlano"
+                  >
+              </input-text>
+            </div>
+          </div>
+          <div class="row">
+                  <div class="mb-3 col-md-6 mr-0 mt-2">
+                      <input-text
+                      [label]="'Data'"
+                      [disabled]="false"
+                      [showValidations]="true"
+                      [(ngModel)]="dados.dataAgendamento"
+                      >
+                    </input-text>
+                  </div>
+              </div>
+                  <div class="row" *ngIf="print == false">
+                      <div class="col-md-4">
+                         <button type="button" class="btn btn-danger" style="margin-right: 2px;" (click)="Print()">Download</button>
+                          <button type="button" class="btn btn-secondary" (click)="Voltar()"><mat-icon>clear_all</mat-icon>Voltar</button>
+                      </div>
+                  </div>
+            
+          </mat-card>
+       
+    </div>
+    <div class="page-footer">
+      <hr class="mb-1" />
+      <div class="text-center">
+       AlzheimerApp - {{ano}}
+      </div>
+    </div>
+  </div>
+  </ui-report>
