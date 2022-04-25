@@ -5,6 +5,7 @@ import { CriarAgendamentoComponent } from './areas/usuarios/componentes/agendame
 import { EscolhaAgendamentoComponent } from './areas/usuarios/componentes/agendamento/escolha-agendamento/escolha-agendamento.component';
 import { FiltroAgendamentoComponent } from './areas/usuarios/componentes/agendamento/filtro-agendamento/filtro-agendamento.component';
 import { CriarConsultaComponent } from './areas/usuarios/componentes/consulta/criar-consulta/criar-consulta.component';
+import { FiltrasConsultasComponent } from './areas/usuarios/componentes/consulta/filtras-consultas/filtras-consultas.component';
 import { EscolhaPacienteComponent } from './areas/usuarios/componentes/paciente/escolha-paciente/escolha-paciente.component';
 import { PacienteComponent } from './areas/usuarios/componentes/paciente/paciente.component';
 import { TelaCuidadorComponent } from './layout/tela-cuidador/tela-cuidador.component';
@@ -87,6 +88,10 @@ const routes: Routes = [
   { 
     path: 'escolha-agendamento/:idPaciente/:idCuidador',
     component:EscolhaAgendamentoComponent
+  },
+  { 
+    path: 'filtrar-consulta/:idPaciente/:idCuidador',
+    component:FiltrasConsultasComponent
   },
 ];
 

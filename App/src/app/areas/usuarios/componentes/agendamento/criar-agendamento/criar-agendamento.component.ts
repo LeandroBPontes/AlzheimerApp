@@ -26,8 +26,9 @@ export class CriarAgendamentoComponent implements OnInit {
   criaAgendamento = false;
   
   ngOnInit(): void {
-    this.idPaciente = this.activatedRoute.snapshot.paramMap.get('idPaciente');
     this.idCuidador = this.activatedRoute.snapshot.paramMap.get('idCuidador');
+    this.idPaciente = this.activatedRoute.snapshot.paramMap.get('idPaciente');
+    
   }
 
   inserir(){
@@ -46,7 +47,7 @@ export class CriarAgendamentoComponent implements OnInit {
         this.alertService.question('Cadastro realizado com sucesso!', 'Deseja criar um novo agendamento?', () => {
           this.criaAgendamento = true;
           if(this.criaAgendamento){
-            return this.router.navigate([`/criar-agendamento/${this.idCuidador}/${this.idPaciente}`]);
+            return this.router.navigate([`/criar-agendamento/${this.idPaciente}/${this.idCuidador}`]);
           }
           return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
         })

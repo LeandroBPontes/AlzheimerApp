@@ -13,4 +13,7 @@ export class ConsultaService {
   inserir(consulta: ConsultaModel) {
     return this.http.post(`${this.baseURL}api/consulta`, consulta);
   }
+  filtrarConsultaPorData(model: ConsultaModel){
+    return this.http.post(`${this.baseURL}api/consulta/ObterConsultaPorData`, model);
+  }
 }

@@ -266,6 +266,9 @@ export class PacienteComponent implements OnInit {
   gerenciarAgendamentos() {
     return this.router.navigateByUrl(`/filtrar-agendamento/${this.idCuidador}/${this.idPaciente}`)
   }
+  gerenciarConsultas() {
+    return this.router.navigateByUrl(`/filtrar-consulta/${this.idPaciente}/${this.idCuidador}`)
+  }
 
   criarAgendamento() {
     return this.router.navigateByUrl(`/criar-agendamento/${this.idCuidador}/${this.idPaciente}`)

@@ -12,6 +12,7 @@ namespace AlzheimerApp.Dominios {
         [ForeignKey("IdAgendamento")]
         public virtual Agendamento Agendamento { get; set; }
         public int IdAgendamento { get; set; }
+        public int IdPaciente { get; set; }
 
     }
 }

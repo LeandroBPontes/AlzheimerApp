@@ -30,6 +30,7 @@ export class CriarConsultaComponent implements OnInit {
 
   inserir(){
     this.filtro.idAgendamento = this.idAgendamento;
+    this.filtro.idPaciente= this.idPaciente;
     this.service
     .inserir(this.filtro)
     .subscribe(
@@ -40,8 +41,8 @@ export class CriarConsultaComponent implements OnInit {
         console.log("erro")
       }
         )
-        this.alertService.success('Consulta realizado com sucesso!', ''); 
-        //return this.router.navigate([`/criar-agendamento/${this.idCuidador}/${this.idPaciente}`]);   
+        this.alertService.success('Consulta criada com sucesso!', ''); 
+        return this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`]);   
   }
   
 

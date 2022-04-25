@@ -6,6 +6,7 @@ export class ConsultaModel{
     id: number;
     resumo: string;
     idAgendamento: number;
+    idPaciente: number;
     agendamento: AgendamentoModel[];
     dataConsulta: Date | string
     dataConsultaInicial: Date | string
