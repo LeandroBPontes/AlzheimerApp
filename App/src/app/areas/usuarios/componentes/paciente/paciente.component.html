@@ -61,36 +61,37 @@
                 </li>
                 <li>
                     <a (click)="criarAgendamento()" class="nav-link text-white">
-                        <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Criar Agendamento
+                        <mat-icon class="bi me-2" width="16" height="16">date_range</mat-icon> Criar Agendamento
+                    </a>
+                </li>
+                <li>
+                    <a (click)="criarConsulta()" class="nav-link text-white">
+                        <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Criar Consulta
                     </a>
                 </li>
                 <hr>
                 <li>
-                    <a routerLink="/tela-paciente" class="nav-link text-white">
+                    <a routerLink="/tela-sobre" class="nav-link text-white">
                         <mat-icon class="bi me-2" width="16" height="16">feedback</mat-icon> Sobre o App
                     </a>
                 </li>
                 <hr>
                 <li>
                     <a (click)="listarMedicamento()" class="nav-link text-white">
-                        <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Exibir Medicamentos
+                        <mat-icon class="bi me-2" width="16" height="16">invert_colors</mat-icon> Exibir Medicamentos
                     </a>
                 </li>
                 <li>
                     <a (click)="listarAtividade()" class="nav-link text-white">
-                        <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Exibir Atividades
+                        <mat-icon class="bi me-2" width="16" height="16">accessibility_new</mat-icon> Exibir Atividades
                     </a>
                 </li>
                 <li>
                     <a (click)="listarSintoma()" class="nav-link text-white">
-                        <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Exibir Sintomas
+                        <mat-icon class="bi me-2" width="16" height="16">healing</mat-icon> Exibir Sintomas
                     </a>
                 </li>
-                <li>
-                    <a (click)="gerenciarAgendamentos()" class="nav-link text-white">
-                        <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Exibir Agendamentos
-                    </a>
-                </li>
+               
                 
                 <hr>
 
@@ -98,14 +99,21 @@
                     <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2"
                         data-bs-toggle="dropdown" aria-expanded="false">
                         <mat-icon class="bi me-2" width="16" height="16">account_circle</mat-icon>
-                        Paciente
+                        Relatórios
                     </button>
                     <ul class="dropdown-menu dropdown-menu-dark" aria-labelledby="dropdownMenuButton2">
-                        <li><a class="dropdown-item" href="#">Editar</a></li>
-                        <li><a class="dropdown-item" href="#">Excluir</a></li>
                         <li>
-                            <hr class="dropdown-divider">
+                            <a (click)="gerenciarAgendamentos()" class="nav-link text-white">
+                                <mat-icon class="bi me-2" width="16" height="16">date_range</mat-icon> Agendamentos
+                            </a>
                         </li>
+                        <li>
+                            <a (click)="gerenciarAgendamentos()" class="nav-link text-white">
+                                <mat-icon class="bi me-2" width="16" height="16">assignment</mat-icon> Consultas
+                            </a>
+                        </li>
+                            <hr class="dropdown-divider">
+                        
                         <li><a class="dropdown-item" routerLink="/tela-login">Sair</a></li>
                     </ul>
                 </div>

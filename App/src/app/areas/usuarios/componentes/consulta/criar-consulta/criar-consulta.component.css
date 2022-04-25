@@ -1,0 +1,13 @@
+.mat-card{
+    min-width: 80%;
+    min-height: 100%;
+    margin-top: 0%;
+}
+
+.mat-icon {
+    vertical-align: middle; 
+   
+  }
+.container{
+    min-height: 100%;
+}

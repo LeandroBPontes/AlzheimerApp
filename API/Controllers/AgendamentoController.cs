@@ -14,10 +14,16 @@ namespace AlzheimerApp.Controllers {
             _repositorio = repositorio;
         }
         [HttpPost("ObterAgendamentoPorData")]
-        public ActionResult<Agendamento> ObterPorAgendamentoPorData(AgendamentoFiltro model) {
-        
-            if(model.DataAgendamentoInicial != null && model.DataAgendamentoFinal != null) {
-                var objetos = _repositorio.Get().Where(x => x.DataAgendamento >= model.DataAgendamentoInicial && x.DataAgendamento <= model.DataAgendamentoFinal);
+        public ActionResult<Agendamento> ObterAgendamentoPorData(AgendamentoFiltro model) {
+
+            if (model.DataAgendamentoInicial != null && model.DataAgendamentoFinal != null) {
+                var objetos = _repositorio.Get()
+                    .Where(x => x.DataAgendamento >= model.DataAgendamentoInicial
+                    &&
+                    x.DataAgendamento <= model.DataAgendamentoFinal
+                    &&
+                    x.IdPaciente == model.IdPaciente
+                    );
                 if (objetos == null)
                     return NotFound();
                 else {
@@ -26,7 +32,10 @@ namespace AlzheimerApp.Controllers {
 
             }
             if (model.DataAgendamentoInicial != null && model.DataAgendamentoFinal == null) {
-               var objetos = _repositorio.Get().Where(x => x.DataAgendamento >= model.DataAgendamentoInicial);
+                var objetos = _repositorio.Get()
+                     .Where(x => x.DataAgendamento >= model.DataAgendamentoInicial
+                     &&
+                     x.IdPaciente == model.IdPaciente);
                 if (objetos == null)
                     return NotFound();
                 else {
@@ -34,7 +43,25 @@ namespace AlzheimerApp.Controllers {
                 }
             }
             if (model.DataAgendamentoInicial == null && model.DataAgendamentoFinal != null) {
-                var objetos = _repositorio.Get().Where(x => x.DataAgendamento <= model.DataAgendamentoFinal);
+                var objetos = _repositorio.Get()
+                    .Where(x => x.DataAgendamento <= model.DataAgendamentoFinal
+                    &&
+                    x.IdPaciente == model.IdPaciente);
+                if (objetos == null)
+                    return NotFound();
+                else {
+                    return Ok(objetos);
+                }
+            }
+            return BadRequest("Nenhum objeto encontrado");
+        }
+        [HttpGet("paciente/{idPaciente}")]
+        public ActionResult<Agendamento> ObterTodosAgendamentoPorIdPaciente(int? idPaciente) {
+
+            if (idPaciente != null) {
+                var objetos = _repositorio.Get()
+                    .Where(x => x.IdPaciente == idPaciente
+                    );
                 if (objetos == null)
                     return NotFound();
                 else {

@@ -13,7 +13,7 @@ import { catchError, filter, finalize, map, retry, take } from 'rxjs/operators';
 })
 export class CadastroBaseComponent implements OnInit {
 
-  constructor(public router: Router) { }
+  constructor(public router: Router, private alertService: AlertService) { }
   ngOnInit(): void {
 
   }
@@ -25,6 +25,12 @@ export class CadastroBaseComponent implements OnInit {
   @Input() cuidadorAtributo: boolean = false;
   @Input() pacienteAtributo: boolean = false;
   resposta: any;
+
+  
+ 
+  limpar() {
+    this.filtro = {}
+  }
 
   inserir(): any {
 
@@ -38,40 +44,22 @@ export class CadastroBaseComponent implements OnInit {
     this.service
       .inserir(this.filtro)
       .subscribe(
-        catchError(this.handleError),
-        finalize(() => alert('Ocorreu um erro na requisição, por favor, tente mais tarde!') )
-          )
-          if(this.cuidadorAtributo){
-            var resposta = window.confirm("Deseja ir para a tela de Login?");
-            if (resposta)
-            return this.router.navigate(['/tela-login']);
-          }else{
-            return this.router.navigate([`/tela-cuidador/${this.id}`]);
-          }
-         
-        
+        result => {
+          console.log("sucesso")
+        },
+        err => {
+          console.log("erro")
+        }
+      )
+        if(this.cuidadorAtributo){
+          this.alertService.question('Cadastro realizado com sucesso!', 'Deseja ir para a tela de Login?', () => {
+          return this.router.navigate(['/tela-login']);
+          })
+          
+        }
+        if(!this.cuidadorAtributo){
+          return this.router.navigate([`/tela-cuidador/${this.id}`]);
+        }
+      
   }
- 
-  limpar() {
-    this.filtro = {}
-  }
-
-
-  private handleError(error: HttpErrorResponse) {
-    if (error.status === 0) {
-      // A client-side or network error occurred. Handle it accordingly.
-      console.error('An error occurred:', error.error);
-    } else {
-      // The backend returned an unsuccessful response code.
-      // The response body may contain clues as to what went wrong.
-      console.error(
-        `Backend returned code ${error.status}, body was: `, error.error);
-    }
-    // Return an observable with a user-facing error message.
-    throwError(() => new Error('Something bad happened; please try again later.'));
-    return this.router.navigate(['/cadastro-usuario'])
-  }
-
-
-
 }

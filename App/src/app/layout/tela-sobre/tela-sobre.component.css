@@ -1,0 +1,35 @@
+
+  .mat-icon {
+    vertical-align: middle;
+    height: 27px;
+  }
+  .mat-card{
+    margin-bottom: 1%;
+    padding-top: 2%;
+    width:70%;
+    margin-left: 15%;
+  }
+  #card-principal{
+    margin-bottom: 7%;
+  }
+
+  h1{
+    display : inline-block;
+    vertical-align : middle;
+    margin-top: 20px;
+    font-family: EB Garamond;  
+    font-size: 50px;
+  }
+  p{
+    font-size: 30px;
+  }
+  mat-card-title{
+    font-size: 40px;
+  }
+
+  footer{
+    text-align: center;
+    font-family: EB Garamond;  
+    font-size: 30px;
+    margin-bottom: 2px;
+  }

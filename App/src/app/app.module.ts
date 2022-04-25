@@ -44,6 +44,10 @@ import { FiltroAgendamentoComponent } from './areas/usuarios/componentes/agendam
 import { DatePipe } from '@angular/common';
 import { EscolhaPacienteComponent } from './areas/usuarios/componentes/paciente/escolha-paciente/escolha-paciente.component';
 import { EditarBaseComponent } from './shared/editar-base/editar-base.component';
+import { TelaSobreComponent } from './layout/tela-sobre/tela-sobre.component';
+import { CriarConsultaComponent } from './areas/usuarios/componentes/consulta/criar-consulta/criar-consulta.component';
+import { EscolhaAgendamentoComponent } from './areas/usuarios/componentes/agendamento/escolha-agendamento/escolha-agendamento.component';
+import { FiltrasConsultasComponent } from './areas/usuarios/componentes/consulta/filtras-consultas/filtras-consultas.component';
 defineLocale('pt-br', ptBrLocale);
 
 export const dataGridSettings: DataGridConfig = {
@@ -186,6 +190,10 @@ export const inputFormsConfig: InputFormsConfig = {
     FiltroAgendamentoComponent,
     EscolhaPacienteComponent,
     EditarBaseComponent,
+    TelaSobreComponent,
+    CriarConsultaComponent,
+    EscolhaAgendamentoComponent,
+    FiltrasConsultasComponent,
 
   ],
   imports: [

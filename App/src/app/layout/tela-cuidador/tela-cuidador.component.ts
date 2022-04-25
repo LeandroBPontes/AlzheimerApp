@@ -167,9 +167,6 @@ export class TelaCuidadorComponent implements OnInit {
           });
       });
       return this.router.navigate([`/tela-cuidador/${this.id}`])
-      .then(nav => {
-        setTimeout(function () { location.reload(); }, 5000);
-      });
     }
     
   editarCuidador() {

@@ -78,7 +78,8 @@ export class FiltroAgendamentoComponent implements OnInit {
   
 
   filtrar():any{
-    this.blockUi.start('Entrando...');
+    this.blockUi.start('Filtrando...');
+    this.filtro.idPaciente = this.idPaciente;
       this.service.filtrarAgendamentoPorData(
       this.filtro)
       .subscribe(resultado => {
@@ -88,7 +89,7 @@ export class FiltroAgendamentoComponent implements OnInit {
     }
 
   limpar(){
-
+    this.filtro = new AgendamentoModel();
   }
 
 }

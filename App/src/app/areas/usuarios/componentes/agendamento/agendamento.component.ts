@@ -60,8 +60,4 @@ export class AgendamentoComponent implements OnInit {
           }
       )
   }
-
-
- 
-
 }

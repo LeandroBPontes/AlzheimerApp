@@ -1,0 +1,33 @@
+<app-menu> </app-menu>
+<div class="container">
+    <mat-card>
+        <mat-card-title>
+          <mat-icon>grid_on</mat-icon> Selecione o Agendamento
+          <mat-divider></mat-divider>
+        </mat-card-title>
+          <input-dropdown-grid
+            label="Agendamentos"
+            defaultOption="'Selecione o Agendamento'"
+            displayTextProperty="endereco"
+            valueProperty="id"
+            [(ngModel)]="idAgendamento"
+            [disabled]="false"
+            [columns]="agendamentos"
+            [data]="data"        
+            [showValidations]="true"
+            required>
+            </input-dropdown-grid>
+        
+            <div class="row">
+                <div class="col-md-4 mt-5">
+                   <button type="button" class="btn btn-primary" style="margin-right: 2px;" (click)="gerenciar()"><mat-icon>search</mat-icon>Gerenciar</button>
+                    <!-- <button type="button" class="btn btn-secondary" (click)="voltar()"><mat-icon>clear_all</mat-icon>Voltar</button> -->
+                </div>
+            </div>
+      
+    </mat-card>
+ </div>
+
+
+
+

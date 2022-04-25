@@ -20,6 +20,9 @@ export class AgendamentoService {
   buscarPorId(id: number){
     return this.http.get<AgendamentoModel>(`${this.baseURL}api/agendamento/${id}`);
   }
+  buscarPorIdPaciente(idPaciente: number){
+    return this.http.get<AgendamentoModel>(`${this.baseURL}api/agendamento/paciente/${idPaciente}`);
+  }
 
 
 }

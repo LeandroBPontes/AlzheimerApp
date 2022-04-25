@@ -1,0 +1,45 @@
+<app-menu> </app-menu>
+<div class="container">
+    <mat-card>
+        <mat-card-title>
+          <mat-icon>grid_on</mat-icon> {{titulo}}
+          <mat-divider></mat-divider>
+        </mat-card-title>
+ 
+        <div class="row">
+            <div class="mb-3 col-md-12 mr-0 mt-2">
+                <input-date
+                [label]="'Data'"
+                [disabled]="false"
+                [showValidations]="true"
+                [(ngModel)]="filtro.dataConsulta"
+                >
+            </input-date>
+            </div>
+            <div class="mb-3 col-md-12 mr-0 mt-2">
+            <input-textarea
+            [label]="'Resumo da Consulta'"
+            [placeholder]="'Observações médicas, questionamentos...'"
+            [maxlength]="2000"
+            [disabled]="false"
+            [showValidations]="true"
+            [(ngModel)]="filtro.resumo"
+            required>
+            </input-textarea>
+            </div>
+
+        </div>
+           
+     
+            <div class="row">
+                <div class="col-md-4">
+                   <button type="button" class="btn btn-primary" style="margin-right: 2px;" (click)="inserir()"><mat-icon>search</mat-icon>Cadastrar</button>
+                    <button type="button" class="btn btn-secondary" (click)="limpar()"><mat-icon>clear_all</mat-icon>Limpar</button>
+                </div>
+            </div>
+      
+    </mat-card>
+ </div>
+
+
+

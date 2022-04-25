@@ -28,7 +28,7 @@ export class CadastroDadosPacienteComponent implements OnInit {
   ngOnInit(): void {
   }
   limpar(){
-
+    this.filtro = new BaseModel();
   }
   inserirAtividade(filtro: any){
     this.filtro.idPaciente = this.idPaciente;
