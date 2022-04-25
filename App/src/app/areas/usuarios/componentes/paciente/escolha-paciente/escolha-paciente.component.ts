@@ -43,9 +43,7 @@ export class EscolhaPacienteComponent implements OnInit {
     });
   }
 
-  limpar(){
-
-  }
+ 
   gerenciar(idPaciente){
     return this.router.navigate([`/tela-paciente/${this.id}/${idPaciente}`]);
   }

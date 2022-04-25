@@ -13,5 +13,6 @@ export class AgendamentoModel{
     dataAgendamento: Date | string
     dataAgendamentoInicial: Date | string
     dataAgendamentoFinal: Date | string
+    feitoPeloPlanoDescricao: string | boolean
    
 }

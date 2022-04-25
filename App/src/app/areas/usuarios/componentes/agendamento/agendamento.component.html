@@ -1,4 +1,4 @@
-<ui-report #report reportTitle="My report example title">
+<ui-report #report reportTitle="Agendamento paciente">
     <div class="report-body">
       <div class="container">
           <mat-card>
@@ -6,7 +6,43 @@
                  Dados do Agendamento
                 <mat-divider></mat-divider>
               </mat-card-title>
-       
+              
+              <div class="row">
+                <div class="mb-3 col-md-6 mt-2">
+                  <input-text
+                  [label]="'Nome do(a) Paciente'"
+                  [disabled]="false"
+                  [showValidations]="true"
+                  [(ngModel)]="dadosPaciente.nome"
+                  >
+              </input-text>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="mb-3 col-md-6 mt-2">
+                  <input-text
+                  [label]="'Idade'"
+                  [disabled]="false"
+                  [showValidations]="true"
+                  [(ngModel)]="dadosPaciente.idade"
+                  >
+              </input-text>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="mb-3 col-md-6 mt-2">
+                  <input-text
+                  [label]="'Sexo'"
+                  [disabled]="false"
+                  [showValidations]="true"
+                  [(ngModel)]="dadosPaciente.sexo"
+                  >
+              </input-text>
+                </div>
+              </div>
+
               <div class="row">
                   <div class="mb-3 col-md-6 mt-2">
                     <input-text
@@ -36,7 +72,7 @@
                   [label]="'Feito Pelo Plano?'"
                   [disabled]="false"
                   [showValidations]="true"
-                  [(ngModel)]="dados.feitoPeloPlano"
+                  [(ngModel)]="dados.feitoPeloPlanoDescricao"
                   >
               </input-text>
             </div>
@@ -54,7 +90,7 @@
               </div>
                   <div class="row" *ngIf="print == false">
                       <div class="col-md-4">
-                         <button type="button" class="btn btn-danger" style="margin-right: 2px;" (click)="Print()"><mat-icon>backup</mat-icon> Baixar</button>
+                         <button type="button" class="btn btn-danger" style="margin-right: 1px;" (click)="Print()"><mat-icon>backup</mat-icon> Baixar</button>
                           <button type="button" class="btn btn-secondary" (click)="Voltar()"><mat-icon>clear_all</mat-icon> Voltar</button>
                       </div>
                   </div>

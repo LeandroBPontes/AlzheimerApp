@@ -64,7 +64,7 @@ export class FiltroAgendamentoComponent implements OnInit {
       return "<button type='button'class='btn btn-danger btn-sm'><i class='fa fa-file-pdf-o'></i></button>"
       },
       onClick: (rowIndex) =>{
-        return this.router.navigateByUrl(`/exporta-agendamento/${rowIndex.model.id}`)
+        return this.router.navigateByUrl(`/exporta-agendamento/${rowIndex.model.id}/${this.idPaciente}`)
       },
       dataAlignment: EnumAlignment.Center,
       sortable: false,

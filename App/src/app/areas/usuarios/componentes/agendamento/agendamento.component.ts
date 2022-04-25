@@ -5,6 +5,8 @@ import { finalize } from 'rxjs/operators';
 import { AgendamentoModel } from '../../modelos/agendamento/agendamento.model';
 import { AgendamentoService } from '../../servicos/agendamento/agendamento.service';
 import { DatePipe } from '@angular/common'
+import { PacienteModel } from '../../modelos/paciente/paciente.model';
+import { PacienteService } from '../../servicos/paciente/paciente.service';
 
 @Component({
   selector: 'app-agendamento',
@@ -17,17 +19,21 @@ export class AgendamentoComponent implements OnInit {
     private activatedRoute: ActivatedRoute,
      private service: AgendamentoService,
      private alertService: AlertService,
-     public datepipe: DatePipe) { }
+     public datepipe: DatePipe, private pacienteService: PacienteService) { }
 
   idAgendamento: any;
+  idPaciente: any;
   dados = new AgendamentoModel();
+  dadosPaciente = new PacienteModel();
   date = new Date();
   ano = this.date.getFullYear();
   print: boolean = false;
 
   ngOnInit(): void {
     this.idAgendamento = this.activatedRoute.snapshot.paramMap.get('idAgendamento');
+    this.idPaciente = this.activatedRoute.snapshot.paramMap.get('idPaciente');
     this.obterAgendamentoPorId(this.idAgendamento)
+    this.obterPaciente(this.idPaciente)
   }
 
   @ViewChild('report') report: ReportComponent;
@@ -52,6 +58,13 @@ export class AgendamentoComponent implements OnInit {
             if(this.dados.dataAgendamento != null){
               this.dados.dataAgendamento = this.datepipe.transform(this.dados.dataAgendamento, 'dd/MM/yyyy');
             }
+            if(this.dados.feitoPeloPlano == true){
+              
+              this.dados.feitoPeloPlanoDescricao = 'Sim'
+
+            }else{
+              this.dados.feitoPeloPlanoDescricao = 'Não'
+            }
           
             console.log("sucesso")
           },
@@ -59,5 +72,21 @@ export class AgendamentoComponent implements OnInit {
             console.log("erro")
           }
       )
+  }
+  obterPaciente(id){
+    this.pacienteService.obterPorId(this.idPaciente)
+    .pipe(
+      finalize(() => {
+      })
+    )
+    .subscribe(
+      result => {
+        this.dadosPaciente = result;
+        console.log("sucesso")
+      },
+      err => {
+        console.log("erro")
+      }
+  )
   }
 }

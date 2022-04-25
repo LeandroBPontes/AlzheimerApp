@@ -1,25 +1,24 @@
 mat-card-title{
-    color: blue;
-    font-size: 50px;;
+    color: rgb(132, 132, 132);
+    font-size: 30px;
 }
 .mat-icon {
     vertical-align: middle;
     height: 27px;
   }
-   .mat-card{
-    margin-top: 2%;
-   
-    width:100%;
-    height: auto;
-    margin-left: 5%;
-    flex-direction: row;
-    align-items: center;
-   
-  }
+  .mat-card{
+    margin-top: 4%;
+    min-width: 60%;
+    min-height: auto;
+    margin-left: auto;
+    margin-right: auto;
+}
   .container{
     display: flex;
     flex-direction: row;
     align-items: center;
     height: 50%;
-    min-width: 100%;
+    min-width: 8%;
   }
+  
+  

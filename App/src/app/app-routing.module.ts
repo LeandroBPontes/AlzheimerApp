@@ -74,7 +74,7 @@ const routes: Routes = [
     component: EscolhaPacienteComponent
   },
   { 
-    path: 'exporta-agendamento/:idAgendamento',
+    path: 'exporta-agendamento/:idAgendamento/:idPaciente',
     component:AgendamentoComponent
   },
   { 
