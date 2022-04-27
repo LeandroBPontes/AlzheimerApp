@@ -106,19 +106,6 @@ export class CadastroDadosPacienteComponent implements OnInit {
     }
 
 
-  inserir(): any {
-    if (this.medicamentoAtributo) {
-     this.inserirMedicamento(this.filtro);
-    }
-    if (this.atividadeAtributo) {
-      this.inserirAtividade(this.filtro);
-    }
-    if (this.sintomaAtributo) {
-     this.inserirSintoma(this.filtro);
-    } 
-  }
-
-  
 
 
 }
