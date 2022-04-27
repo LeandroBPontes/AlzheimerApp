@@ -1,6 +1,4 @@
-﻿
-
-using System;
+﻿using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace AlzheimerApp.Dominios {
@@ -13,6 +11,7 @@ namespace AlzheimerApp.Dominios {
         public virtual Agendamento Agendamento { get; set; }
         public int IdAgendamento { get; set; }
         public int IdPaciente { get; set; }
+
 
     }
 }

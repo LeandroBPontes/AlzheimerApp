@@ -10,13 +10,18 @@ namespace AlzheimerApp.Controllers {
     public class ConsultaController : CrudBaseController<Consulta, int> {
 
         private readonly IRepositorioBase<Consulta, int> _repositorio;
-        public ConsultaController(IRepositorioBase<Consulta, int> repositorio) : base(repositorio) {
+        private readonly IRepositorioBase<Agendamento, int> _repositorioAgendamento;
+        public ConsultaController(IRepositorioBase<Consulta, int> repositorio, IRepositorioBase<Agendamento, int> repositorioAgendamento) : base(repositorio) {
            _repositorio = repositorio;
+           _repositorioAgendamento = repositorioAgendamento;
         }
         [HttpPost("ObterConsultaPorData")]
         public ActionResult<Consulta> ObterConsultaPorData(ConsultaFiltro model) {
 
             if (model.DataConsultaInicial != null && model.DataConsultaFinal != null) {
+                var agendamento = _repositorioAgendamento.Get()
+                     .Where(y => y.IdPaciente == model.IdPaciente);
+
                 var objetos = _repositorio.Get()
                     .Where(x => x.DataConsulta >= model.DataConsultaInicial
                     &&
@@ -84,5 +89,19 @@ namespace AlzheimerApp.Controllers {
             }
             return BadRequest("Nenhum objeto encontrado");
         }
+
+        [HttpDelete("ExcluirPorIdPaciente/{id}")]
+        public IActionResult ExcluirPorIdPaciente(int id) {
+            var objeto = _repositorio.Get().Where(x => x.IdPaciente == id);
+
+            foreach (var obj in objeto) {
+                if (obj == null)
+                    return NotFound();
+
+                _repositorio.Delete(obj.Id);
+            }
+            return NoContent();
+        }
+
     }
 }

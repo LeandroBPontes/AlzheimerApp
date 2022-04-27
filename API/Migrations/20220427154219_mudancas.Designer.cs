@@ -4,6 +4,7 @@ using AlzheimerApp.Banco;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,10 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AlzheimerApp.Migrations
 {
     [DbContext(typeof(DataContext))]
-    partial class DataContextModelSnapshot : ModelSnapshot
+    [Migration("20220427154219_mudancas")]
+    partial class mudancas
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -102,8 +104,6 @@ namespace AlzheimerApp.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("IdAgendamento");
-
-                    b.HasIndex("IdPaciente");
 
                     b.ToTable("Consultas");
                 });
@@ -268,15 +268,7 @@ namespace AlzheimerApp.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("AlzheimerApp.Dominios.Paciente", "Paciente")
-                        .WithMany()
-                        .HasForeignKey("IdPaciente")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Agendamento");
-
-                    b.Navigation("Paciente");
                 });
 
             modelBuilder.Entity("AlzheimerApp.Dominios.Medicamento", b =>

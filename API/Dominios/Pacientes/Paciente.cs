@@ -7,7 +7,7 @@ namespace AlzheimerApp.Dominios {
 
         [ForeignKey("IdCuidador")]
         public virtual Cuidador Cuidador { get; set; }
-        public int? IdCuidador { get; set; }
+        public int IdCuidador { get; set; }
 
     }
 }

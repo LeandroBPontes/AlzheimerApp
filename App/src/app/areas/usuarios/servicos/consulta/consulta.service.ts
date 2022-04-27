@@ -32,5 +32,8 @@ export class ConsultaService {
   buscarPorIdPaciente(idPaciente: number){
     return this.http.get<ConsultaModel>(`${this.baseURL}api/consulta/paciente/${idPaciente}`);
   }
+  excluirConsultaPorIdPaciente(id:number){
+    return this.http.delete(`${this.baseURL}api/consulta/ExcluirPorIdPaciente/${id}`);
+  }
   
 }

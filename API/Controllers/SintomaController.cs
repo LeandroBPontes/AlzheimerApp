@@ -23,5 +23,18 @@ namespace AlzheimerApp.Controllers {
                 return Ok(objeto);
             }
         }
+
+        [HttpDelete("ExcluirPorIdPaciente/{id}")]
+        public IActionResult ExcluirPorIdPaciente(int id) {
+            var objeto = _repositorio.Get().Where(x => x.IdPaciente == id);
+
+            foreach (var obj in objeto) {
+                if (obj == null)
+                    return NotFound();
+
+                _repositorio.Delete(obj.Id);
+            }
+            return NoContent();
+        }
     }
 }

@@ -26,6 +26,9 @@ export class PacienteService {
   excluir(id:number){
     return this.http.delete(`${this.baseURL}api/paciente/${id}`);
   }
+  excluirPorIdCuidador(id:number){
+    return this.http.delete(`${this.baseURL}api/paciente/ExcluirPorIdCuidador/${id}`);
+  }
   obterPorId(id: number){
     return this.http.get<PacienteModel>(`${this.baseURL}api/paciente/${id}`);
   }

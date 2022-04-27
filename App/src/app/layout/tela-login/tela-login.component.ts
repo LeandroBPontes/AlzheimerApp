@@ -29,6 +29,7 @@ export class TelaLoginComponent implements OnInit {
   }
 
   logar() {
+   
     this.blockUi.start('Validando Login...');
     this.service
       .login(this.filtro)
@@ -40,7 +41,7 @@ export class TelaLoginComponent implements OnInit {
       .subscribe(result => {
         this.emissor = result;
         if (!result) {
-          this.alertService.question('Cuidador não cadastrado!', 'Deseja cadastrar?', () => {
+          this.alertService.question('Dado(s) Incorreto(s)', 'Deseja cadastrar?', () => {
             return this.router.navigate(['/cadastro-usuario']);
           });
           return this.router.navigate(['/tela-login']);

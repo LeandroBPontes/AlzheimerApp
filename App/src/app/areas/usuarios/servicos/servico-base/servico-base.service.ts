@@ -61,5 +61,17 @@ export class ServicoBaseService {
     atualizarAtividade(id:number, atividade: BaseModel) {
       return this.http.put(`${this.baseURL}api/atividade/${id}`, atividade);
     }
+
+    excluirMedicamentoPorIdPaciente(id:number){
+      return this.http.delete(`${this.baseURL}api/medicamento/ExcluirPorIdPaciente/${id}`);
+    }
+
+    excluirSintomaPorIdPaciente(id:number){
+      return this.http.delete(`${this.baseURL}api/sintoma/ExcluirPorIdPaciente/${id}`);
+    }
+
+    excluirAtividadePorIdPaciente(id:number){
+      return this.http.delete(`${this.baseURL}api/atividade/ExcluirPorIdPaciente/${id}`);
+    }
     
   }

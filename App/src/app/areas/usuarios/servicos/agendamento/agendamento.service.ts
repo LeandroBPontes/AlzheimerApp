@@ -29,6 +29,9 @@ export class AgendamentoService {
   atualizar(id:number, agendamento: AgendamentoModel) {
     return this.http.put(`${this.baseURL}api/agendamento/${id}`, agendamento);
   }
+  excluirAgendamentoPorIdPaciente(id:number){
+    return this.http.delete(`${this.baseURL}api/agendamento/ExcluirPorIdPaciente/${id}`);
+  }
 
 
 }

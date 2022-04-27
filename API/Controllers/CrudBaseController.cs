@@ -1,6 +1,7 @@
 ﻿using AlzheimerApp.Dominios;
 using AlzheimerApp.Repositorios;
 using Microsoft.AspNetCore.Mvc;
+using System.Linq;
 
 namespace AlzheimerApp.Controllers {
    
@@ -65,5 +66,7 @@ namespace AlzheimerApp.Controllers {
             
             return NoContent();
         }
+
+       
     }
 }

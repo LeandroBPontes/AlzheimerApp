@@ -1,11 +1,14 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { AlertService, DataGridColumnModel, EnumAlignment } from 'ngx-ui-hero';
+import { AlertService, BlockUi, DataGridColumnModel, EnumAlignment } from 'ngx-ui-hero';
 import { CuidadorService } from 'src/app/areas/usuarios/servicos/cuidador/cuidador.service';
 import { PacienteService } from 'src/app/areas/usuarios/servicos/paciente/paciente.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TelaCuidadorModalComponent } from './tela-cuidador-modal/tela-cuidador-modal.component';
 import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 import { finalize } from 'rxjs/operators';
+import { ServicoBaseService } from 'src/app/areas/usuarios/servicos/servico-base/servico-base.service';
+import { AgendamentoService } from 'src/app/areas/usuarios/servicos/agendamento/agendamento.service';
+import { ConsultaService } from 'src/app/areas/usuarios/servicos/consulta/consulta.service';
 
 @Component({
   selector: 'app-tela-cuidador',
@@ -14,8 +17,17 @@ import { finalize } from 'rxjs/operators';
 })
 export class TelaCuidadorComponent implements OnInit {
   modalRef?: BsModalRef;
-  constructor(public service: CuidadorService, public servicePaciente: PacienteService, private router: Router,
-    private activatedRoute: ActivatedRoute, public modalService: BsModalService, private alertService: AlertService) { }
+  constructor(
+    public service: CuidadorService,
+    public servicePaciente: PacienteService,
+    private router: Router,
+    private activatedRoute: ActivatedRoute,
+    public modalService: BsModalService,
+    private alertService: AlertService,
+    public serviceBase: ServicoBaseService,
+    public serviceAgendamento: AgendamentoService,
+    public serviceConsulta: ConsultaService,
+    ) { }
   nome: any;
   id: any;
 
@@ -33,6 +45,7 @@ export class TelaCuidadorComponent implements OnInit {
   @Input() showActionsColumn: any
   @Input() initialColumnToSort: any
   isLoading: any;
+  blockUi = new BlockUi();
 
 
   pacientes = [
@@ -142,19 +155,103 @@ export class TelaCuidadorComponent implements OnInit {
       });
   }
   
+  excluirConsulta(id){
+    this.serviceConsulta.excluirConsultaPorIdPaciente(id)
+    .subscribe(
+      result => {
+        console.log("sucesso")
+      },
+      err => {
+        console.log("erro")
+      }
+    )
+  }
+
+  excluirPacientePorIdCuidador(id){
+    this.servicePaciente.excluirPorIdCuidador(id)
+    .subscribe(
+      result => {
+        console.log("sucesso")
+      },
+      err => {
+        console.log("erro")
+      }
+    )
+  }
+  excluirAgendamento(id){
+    this.serviceAgendamento.excluirAgendamentoPorIdPaciente(id)
+    .subscribe(
+      result => {
+        console.log("sucesso")
+      },
+      err => {
+        console.log("erro")
+      }
+    )
+  }
+  excluirAtividades(id){
+    this.serviceBase.excluirAtividadePorIdPaciente(id)
+    .subscribe(
+      result => {
+        console.log("sucesso")
+      },
+      err => {
+        console.log("erro")
+      }
+    )
+  }
+  excluirMedicamentos(id){
+    this.serviceBase.excluirMedicamentoPorIdPaciente(id)
+    .subscribe(
+      result => {
+        console.log("sucesso")
+      },
+      err => {
+        console.log("erro")
+      }
+    )
+    
+  }
+  excluirSintomas(id){
+    this.serviceBase.excluirSintomaPorIdPaciente(id)
+    .subscribe(
+      result => {
+        console.log("sucesso")
+      },
+      err => {
+        console.log("erro")
+      }
+    )
+}
+ 
   excluirCuidador() {
     this.alertService.question('Tem certeza que deseja excluir sua conta?!', '', () => {
-      // your success callback code.
-      this.isLoading = true;
+      this.blockUi.start('Excluindo...');
+      
+      //excluir consulta
+      this.excluirConsulta(this.data.id);
+
+      //excluir agendamento
+      this.excluirAgendamento(this.data.id);
+
+      //excluir atividades
+      this.excluirAtividades(this.data.id);
+
+      //excluir medicamentos
+      this.excluirMedicamentos(this.data.id);
+
+      //excluir sintomas
+      this.excluirSintomas(this.data.id);
+
+      //excluir paciente
+      this.excluirPacientePorIdCuidador(this.id);
+
+      //excluir cuidador
       this.service.excluir(this.id)
-        .pipe(
-          finalize(() => {
-            this.isLoading = false;
-          })
-        )
         .subscribe(
           result => {
             console.log("sucesso")
+            this.blockUi.stop();
           },
           err => {
             console.log("erro")
@@ -167,7 +264,7 @@ export class TelaCuidadorComponent implements OnInit {
           });
       });
       return this.router.navigate([`/tela-cuidador/${this.id}`])
-    }
+  }
     
   editarCuidador() {
 
