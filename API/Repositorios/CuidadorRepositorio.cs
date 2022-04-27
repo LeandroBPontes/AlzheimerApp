@@ -33,14 +33,16 @@ namespace AlzheimerApp.Repositorios {
         }
         public void Update(Cuidador model) {
             var cuidador = _context.Cuidadores.Find(model.Id);
-            //cuidador.Idade = model.Idade;
-            //cuidador.Nome = model.Nome;
+            cuidador.Idade = model.Idade;
+            cuidador.Nome = model.Nome;
             cuidador.PossuiFilho = model.PossuiFilho;
             cuidador.PossuiOcupacao = model.PossuiOcupacao;
-           
+            cuidador.EstadoCivil = model.EstadoCivil;
+            cuidador.Sexo = model.Sexo;
+
 
             //TODO - ALTERAR SENHA E LOGIN
-           // cuidador.Senha = model.Senha;
+            // cuidador.Senha = model.Senha;
 
             _context.Entry(cuidador).State = EntityState.Modified;
             _context.SaveChanges();

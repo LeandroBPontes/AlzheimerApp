@@ -9,6 +9,8 @@ import { finalize } from 'rxjs/operators';
 import { ServicoBaseService } from 'src/app/areas/usuarios/servicos/servico-base/servico-base.service';
 import { AgendamentoService } from 'src/app/areas/usuarios/servicos/agendamento/agendamento.service';
 import { ConsultaService } from 'src/app/areas/usuarios/servicos/consulta/consulta.service';
+import { EditarCuidadorComponent } from './editar-cuidador/editar-cuidador.component';
+import { CuidadorModel } from 'src/app/areas/usuarios/modelos/cuidador/cuidador.model';
 
 @Component({
   selector: 'app-tela-cuidador',
@@ -41,9 +43,11 @@ export class TelaCuidadorComponent implements OnInit {
   date = new Date();
   ano = this.date.getFullYear();
   @Input() data: any
+  cuidador = new CuidadorModel()
   @Input() columns: any
   @Input() showActionsColumn: any
   @Input() initialColumnToSort: any
+
   isLoading: any;
   blockUi = new BlockUi();
 
@@ -108,6 +112,7 @@ export class TelaCuidadorComponent implements OnInit {
   obterCuidador(id) {
     this.service.buscarPorId(id).subscribe(resultado => {
       this.nome = resultado.nome;
+      this.cuidador = resultado;
     }
     );
   }
@@ -267,6 +272,13 @@ export class TelaCuidadorComponent implements OnInit {
   }
     
   editarCuidador() {
+    let modalRef = this.modalService.show(EditarCuidadorComponent, {
+      class: "modal-lg",
+      keyboard: false,
+      initialState: {
+      cuidador:this.cuidador
+      },
+    });
 
   }
 }

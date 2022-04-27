@@ -36,7 +36,7 @@ export class CuidadorService {
     return this.http.delete(`${this.baseURL}api/cuidador/${id}`);
   }
  
-  // inserirPaciente(paciente: PacienteModel) {
-  //   return this.http.post(`${this.baseURL}api/paciente`, paciente);
-  // }
+  atualizar(id:number, cuidador: CuidadorModel) {
+    return this.http.put(`${this.baseURL}api/cuidador/${id}`, cuidador);
+  }
 }

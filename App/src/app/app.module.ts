@@ -50,6 +50,7 @@ import { EscolhaAgendamentoComponent } from './areas/usuarios/componentes/agenda
 import { FiltrasConsultasComponent } from './areas/usuarios/componentes/consulta/filtras-consultas/filtras-consultas.component';
 import { EditarAgendamentoComponent } from './areas/usuarios/componentes/agendamento/editar-agendamento/editar-agendamento.component';
 import { EditarConsultaComponent } from './areas/usuarios/componentes/consulta/editar-consulta/editar-consulta.component';
+import { EditarCuidadorComponent } from './layout/tela-cuidador/editar-cuidador/editar-cuidador.component';
 defineLocale('pt-br', ptBrLocale);
 
 export const dataGridSettings: DataGridConfig = {
@@ -198,6 +199,7 @@ export const inputFormsConfig: InputFormsConfig = {
     FiltrasConsultasComponent,
     EditarAgendamentoComponent,
     EditarConsultaComponent,
+    EditarCuidadorComponent,
 
   ],
   imports: [
