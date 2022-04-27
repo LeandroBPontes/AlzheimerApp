@@ -1,1 +1,120 @@
-<p>consulta works!</p>
+
+      <div class="container">
+        <mat-card>
+          <ui-report #report reportTitle="Consulta paciente">
+          <div class="report-body">
+            <mat-card-title>
+              Informativos da Consulta
+              <mat-divider></mat-divider>
+            </mat-card-title>
+            
+            <div class="row">
+              <div class="mb-3 col-md-6 mt-2">
+                <input-text
+                [label]="'Nome do(a) Paciente'"
+                [disabled]="true"
+                [(ngModel)]="dadosPaciente.nome"
+                >
+            </input-text>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="mb-3 col-md-6 mt-2">
+                <input-text
+                [label]="'Idade'"
+                [disabled]="true"
+                [(ngModel)]="dadosPaciente.idade"
+                >
+            </input-text>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="mb-3 col-md-6 mt-2">
+                <input-text
+                [label]="'Sexo'"
+                [disabled]="true"
+                [(ngModel)]="dadosPaciente.sexo"
+                >
+            </input-text>
+              </div>
+            </div>
+
+            <div class="row">
+                <div class="mb-3 col-md-6 mt-2">
+                  <input-text
+                  [label]="'Endereço'"
+                  [disabled]="true"
+                  [(ngModel)]="dadosAgendamento.endereco"
+                  >
+              </input-text>
+                </div>
+              </div>
+              <div class="row">
+                <div class="mb-3 col-md-6 mt-2">
+                  <input-text
+                  [label]="'Especialidade'"
+                  [disabled]="true"
+                  [(ngModel)]="dadosAgendamento.especialidade"
+                  >
+              </input-text>
+                </div>
+            </div>
+
+            <div class="row">
+              <div class="mb-3 col-md-6 mr-0 mt-2">
+                <input-text
+                [label]="'Feito Pelo Plano?'"
+                [disabled]="true"
+                [(ngModel)]="dadosAgendamento.feitoPeloPlanoDescricao"
+                >
+            </input-text>
+          </div>
+        </div>
+        <div class="row">
+                <div class="mb-3 col-md-6 mr-0 mt-2">
+                    <input-text
+                    [label]="'Data do Agendamento'"
+                    [disabled]="true"
+                    [(ngModel)]="dadosAgendamento.dataAgendamento"
+                    >
+                  </input-text>
+                </div>
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-6 mr-0 mt-2">
+                <input-text
+                [label]="'Data da Consulta'"
+                [disabled]="true"
+                [(ngModel)]="dados.dataConsulta"
+                >
+              </input-text>
+             </div>  
+        </div>
+
+        <div class="row">
+            <div class="mb-3 col-md-12 mr-0 mt-2">
+                <input-textarea 
+                [label]="'Resumo da Consulta'"
+                [disabled]="true"
+                [(ngModel)]="dados.resumo">
+                </input-textarea>
+            </div>
+        </div>
+
+
+          </div>
+          </ui-report>
+          <div class="row">
+            <div class="col-md-4">
+               <button type="button" class="btn btn-danger" style="margin-right: 1px;" (click)="Print()"><mat-icon>backup</mat-icon> Baixar</button>
+                <button type="button" class="btn btn-secondary" (click)="Voltar()"><mat-icon>clear_all</mat-icon> Voltar</button>
+            </div>
+        </div>
+
+        </mat-card>
+    
+</div>
+

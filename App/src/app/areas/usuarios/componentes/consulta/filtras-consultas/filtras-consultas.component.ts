@@ -2,10 +2,11 @@ import { DatePipe } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { BsModalService } from 'ngx-bootstrap/modal';
-import { BlockUi, EnumAlignment } from 'ngx-ui-hero';
+import { AlertService, BlockUi, EnumAlignment } from 'ngx-ui-hero';
 import { ConsultaModel } from '../../../modelos/consulta/consulta.model';
 import { AgendamentoService } from '../../../servicos/agendamento/agendamento.service';
 import { ConsultaService } from '../../../servicos/consulta/consulta.service';
+import { EditarConsultaComponent } from '../editar-consulta/editar-consulta.component';
 
 @Component({
   selector: 'app-filtras-consultas',
@@ -25,7 +26,8 @@ export class FiltrasConsultasComponent implements OnInit {
   blockUi = new BlockUi();
   
   constructor(public activatedRoute: ActivatedRoute, private router: Router,
-    private service: ConsultaService, public date: DatePipe, public modalService: BsModalService) { }
+    private service: ConsultaService, public date: DatePipe,
+     public modalService: BsModalService, private alertService: AlertService) { }
     
     consultasFiltrados:any;
   consultas = [
@@ -51,7 +53,7 @@ export class FiltrasConsultasComponent implements OnInit {
       return "<button type='button'class='btn btn-danger btn-sm'><i class='fa fa-file-pdf-o'></i></button>"
       },
       onClick: (rowIndex) =>{
-        return this.router.navigateByUrl(`/exporta-agendamento/${rowIndex.model.id}`)
+        return this.router.navigateByUrl(`/exporta-consulta/${rowIndex.model.id}/${rowIndex.model.idAgendamento}/${this.idPaciente}/${this.idCuidador}`)
       },
       dataAlignment: EnumAlignment.Center,
       sortable: false,
@@ -77,6 +79,36 @@ export class FiltrasConsultasComponent implements OnInit {
 
   limpar(){
     this.filtro = new ConsultaModel();
+  }
+
+  excluirConsulta(index: any) {
+    this.alertService.question('Tem certeza que deseja excluir?', '', () => {
+      this.blockUi.start('Excluindo Consulta')
+      this.service
+        .excluir(index.id)
+        .subscribe(
+          result => {
+            console.log("sucesso")
+            this.blockUi.stop();
+            this.alertService.success('Tudo certo!', 'Consulta excluída com sucesso')
+            setTimeout(function () { location.reload(); }, 3100);
+          },
+          err => {
+            console.log("erro")
+          }
+        )
+
+    });
+  }
+
+  editarConsulta(rowIndex: any) {
+    let modalRef = this.modalService.show(EditarConsultaComponent, {
+      class: "modal-lg",
+      keyboard: false,
+      initialState: {
+        dados: rowIndex,
+      },
+    });
   }
 
 }

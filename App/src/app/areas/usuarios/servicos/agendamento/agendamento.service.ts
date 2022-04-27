@@ -23,6 +23,12 @@ export class AgendamentoService {
   buscarPorIdPaciente(idPaciente: number){
     return this.http.get<AgendamentoModel>(`${this.baseURL}api/agendamento/paciente/${idPaciente}`);
   }
+  excluirAgendamento(id:number){
+    return this.http.delete(`${this.baseURL}api/agendamento/${id}`);
+  }
+  atualizar(id:number, agendamento: AgendamentoModel) {
+    return this.http.put(`${this.baseURL}api/agendamento/${id}`, agendamento);
+  }
 
 
 }

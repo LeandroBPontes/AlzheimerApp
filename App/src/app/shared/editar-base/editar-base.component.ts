@@ -16,10 +16,10 @@ export class EditarBaseComponent implements OnInit {
      public service: ServicoBaseService, public router: Router,
       private alertService: AlertService) { }
 
-  tituloPrincipal: string = "Editar Paciente"
+  @Input() tituloPrincipal: string
+  @Input() tituloSecundario: string
   isLoading: boolean
   @Input()dados: any;
-  
   @Input()medicamento: any;
   @Input()sintoma: any;
   @Input()atividade: any;
@@ -108,7 +108,5 @@ export class EditarBaseComponent implements OnInit {
           setTimeout(function () { location.reload(); }, 4000);
         });
     }
-    
   }
- 
 }

@@ -29,7 +29,7 @@
         </div>
         </div>
         <hr>
-        <div class="portlet" >
+        <div class="portlet" [block-ui]="blockUi">
             <h5>Agendamentos</h5>
             <hr>
         <datagrid 
@@ -39,8 +39,8 @@
         [initialColumnToSort]="0">
 
             <ng-template actions-column let-row="row" let-rowIndex="rowIndex">
-                <button type="button" class="btn btn-outline-primary btn-sm" style="margin-right: 2px;"><i class="fa fa-edit"></i></button>
-                <button type="button" class="btn btn-outline-danger btn-sm"><i class="fa fa-trash"></i></button>
+                <button type="button" class="btn btn-outline-primary btn-sm" style="margin-right: 2px;" (click)="editarAgendamento(row)"><i class="fa fa-edit"></i></button>
+                <button type="button" class="btn btn-outline-danger btn-sm" (click)="excluirAgendamento(row)"><i class="fa fa-trash"></i></button>
             </ng-template>
             
         </datagrid>

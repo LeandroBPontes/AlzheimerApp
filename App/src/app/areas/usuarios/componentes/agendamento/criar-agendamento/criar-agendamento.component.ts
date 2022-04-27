@@ -33,7 +33,6 @@ export class CriarAgendamentoComponent implements OnInit {
 
   inserir(){
     this.filtro.idPaciente = this.idPaciente;
-    console.log(this.filtro)
     this.service
     .inserir(this.filtro)
     .subscribe(
@@ -45,12 +44,9 @@ export class CriarAgendamentoComponent implements OnInit {
       }
         )
         this.alertService.question('Cadastro realizado com sucesso!', 'Deseja criar um novo agendamento?', () => {
-          this.criaAgendamento = true;
-          if(this.criaAgendamento){
-            return this.router.navigate([`/criar-agendamento/${this.idPaciente}/${this.idCuidador}`]);
-          }
-          return this.router.navigate([`/tela-paciente/${this.idCuidador}`]);
+          return this.router.navigate([`/criar-agendamento/${this.idCuidador}/${this.idPaciente}`]);
         })
+        return this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`]);
          
   }
   

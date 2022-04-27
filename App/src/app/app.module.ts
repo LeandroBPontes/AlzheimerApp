@@ -48,6 +48,8 @@ import { TelaSobreComponent } from './layout/tela-sobre/tela-sobre.component';
 import { CriarConsultaComponent } from './areas/usuarios/componentes/consulta/criar-consulta/criar-consulta.component';
 import { EscolhaAgendamentoComponent } from './areas/usuarios/componentes/agendamento/escolha-agendamento/escolha-agendamento.component';
 import { FiltrasConsultasComponent } from './areas/usuarios/componentes/consulta/filtras-consultas/filtras-consultas.component';
+import { EditarAgendamentoComponent } from './areas/usuarios/componentes/agendamento/editar-agendamento/editar-agendamento.component';
+import { EditarConsultaComponent } from './areas/usuarios/componentes/consulta/editar-consulta/editar-consulta.component';
 defineLocale('pt-br', ptBrLocale);
 
 export const dataGridSettings: DataGridConfig = {
@@ -194,6 +196,8 @@ export const inputFormsConfig: InputFormsConfig = {
     CriarConsultaComponent,
     EscolhaAgendamentoComponent,
     FiltrasConsultasComponent,
+    EditarAgendamentoComponent,
+    EditarConsultaComponent,
 
   ],
   imports: [

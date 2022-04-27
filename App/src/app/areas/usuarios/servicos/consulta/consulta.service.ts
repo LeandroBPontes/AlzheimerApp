@@ -16,4 +16,21 @@ export class ConsultaService {
   filtrarConsultaPorData(model: ConsultaModel){
     return this.http.post(`${this.baseURL}api/consulta/ObterConsultaPorData`, model);
   }
+  excluirConsulta(id:number){
+    return this.http.delete(`${this.baseURL}api/consulta/ExcluirConsultaPorIdAgendamento/${id}`);
+  }
+  excluir(id:number){
+    return this.http.delete(`${this.baseURL}api/consulta/${id}`);
+  }
+  atualizar(id:number, consulta: ConsultaModel) {
+    return this.http.put(`${this.baseURL}api/consulta/${id}`, consulta);
+  }
+
+  buscarPorId(id: number){
+    return this.http.get<ConsultaModel>(`${this.baseURL}api/consulta/${id}`);
+  }
+  buscarPorIdPaciente(idPaciente: number){
+    return this.http.get<ConsultaModel>(`${this.baseURL}api/consulta/paciente/${idPaciente}`);
+  }
+  
 }

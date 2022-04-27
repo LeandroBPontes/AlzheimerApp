@@ -55,6 +55,7 @@ namespace AlzheimerApp.Controllers {
             }
             return BadRequest("Nenhum objeto encontrado");
         }
+        
         [HttpGet("paciente/{idPaciente}")]
         public ActionResult<Agendamento> ObterTodosAgendamentoPorIdPaciente(int? idPaciente) {
 

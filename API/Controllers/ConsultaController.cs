@@ -56,5 +56,33 @@ namespace AlzheimerApp.Controllers {
             return BadRequest("Nenhum objeto encontrado");
         }
 
+        [HttpDelete("ExcluirConsultaPorIdAgendamento/{id}")]
+        public IActionResult ExcluirPorIdAgendamento(int id) {
+            var objeto = _repositorio.Get().Where(x=>x.IdAgendamento == id);
+
+            foreach(var obj in objeto) {
+                if (obj == null) 
+                    return NotFound();
+              
+                _repositorio.Delete(obj.Id);
+            }
+            return NoContent();
+        }
+
+        [HttpGet("paciente/{idPaciente}")]
+        public ActionResult<Consulta> ObterTodasConsultasPorIdPaciente(int? idPaciente) {
+
+            if (idPaciente != null) {
+                var objetos = _repositorio.Get()
+                    .Where(x => x.IdPaciente == idPaciente
+                    );
+                if (objetos == null)
+                    return NotFound();
+                else {
+                    return Ok(objetos);
+                }
+            }
+            return BadRequest("Nenhum objeto encontrado");
+        }
     }
 }

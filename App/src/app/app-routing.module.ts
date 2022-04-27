@@ -4,6 +4,7 @@ import { AgendamentoComponent } from './areas/usuarios/componentes/agendamento/a
 import { CriarAgendamentoComponent } from './areas/usuarios/componentes/agendamento/criar-agendamento/criar-agendamento.component';
 import { EscolhaAgendamentoComponent } from './areas/usuarios/componentes/agendamento/escolha-agendamento/escolha-agendamento.component';
 import { FiltroAgendamentoComponent } from './areas/usuarios/componentes/agendamento/filtro-agendamento/filtro-agendamento.component';
+import { ConsultaComponent } from './areas/usuarios/componentes/consulta/consulta.component';
 import { CriarConsultaComponent } from './areas/usuarios/componentes/consulta/criar-consulta/criar-consulta.component';
 import { FiltrasConsultasComponent } from './areas/usuarios/componentes/consulta/filtras-consultas/filtras-consultas.component';
 import { EscolhaPacienteComponent } from './areas/usuarios/componentes/paciente/escolha-paciente/escolha-paciente.component';
@@ -74,8 +75,12 @@ const routes: Routes = [
     component: EscolhaPacienteComponent
   },
   { 
-    path: 'exporta-agendamento/:idAgendamento/:idPaciente',
+    path: 'exporta-agendamento/:idAgendamento/:idPaciente/:idCuidador',
     component:AgendamentoComponent
+  },
+  { 
+    path: 'exporta-consulta/:idConsulta/:idAgendamento/:idPaciente/:idCuidador',
+    component:ConsultaComponent
   },
   { 
     path: 'tela-sobre',

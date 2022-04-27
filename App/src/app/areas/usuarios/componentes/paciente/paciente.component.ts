@@ -129,13 +129,16 @@ export class PacienteComponent implements OnInit {
     return this.router.navigateByUrl(`/cadastro-sintoma/${this.idCuidador}/${this.idPaciente}`)
 
   }
+
   editarMedicamento(rowIndex: any) {
     let modalRef = this.modalService.show(EditarBaseComponent, {
       class: "modal-lg",
       keyboard: false,
       initialState: {
         dados: rowIndex,
-        medicamento: true
+        medicamento: true,
+        tituloPrincipal: "Editar Medicamento do Paciente",
+        tituloSecundario: "Editar Medicamento"
       },
     });
   }
@@ -145,7 +148,9 @@ export class PacienteComponent implements OnInit {
       keyboard: false,
       initialState: {
         dados: rowIndex,
-        sintoma: true
+        sintoma: true,
+        tituloPrincipal: "Editar Sintoma do Paciente",
+        tituloSecundario: "Editar Sintoma"
       },
     });
   }
@@ -155,11 +160,12 @@ export class PacienteComponent implements OnInit {
       keyboard: false,
       initialState: {
         dados: rowIndex,
-        atividade: true
+        atividade: true,
+        tituloPrincipal: "Editar Atividade do Paciente",
+        tituloSecundario: "Editar Atividade"
       },
     });
   }
-
 
   excluirMedicamento(index: any) {
     this.alertService.question('Tem certeza que deseja excluir esse medicamento?!', '', () => {
@@ -177,22 +183,20 @@ export class PacienteComponent implements OnInit {
         .subscribe(
           result => {
             console.log("sucesso")
+            this.alertService.success('Tudo certo!', 'Medicamento excluído com sucesso')
+            this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
+              .then(nav => {
+                setTimeout(function () { location.reload(); }, 3100);
+              });
 
           },
           err => {
             console.log("erro")
           }
         )
-      this.alertService.success('Tudo certo!', 'Medicamento excluído com sucesso')
-      this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
-        .then(nav => {
-          setTimeout(function () { location.reload(); }, 3100);
-        });
+    
     });
     this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
-      .then(nav => {
-        setTimeout(function () { location.reload(); }, 3100);
-      });
   }
 
   excluirAtividade(index: any) {
@@ -211,22 +215,19 @@ export class PacienteComponent implements OnInit {
         .subscribe(
           result => {
             console.log("sucesso")
-
+            this.alertService.success('Tudo certo!', 'Atividade excluída com sucesso')
+            this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
+              .then(nav => {
+                setTimeout(function () { location.reload(); }, 3100);
+              });
           },
           err => {
             console.log("erro")
           }
         )
-      this.alertService.success('Tudo certo!', 'Atividade excluída com sucesso')
-      this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
-        .then(nav => {
-          setTimeout(function () { location.reload(); }, 3100);
-        });
+    
     });
     this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
-      .then(nav => {
-        setTimeout(function () { location.reload(); }, 3100);
-      });
   }
   excluirSintoma(index: any) {
     this.alertService.question('Tem certeza que deseja excluir esse sintoma?!', '', () => {
@@ -244,22 +245,19 @@ export class PacienteComponent implements OnInit {
         .subscribe(
           result => {
             console.log("sucesso")
-
+            this.alertService.success('Tudo certo!', 'Sintoma excluído com sucesso')
+            this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
+              .then(nav => {
+                setTimeout(function () { location.reload(); }, 3100);
+              });
           },
           err => {
             console.log("erro")
           }
         )
-      this.alertService.success('Tudo certo!', 'Sintoma excluído com sucesso')
-      this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
-        .then(nav => {
-          setTimeout(function () { location.reload(); }, 3100);
-        });
+    
     });
     this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.idPaciente}`])
-      .then(nav => {
-        setTimeout(function () { location.reload(); }, 3100);
-      });
   }
 
 

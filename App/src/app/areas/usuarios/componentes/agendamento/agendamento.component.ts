@@ -23,15 +23,17 @@ export class AgendamentoComponent implements OnInit {
 
   idAgendamento: any;
   idPaciente: any;
+  idCuidador: any;
   dados = new AgendamentoModel();
   dadosPaciente = new PacienteModel();
   date = new Date();
   ano = this.date.getFullYear();
-  print: boolean = false;
+ 
 
   ngOnInit(): void {
     this.idAgendamento = this.activatedRoute.snapshot.paramMap.get('idAgendamento');
     this.idPaciente = this.activatedRoute.snapshot.paramMap.get('idPaciente');
+    this.idCuidador = this.activatedRoute.snapshot.paramMap.get('idCuidador');
     this.obterAgendamentoPorId(this.idAgendamento)
     this.obterPaciente(this.idPaciente)
   }
@@ -39,11 +41,11 @@ export class AgendamentoComponent implements OnInit {
   @ViewChild('report') report: ReportComponent;
 
   Print(): void {
-    this.print = true;
+  
     this.report.Print();
   }
   Voltar(){
-
+    this.router.navigate([`/filtrar-agendamento/${this.idPaciente}/${this.idCuidador}`])
   }
 
   obterAgendamentoPorId(id) {

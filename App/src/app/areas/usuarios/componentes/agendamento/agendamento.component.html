@@ -1,7 +1,8 @@
-<ui-report #report reportTitle="Agendamento paciente">
-    <div class="report-body">
+
       <div class="container">
           <mat-card>
+            <ui-report #report reportTitle="Agendamento paciente">
+            <div class="report-body">
               <mat-card-title>
                  Dados do Agendamento
                 <mat-divider></mat-divider>
@@ -11,7 +12,7 @@
                 <div class="mb-3 col-md-6 mt-2">
                   <input-text
                   [label]="'Nome do(a) Paciente'"
-                  [disabled]="false"
+                  [disabled]="true"
                   [showValidations]="true"
                   [(ngModel)]="dadosPaciente.nome"
                   >
@@ -23,7 +24,7 @@
                 <div class="mb-3 col-md-6 mt-2">
                   <input-text
                   [label]="'Idade'"
-                  [disabled]="false"
+                  [disabled]="true"
                   [showValidations]="true"
                   [(ngModel)]="dadosPaciente.idade"
                   >
@@ -35,7 +36,7 @@
                 <div class="mb-3 col-md-6 mt-2">
                   <input-text
                   [label]="'Sexo'"
-                  [disabled]="false"
+                  [disabled]="true"
                   [showValidations]="true"
                   [(ngModel)]="dadosPaciente.sexo"
                   >
@@ -47,7 +48,7 @@
                   <div class="mb-3 col-md-6 mt-2">
                     <input-text
                     [label]="'Endereço'"
-                    [disabled]="false"
+                    [disabled]="true"
                     [showValidations]="true"
                     [(ngModel)]="dados.endereco"
                     >
@@ -58,7 +59,7 @@
                   <div class="mb-3 col-md-6 mt-2">
                     <input-text
                     [label]="'Especialidade'"
-                    [disabled]="false"
+                    [disabled]="true"
                     [showValidations]="true"
                     [(ngModel)]="dados.especialidade"
                     >
@@ -70,7 +71,7 @@
                 <div class="mb-3 col-md-6 mr-0 mt-2">
                   <input-text
                   [label]="'Feito Pelo Plano?'"
-                  [disabled]="false"
+                  [disabled]="true"
                   [showValidations]="true"
                   [(ngModel)]="dados.feitoPeloPlanoDescricao"
                   >
@@ -81,28 +82,29 @@
                   <div class="mb-3 col-md-6 mr-0 mt-2">
                       <input-text
                       [label]="'Data'"
-                      [disabled]="false"
+                      [disabled]="true"
                       [showValidations]="true"
                       [(ngModel)]="dados.dataAgendamento"
                       >
                     </input-text>
                   </div>
               </div>
-                  <div class="row" *ngIf="print == false">
-                      <div class="col-md-4">
-                         <button type="button" class="btn btn-danger" style="margin-right: 1px;" (click)="Print()"><mat-icon>backup</mat-icon> Baixar</button>
-                          <button type="button" class="btn btn-secondary" (click)="Voltar()"><mat-icon>clear_all</mat-icon> Voltar</button>
-                      </div>
-                  </div>
-            
+            </div>
+            </ui-report>
+            <div class="row">
+              <div class="col-md-4">
+                 <button type="button" class="btn btn-danger" style="margin-right: 1px;" (click)="Print()"><mat-icon>backup</mat-icon> Baixar</button>
+                  <button type="button" class="btn btn-secondary" (click)="Voltar()"><mat-icon>clear_all</mat-icon> Voltar</button>
+              </div>
+          </div>
+
           </mat-card>
        
-    </div>
-    <div class="page-footer">
+    <!-- <div class="page-footer">
       <hr class="mb-1" />
       <div class="text-center">
        AlzheimerApp - {{ano}}
       </div>
-    </div>
-  </div>
-  </ui-report>
+    </div> -->
+ 
+</div>
