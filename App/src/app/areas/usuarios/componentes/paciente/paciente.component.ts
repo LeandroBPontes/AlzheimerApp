@@ -138,7 +138,8 @@ export class PacienteComponent implements OnInit {
         dados: rowIndex,
         medicamento: true,
         tituloPrincipal: "Editar Medicamento do Paciente",
-        tituloSecundario: "Editar Medicamento"
+        tituloSecundario: "Editar Medicamento",
+        idCuidador: this.idCuidador
       },
     });
   }
@@ -150,7 +151,8 @@ export class PacienteComponent implements OnInit {
         dados: rowIndex,
         sintoma: true,
         tituloPrincipal: "Editar Sintoma do Paciente",
-        tituloSecundario: "Editar Sintoma"
+        tituloSecundario: "Editar Sintoma",
+        idCuidador: this.idCuidador
       },
     });
   }
@@ -162,7 +164,8 @@ export class PacienteComponent implements OnInit {
         dados: rowIndex,
         atividade: true,
         tituloPrincipal: "Editar Atividade do Paciente",
-        tituloSecundario: "Editar Atividade"
+        tituloSecundario: "Editar Atividade",
+        idCuidador: this.idCuidador
       },
     });
   }

@@ -20,13 +20,14 @@ export class EditarBaseComponent implements OnInit {
   @Input() tituloSecundario: string
   isLoading: boolean
   @Input()dados: any;
+  @Input()idCuidador: any;
   @Input()medicamento: any;
   @Input()sintoma: any;
   @Input()atividade: any;
 
 
   ngOnInit(): void {
-
+    console.log(this.dados)
   }
   Fechar(): void {
     this.modalRef.hide();
@@ -53,7 +54,7 @@ export class EditarBaseComponent implements OnInit {
         }
       )
       this.alertService.success('Tudo certo!', 'Medicamento atualizado com sucesso')
-      this.router.navigate([`/tela-paciente/${this.dados.idCuidador}/${this.dados.idPaciente}`])
+      this.router.navigate([`/tela-paciente/${this.idCuidador}/${this.dados.idPaciente}`])
         .then(nav => {
           setTimeout(function () { location.reload(); }, 4000);
         });
