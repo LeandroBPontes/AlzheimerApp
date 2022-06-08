@@ -1,10 +1,17 @@
 ﻿using AlzheimerApp.Dominios;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using System.IO;
 
 namespace AlzheimerApp.Banco {
-    public class DataContext : DbContext {
+    public class DataContext : IdentityDbContext 
+        {
 
         public DataContext(DbContextOptions<DataContext> options) : base(options) {
+
+        }
+        public DataContext() {
 
         }
 
@@ -16,5 +23,6 @@ namespace AlzheimerApp.Banco {
         public DbSet<Medicamento> Medicamentos { get; set; }
         public DbSet<Sintoma> Sintomas { get; set; }
 
+      
     }
 }

@@ -1,11 +1,11 @@
 ﻿using AlzheimerApp.Dominios;
-using AlzheimerApp.Dominios.Pacientes;
 using AlzheimerApp.Repositorios;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
 using System.Linq;
 
 namespace AlzheimerApp.Controllers {
+    [Authorize(AuthenticationSchemes = "Bearer")]
     [Route("api/paciente")]
     [ApiController]
     public class PacienteController : CrudBaseController<Paciente, int> {
