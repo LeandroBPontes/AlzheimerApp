@@ -1,9 +1,12 @@
 #AlzheimerApp
 
+#Observações Iniciais: tema de defesa do TCC - Ciência da Computação - UERJ - RJ
+
 PORTUGUESE
 
- @Sistema para cuidadores acompanharem o Alzheimer
- @Primeiramente, será criado esse protótipo, sem arquitetura definida, para trabalho de conclusão de curso e pesquisas na área.
+ #Sistema para cuidadores acompanharem seus pacientes que possuam a doença de Alzheimer
+ 
+ #Primeiramente, será criado esse protótipo, sem arquitetura definida, para trabalho de conclusão de curso e pesquisas na área.
  
  #Breve Resumo sobre a doença
  
